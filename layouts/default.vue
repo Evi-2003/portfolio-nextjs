@@ -26,6 +26,13 @@
 </template>
 
 <script setup>
+  import
+  { inject } 
+  from
+  
+  '@vercel/analytics'
+  ;
+  inject()
     useHead({
         title: 'Portfolio - Evi Wammes',
         meta: [{
