@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full dark:text-white ">
+  <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full dark:text-white">
     <div class="block w-full text-left space-y-5 w-1/2">
       <h1 class="text-5xl sm:text-6xl">Contact</h1>
       <ul class="bg-white dark:bg-indigo-100 text-black flex sm:space-x-5 p-5 rounded-xl sm:rounded-full w-fit flex flex-col sm:flex-row">

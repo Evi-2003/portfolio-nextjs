@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  
     postcss: {
         plugins: {
           tailwindcss: {},
@@ -13,6 +12,7 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxtjs/color-mode',
+        '@nuxt/image-edge',
         '@formkit/nuxt',
         ['nuxt-mail', {
           message: {
@@ -33,7 +33,18 @@ export default defineNuxtConfig({
     colorMode: {
       classSuffix: ''
     },
-
+    image: {
+      dir: 'assets/',
+      presets: {
+        avatar: {
+          modifiers: {
+            format: 'webp',
+            width: 50,
+            height: 50
+          }
+        }
+      }
+    }
 })
 
 

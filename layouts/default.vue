@@ -11,7 +11,7 @@
                         <router-link to="/" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Home</router-link>
 
                         <router-link to="/contact" class="text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl bg-red-400 mx-5 sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Contact</router-link>
-                        <button class="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-yellow-400 dark:bg-yellow-400 sm:w-auto w-auto mt-5 sm:mt-0" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"><img src="~/assets/bulb.svg" class="w-6"></button>
+                        <button class="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-yellow-400 dark:bg-yellow-400 sm:w-auto w-auto mt-5 sm:mt-0" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"><nuxt-img src="/bulb.svg" class="w-6"/></button>
                     </ul>
                     </nav>
                 </div>
@@ -32,7 +32,7 @@
   
   '@vercel/analytics'
   ;
-  inject()
+  inject
     useHead({
         title: 'Portfolio - Evi Wammes',
         meta: [{
