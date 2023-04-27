@@ -11,7 +11,7 @@
     </div>
     <div class="w-full justify-center hidden sm:flex">
       <div class="flex flex-col items-center dark:shadow-[0_20px_25px_-5px_rgba(255,255,255,0.3)] shadow-xl rounded-3xl 2xl:w-[60%] w-[60%] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)]">
-        <nuxt-img src="foto_evi.webp" alt="Foto van Evi Wammes"/>
+        <nuxt-img src="/foto_evi.webp" alt="Foto van Evi Wammes"/>
         <ul class="mt-5 bg-black text-white rounded p-3 w-full -mt-1">
           <li>🥳 19</li>
           <li><a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a></li>
