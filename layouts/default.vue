@@ -1,5 +1,10 @@
 <template>
+      <Head>
+      <Title>Portfolio - Evi Wammes</Title>
+      <Meta name="description" content="Portfolio van Evi Wammes"/>
+    </Head>
     <header class="sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100" >
+      
         <div class="container sm:w-auto inline-block m-auto p-7 shadow-2xl bg-indigo-100 sm:rounded-full grow">
                 <button @click="openMenu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 sm:rounded-lg rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav" aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
