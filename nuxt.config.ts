@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       classSuffix: ''
     },
     image: {
-      dir: 'assets/images',
+      dir: 'static',
       presets: {
         avatar: {
           modifiers: {
