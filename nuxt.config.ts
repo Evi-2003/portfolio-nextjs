@@ -46,12 +46,17 @@ export default defineNuxtConfig({
     image: {
       provider: 'netlify',
       dir: 'assets',
+      domains: [
+        'eviwammes.nl'
+      ],
       presets: {
-        avatar: {
+        pictures: {
           modifiers: {
             format: 'webp',
+            quality: 'auto:best',
+            effect: 'sharpen:100',
             width: 50,
-            height: 50
+            height: 50,
           }
         }
       }
