@@ -44,7 +44,7 @@ export default defineNuxtConfig({
       classSuffix: ''
     },
     image: {
-      provider: 'vercel',
+      provider: 'netlify',
       dir: 'assets',
       domains: [
         'eviwammes.nl'
