@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    pageTransition: {name: 'page', mode: 'out-in'}
+  },
     postcss: {
         plugins: {
           tailwindcss: {},
@@ -34,7 +37,7 @@ export default defineNuxtConfig({
       classSuffix: ''
     },
     image: {
-      dir: 'static/',
+      dir: 'assets/images',
       presets: {
         avatar: {
           modifiers: {

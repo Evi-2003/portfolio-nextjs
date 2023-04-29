@@ -1,54 +1,46 @@
 <template>
-  <div class="flex flex-col sm:flex-col flex w-full text-center dark:text-white h-full mt-[5em]">
+  <div class="flex flex-col sm:flex-col flex w-full justify-start text-center dark:text-white h-full">
     <h1 class="text-5xl sm:text-6xl pb-5">Projecten</h1>
-    <div class="grid grid-rows-4 grid-flow-col">
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Zonwering Apeldoorn</h2>
+    <div class="sm:grid sm:grid-rows-3 sm:grid-flow-col grid-rows-1 mt-4">
+      <div @click="openInNewTab('https://zonweringapeldoorn.nl')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100 sm:rounded-2xl h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/zonweringapeldoorn.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Guust Keuken en Meubelmakerij</h2>
+      <div @click="openInNewTab('https://guust-meubelmakerij.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/guust.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Bromfietsrijbewijs Almere</h2>
+      <div @click="openInNewTab('https://heartfeltequinebodywork.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/heartfelt.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Heartfelt Equine Bodywork</h2>
+      <div @click="openInNewTab('https://brainnovation.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="brainnovation.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Brainnovation</h2>
+      <div @click="openInNewTab('https://valleibloemen.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/valleibloemen.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Kleiberg Timmerwerken</h2>
+      <div class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/sb.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Valleibloemen</h2>
+      <div @click="openInNewTab('http://bkbn.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/bkbn.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Saucijzenbakker-systeem voor bezorgers</h2>
-      </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Best Kept Beauty Nederland</h2>
-      </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Lifecoaching Apeldoorn</h2>
-      </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Psychologiepraktijk Ananda</h2>
-      </div>
-      <div class="container inline-block m-auto p-7 shadow-xl bg-indigo-100 dark:bg-slate-600 sm:rounded-2xl h-60 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
-        <h2>Nirimco</h2>
+      <div @click="openInNewTab('https://lifecoachapeldoorn.nl/')" class="card container inline-block m-auto shadow-xl bg-indigo-100 dark:bg-slate-100  sm:rounded-2xl   h-30 sm:w-60  hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)] mb-5">
+        <nuxt-img src="/lifecoach.webp" alt="Logo van Zonwering Apeldoorn" class="w-full sm:rounded-t-2xl"/>
       </div>
     </div>
   </div>
-
 </template>
 
 <style>
 
+
 </style>
 
-<script setup>
-  
-
-
+<script>
+export default {
+  methods: {
+    openInNewTab(url) {
+      window.open(url, '_blank', 'noreferrer');
+    },
+  },
+};
 </script>

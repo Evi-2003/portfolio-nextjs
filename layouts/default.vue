@@ -9,7 +9,7 @@
                     <nav>
                     <ul class="flex sm:inline-flex space-x-5 sm:text-base text-5xl sm:w-auto sm:w-full sm:flex-row flex-col text-center items-center h-[70v] justify-center">
                         <router-link to="/" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Home</router-link>
-
+                        <router-link to="/projecten" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Projecten</router-link>
                         <router-link to="/contact" class="text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl bg-red-400 mx-5 sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Contact</router-link>
                         <button class="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-yellow-400 dark:bg-yellow-400 sm:w-auto w-auto mt-5 sm:mt-0" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"><nuxt-img src="https://henzapra.sirv.com/Images/bulb.svg" class="w-6" alt="Dark mode switch"/></button>
                     </ul>
@@ -18,7 +18,7 @@
         </div>
     </header>
 
-    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[100vh] flex items-center justify-center sm:-mt-[8.5em] z-0 bg-indigo-100 dark:bg-slate-800">
+    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[100vh] flex items-center justify-center sm:-mt-[8.5em] z-0 bg-indigo-100 dark:bg-gray-950">
       <div class="sm:w-3/5 w-4/5 sm:mt-[7em]">
         <slot />
       </div>
@@ -98,4 +98,14 @@
   p a{
     text-decoration: underline;
    }
+   .page-enter-active,
+  .page-leave-active {
+  transition: all 0.1s;
+}
+  .page-enter-from,
+  .page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
 </style>
