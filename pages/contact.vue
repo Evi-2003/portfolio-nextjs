@@ -9,7 +9,7 @@
     <FormKit v-if="isFormOpen" submit-label="Verstuur" type="form" @submit="submitHandler" #default="{ value }">
       <FormKit type="text" name="naam" id="naam" validation="required" placeholder="Naam"/>
       <FormKit type="email" name="email" id="email" validation="required" placeholder="E-mail"/>
-      <FormKit type="textarea" name="message" id="message" validation="required" placeholder="Uw bericht" />
+      <FormKit class="dark:text-white" type="textarea" name="message" id="message" validation="required" placeholder="Uw bericht" />
     </FormKit>
       <div v-if="!isFormOpen">
         <p class="text-[1.4em]">Verstuurd!<br>Ik neem zo spoedig mogelijk contact op 👋🏻</p>
@@ -41,6 +41,9 @@
     background: #e0e7ff;
     color: black;
     font-weight: 700;
+  }
+  .dark #message{
+    color: white;
   }
 </style>
 
