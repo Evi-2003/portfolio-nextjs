@@ -2,20 +2,21 @@
       <Head>
       <Title>Portfolio - Evi Wammes</Title>
       <Meta name="description" content="Portfolio van Evi Wammes"/>
+      <Meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </Head>
     <header class="sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100" >
       
-        <div class="container sm:w-auto inline-block m-auto p-7 shadow-2xl bg-indigo-100 sm:rounded-full grow">
+        <div class="container sm:w-auto inline-block m-auto p-7 shadow-2xl bg-indigo-100 dark:bg-sky-900 dark:text-white sm:rounded-full grow">
                 <button @click="openMenu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 sm:rounded-lg rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav" aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
                   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </button>
                 <div class="hidden sm:block sm:flex-grow sm:text-right text-xl sm:m-auto w-full h-[70vh] items-center sm:h-auto" id="nav">
                     <nav>
-                    <ul class="flex sm:inline-flex space-x-5 sm:text-base text-5xl sm:w-auto sm:w-full sm:flex-row flex-col text-center items-center h-[70v] justify-center">
+                    <ul class="flex sm:inline-flex space-x-5 sm:text-base text-5xl sm:w-auto sm:w-full sm:flex-row flex-col text-center items-center h-[70v] justify-center font-semibold">
                         <router-link to="/" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Home</router-link>
                         <router-link to="/projecten" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Projecten</router-link>
-                        <router-link to="/contact" class="text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl bg-red-400 mx-5 sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Contact</router-link>
+                        <router-link to="/contact" class="text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl bg-sky-500 mx-5 sm:w-auto dark:hover:text-white dark:hover:bg-slate-900 dark:bg-sky-700">Neem contact op</router-link>
                         <button class="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-yellow-400 dark:bg-yellow-400 sm:w-auto w-auto mt-5 sm:mt-0" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"><nuxt-img src="bulb.svg" class="w-6" alt="Dark mode switch"/></button>
                     </ul>
                     </nav>
@@ -28,9 +29,18 @@
         <slot />
       </div>
     </div>
+    <div id="trailer" class="hidden"></div>
+    <client-only>
+        {{ trailer() }}
+    </client-only>
+
 </template>
 
 <script setup>
+    import CursorFx from '@luxdamore/vue-cursor-fx';
+    import '@luxdamore/vue-cursor-fx/dist/CursorFx.css';
+
+
   import
   { inject } 
   from
@@ -60,7 +70,68 @@
     }
   }
     
+  function trailer(){
+    console.log('test')
+    const trailer = document.getElementById("trailer");
 
+const animateTrailer = (e) => {
+  const x = e.clientX - trailer.offsetWidth / 2,
+        y = e.clientY - trailer.offsetHeight / 2;
+  
+  const keyframes = {
+    transform: `translate(${x}px, ${y}px)`
+  }
+  
+  trailer.animate(keyframes, { 
+    duration: 1, 
+    fill: "forwards" 
+  });
+}
+
+window.onmousemove = e => {
+  animateTrailer(e);
+}
+document.querySelector('body').addEventListener('mouseover', function() {
+    trailer.style.opacity = '1';
+})
+document.querySelector('body').addEventListener('mouseleave', function() {
+    trailer.style.opacity = '0';
+})
+document.querySelector('body').style.cursor = 'none';
+
+const allesDatKlikbaarIsA = document.querySelectorAll('a');
+const allesDatKlikbaarIsKnoppen = document.querySelectorAll('button');
+const alleLogos = document.querySelectorAll('.logos');
+allesDatKlikbaarIsA.forEach(element => {
+  element.addEventListener('mouseover', function(){
+    trailer.style.animation = 'scaleAnimate 0.5s forwards';
+  })
+  
+  element.addEventListener('mouseleave', function(){
+    trailer.style.animation = 'scaleAnimateBack 0.5s forwards';
+    })
+});
+
+allesDatKlikbaarIsKnoppen.forEach(element => {
+  element.addEventListener('mouseover', function(){
+    trailer.style.animation = 'scaleAnimate 0.5s forwards';
+  })
+  
+  element.addEventListener('mouseleave', function(){
+    trailer.style.animation = 'scaleAnimateBack 0.5s forwards';
+    })
+});
+alleLogos.forEach(element => {
+  element.addEventListener('mouseover', function(){
+    trailer.style.animation = 'scaleAnimate 0.5s forwards';
+  })
+  
+  element.addEventListener('mouseleave', function(){
+    trailer.style.animation = 'scaleAnimateBack 0.5s forwards';
+    })
+});
+  }
+ 
   
 </script>
 
@@ -112,5 +183,59 @@
   opacity: 0;
   filter: blur(1rem);
 }
+
+
+#trailer {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #0ca5e9;
+  border-width: 3px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 99999999;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  
+  display: grid;
+}
+a,button{
+  cursor: none;
+}
+
+@keyframes scaleAnimate{
+    0%{
+  height: 35px;
+  width: 35px;
+    }
+    
+    100%{
+  height: 14px;
+  width: 14px;
+    }
+}
+@keyframes scaleAnimateBack{
+    0%{
+  height: 14px;
+  width: 14px;
+    }
+    
+    100%{
+  height: 35px;
+  width: 35px;
+    }
+}
+
+.dark #trailer {
+  border-color: #0569a0;
+}
+.light #trailer {
+  border-color: black;
+}
+
 
 </style>
