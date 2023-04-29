@@ -42,7 +42,7 @@
         title: 'Portfolio - Evi Wammes',
         meta: [{
             name: "viewport",
-            content: 'Portfolio van Evi Wammes'
+            content: 'initial-scale: 1.0'
         }]
     })
   var setColorTheme = function (newTheme) {
