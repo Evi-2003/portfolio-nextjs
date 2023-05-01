@@ -13,7 +13,7 @@
     </div>
     <div class="w-fit-content justify-center hidden sm:flex">
       <div class="ml-5 flex flex-col w-fit dark:shadow-[0_20px_25px_-5px_rgba(255,255,255,0.3)] shadow-xl rounded-3xl 2xl:w-[60%] w-[60%] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)]">
-        <nuxt-img preset="pictures" src="foto_evi.webp" alt="Foto van Evi Wammes" width="600px" height="500px"/>
+        <nuxt-img preset="pictures" src="foto_evi.webp" alt="Foto van Evi Wammes" width="600px" height="500px" defer/>
         <ul class="mt-5 bg-sky-500 dark:bg-sky-950 text-white rounded p-4 w-full -mt-1.5 text-base">
           <li><a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a></li>
           <li><a href="tel:+31640707077">📞 +31640707077</a></li>
