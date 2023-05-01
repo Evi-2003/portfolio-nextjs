@@ -2,11 +2,11 @@
   <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full dark:text-white">
     <div class="block w-full text-left space-y-5 w-1/2">
       <h1 class="text-5xl sm:text-6xl">Contact</h1>
-      <ul class="bg-white dark:bg-indigo-100 text-black flex sm:space-x-5 p-5 rounded-xl sm:rounded-full w-fit flex flex-col sm:flex-row">
+      <ul class="bg-white dark:bg-sky-900 text-black dark:text-white flex sm:space-x-5 p-5 rounded-xl sm:rounded-2xl w-fit flex flex-col sm:flex-row">
         <li><a class="w-full block text-left" href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a></li>
         <li><a class="w-full block text-left" href="tel:+31640707077">📞 +31640707077</a></li>
       </ul>
-    <FormKit v-if="isFormOpen" submit-label="Verstuur" type="form" @submit="submitHandler" #default="{ value }">
+    <FormKit v-if="isFormOpen" submit-label="Verstuur je bericht!" type="form" @submit="submitHandler" #default="{ value }">
       <FormKit type="text" name="naam" id="naam" validation="required" placeholder="Naam"/>
       <FormKit type="email" name="email" id="email" validation="required" placeholder="E-mail"/>
       <FormKit class="dark:text-white" type="textarea" name="message" id="message" validation="required" placeholder="Uw bericht" />
@@ -30,7 +30,7 @@
 <style>
   li{
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
   }
   .light #input_1{
     background: #1e293b;
@@ -38,8 +38,8 @@
     color: white;
   }
   .dark #input_1{
-    background: #e0e7ff;
-    color: black;
+    background: #0c4a6e;
+    color: white;
     font-weight: 700;
   }
   .dark #message{

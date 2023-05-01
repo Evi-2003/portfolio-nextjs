@@ -1,6 +1,8 @@
+
 <template>
+  <NuxtPage :key="$route.fullPath" />
   <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full">
-    <div class="flex flex-col justify-center w-full text-left space-y-2 ">
+    <div class="flex flex-col justify-center w-auto text-left space-y-2 ">
       <h1 class="text-5xl sm:text-6xl">Evi Wammes</h1>
       <h2 class="text-3xl">Student 📖, en Freelancer 💻</h2>
       <h3 class="text-2xl">Hey! 👋🏻</h3>
@@ -9,11 +11,10 @@
       Mijn hobby's zijn onder andere skateboarden 🛹, het luisteren van muziek 🎵, en het leren van nieuwe dingen. <br><br> Om verder te experimenteren met de genoemde programmeertalen is deze portfolio ook gebouwd met VueJS, en Nuxt3, binnenkort zullen er ook 3d elementen in komen met ThreeJS 😉
       </p>
     </div>
-    <div class="w-full justify-center hidden sm:flex">
-      <div class="flex flex-col items-center dark:shadow-[0_20px_25px_-5px_rgba(255,255,255,0.3)] shadow-xl rounded-3xl 2xl:w-[60%] w-[60%] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)]">
-        <nuxt-img preset="pictures" src="foto_evi.webp" alt="Foto van Evi Wammes" width="auto" height="auto"/>
-        <ul class="mt-5 bg-black text-white rounded p-3 w-full -mt-1">
-          <li>🥳 19</li>
+    <div class="w-fit-content justify-center hidden sm:flex">
+      <div class="ml-5 flex flex-col w-fit dark:shadow-[0_20px_25px_-5px_rgba(255,255,255,0.3)] shadow-xl rounded-3xl 2xl:w-[60%] w-[60%] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_-5px_rgba(255,255,255,0.3)]">
+        <nuxt-img preset="pictures" src="foto_evi.webp" alt="Foto van Evi Wammes" width="600px" height="500px"/>
+        <ul class="mt-5 bg-sky-500 dark:bg-sky-950 text-white rounded p-4 w-full -mt-1.5 text-base">
           <li><a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a></li>
           <li><a href="tel:+31640707077">📞 +31640707077</a></li>
           <li>📍Amsterdam</li>

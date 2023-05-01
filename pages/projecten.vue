@@ -28,6 +28,7 @@
       </div>
     </div>
   </div>
+  <ClientOnly>{{ alleLogosFunctie() }}</ClientOnly>
 </template>
 
 <style>
@@ -41,6 +42,10 @@ export default {
     openInNewTab(url) {
       window.open(url, '_blank', 'noreferrer');
     },
+    alleLogosFunctie(){
+      const alleLogos = document.querySelectorAll('.logos')
+    }
   },
 };
+
 </script>

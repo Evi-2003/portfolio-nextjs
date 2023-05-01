@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     assets: '/<rootDir>/assets',
   },
   app: {
-    pageTransition: {name: 'page', mode: 'out-in'},
     head: {
       charset: 'utf-8',
       htmlAttrs: {
@@ -54,7 +53,7 @@ export default defineNuxtConfig({
       presets: {
         pictures: {
           modifiers: {
-            format: 'webp',
+            format: 'svg',
             quality: 'auto:best',
             effect: 'sharpen:100',
             width: 50,
