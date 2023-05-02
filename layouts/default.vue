@@ -55,7 +55,7 @@
         </div>
     </header>
 
-    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[101.7vh] flex items-center justify-center sm:-mt-[8.5em] z-0 bg-indigo-100 dark:bg-gray-950">
+    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[101.7vh] flex items-center justify-center sm:-mt-[8.5em] z-0 bg-indigo-100 dark:bg-gray-950 background">
       <div class="sm:w-3/5 w-4/5 sm:mt-[7em]">
         <slot />
       </div>
@@ -265,6 +265,14 @@ a,button{
   border-color: #fff;
 }
 
+.light .background{
+  background-color: #e0e7ff;
+  opacity: 1;
+}
+.dark .background{
+  background-color: #030712;
+  opacity: 1;
+}
 
 
 </style>
