@@ -5,16 +5,18 @@
       <Meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </Head>
     <header class="w-full inline-flex sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100 dark:bg-gray-950" >
-        <div class="container sm:w-fit inline-block m-auto p-5 shadow-2xl bg-indigo-100 dark:bg-sky-700 dark:text-white sm:rounded-xl grow sm:grow-0">
-                <button @click="openMenu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 sm:rounded-lg rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav" aria-expanded="false">
+        <div class="container w-full sm:w-fit inline-block m-auto p-5 shadow-2xl bg-indigo-100 dark:bg-sky-700 dark:text-white sm:rounded-xl grow sm:grow-0">
+            <div class="flex w-full justify-center">
+               <RouterLink to='/' class="flex relative sm:hidden w-1/2 text-left text-3xl text-red-800 items-center leading-0 dark:text-white -mt-2" id="volledigeNaam">{{ subnaam }}</RouterLink>
+                <button @click="openMenu" type="button" class="flex w-fit items-center p-2 ml-3 text-sm text-gray-500 sm:rounded-lg rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav" aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
                   <svg class="w-6 h-6 " aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </button>
+              </div>
                 <div class="hidden sm:block sm:flex-grow sm:text-right text-xl sm:m-auto w-fit h-[70vh] items-center sm:h-auto" id="nav">
-                  
                     <nav>
                     <ul class="flex sm:inline-flex space-x-5 sm:text-lg text-5xl sm:w-auto sm:w-fit sm:flex-row flex-col text-center items-center h-[70v] justify-center font-semibold">
-                        <h2 class="text-3xl text-red-800 items-center leading-0 dark:text-white -mt-2">{{ subnaam }}</h2>
+                        <RouterLink to='/' class="hidden sm:flex text-3xl text-red-800 items-center leading-0 dark:text-white -mt-2" id="volledigeNaam">{{ subnaam }}</RouterLink>
                         <router-link @click="onlyClose" to="/" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Home</router-link>
                         <router-link @click="onlyClose" to="/projecten" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Projecten</router-link>
                         <router-link @click="onlyClose" to="/werkervaring" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Werkervaring</router-link>
@@ -203,6 +205,15 @@ allesDatNietKlikbaarIs.forEach(element => {
   .light ul a.router-link-active{
     background-color: #0f172a;
     color: white;
+  }
+  #volledigeNaam{
+    background-color: transparent;
+  }
+  .dark #volledigeNaam{
+      color: white;
+  }
+  .light #volledigeNaam{
+      color: black;
   }
   .dark body{
     background: black;
