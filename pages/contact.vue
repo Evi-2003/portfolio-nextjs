@@ -1,4 +1,5 @@
 <template>
+
   <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full dark:text-white">
     <div class="block w-full text-left space-y-5 w-1/2">
       <h1 class="text-5xl sm:text-6xl">Contact</h1>
@@ -21,7 +22,6 @@
       <iframe src="https://giphy.com/embed/Cmr1OMJ2FN0B2" class="rounded-2xl w-[20em] h-[20em] sm:w-[100%]" v-if="isFormOpen"></iframe>
     </div>
   </div>
-
 </template>
 
 
@@ -32,15 +32,7 @@
     font-weight: 400;
     font-family: 'Zen Kurenaido', sans-serif;
   }
-  .light #input_1{
-    background: #1e293b;
-    font-family: 'Zen Kurenaido', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-  }
-  .dark #input_1{
-    background: #0c4a6e;
+  .dark #naam,.dark #email,.dark #message{
     font-family: 'Zen Kurenaido', sans-serif;
     color: white;
     font-weight: 700;
