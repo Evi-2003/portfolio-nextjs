@@ -29,18 +29,22 @@
 
 <style>
   li{
-    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+    font-family: 'Zen Kurenaido', sans-serif;
   }
   .light #input_1{
     background: #1e293b;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 16px;
     font-weight: 700;
     color: white;
   }
   .dark #input_1{
     background: #0c4a6e;
+    font-family: 'Zen Kurenaido', sans-serif;
     color: white;
     font-weight: 700;
+    font-size: 16px;
   }
   .dark #message{
     color: white;

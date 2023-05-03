@@ -4,16 +4,17 @@
       <Meta name="description" content="Portfolio van Evi Wammes"/>
       <Meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </Head>
-    <header class="sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100" >
-      
-        <div class="container sm:w-auto inline-block m-auto p-5 shadow-2xl bg-indigo-100 dark:bg-sky-700 dark:text-white sm:rounded-xl grow">
+    <header class="w-full inline-flex sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100 dark:bg-gray-950" >
+        <div class="container sm:w-fit inline-block m-auto p-5 shadow-2xl bg-indigo-100 dark:bg-sky-700 dark:text-white sm:rounded-xl grow sm:grow-0">
                 <button @click="openMenu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 sm:rounded-lg rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav" aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
                   <svg class="w-6 h-6 " aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </button>
-                <div class="hidden sm:block sm:flex-grow sm:text-right text-xl sm:m-auto w-full h-[70vh] items-center sm:h-auto" id="nav">
+                <div class="hidden sm:block sm:flex-grow sm:text-right text-xl sm:m-auto w-fit h-[70vh] items-center sm:h-auto" id="nav">
+                  
                     <nav>
-                    <ul class="flex sm:inline-flex space-x-5 sm:text-base text-5xl sm:w-auto sm:w-full sm:flex-row flex-col text-center items-center h-[70v] justify-center font-semibold">
+                    <ul class="flex sm:inline-flex space-x-5 sm:text-lg text-5xl sm:w-auto sm:w-fit sm:flex-row flex-col text-center items-center h-[70v] justify-center font-semibold">
+                        <h2 class="text-3xl text-red-800 items-center leading-0 dark:text-white -mt-2">{{ subnaam }}</h2>
                         <router-link @click="onlyClose" to="/" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Home</router-link>
                         <router-link @click="onlyClose" to="/projecten" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Projecten</router-link>
                         <router-link @click="onlyClose" to="/werkervaring" class="hover:text-white p-2 rounded hover:bg-slate-900 hover:shadow-xl sm:w-auto dark:hover:text-white dark:hover:bg-slate-900">Werkervaring</router-link>
@@ -90,6 +91,7 @@
     useColorMode().preference = newTheme;
   };
   var isMenuOpen = false;
+  var subnaam = '<evi wammes>'
   function openMenu(){
     if(isMenuOpen == false){
       document.querySelector('#nav').style.display = 'flex'
@@ -131,7 +133,7 @@ window.onmousemove = e => {
 document.querySelector('body').addEventListener('mouseover', function() {
   var screenWidth = parseInt(screen.width)
   if(screenWidth > 640){
-    trailer.style.opacity = '1';
+    trailer.style.opacity = '0.6';
   }
 })
 document.querySelector('body').addEventListener('mouseleave', function() {
@@ -144,7 +146,7 @@ document.querySelector('body').style.cursor = 'none';
 
 const allesDatKlikbaarIsA = document.querySelectorAll('a');
 const allesDatKlikbaarIsKnoppen = document.querySelectorAll('button');
-
+const allesDatNietKlikbaarIs = document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,img')
 allesDatKlikbaarIsA.forEach(element => {
   element.addEventListener('mouseover', function(){
     trailer.style.animation = 'scaleAnimate 0.2s forwards';
@@ -165,6 +167,11 @@ allesDatKlikbaarIsKnoppen.forEach(element => {
     })
 });
 
+allesDatNietKlikbaarIs.forEach(element => {
+  element.addEventListener('click', function(){
+    trailer.style.animation = 'trailerNotClickable 0.4s';
+  })
+})
   }
  
   
@@ -178,9 +185,10 @@ allesDatKlikbaarIsKnoppen.forEach(element => {
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
 
   .naam{
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Zen Kurenaido', sans-serif;
   }
   header{
     z-index: 999;
@@ -200,8 +208,8 @@ allesDatKlikbaarIsKnoppen.forEach(element => {
     background: black;
   }
 
-  h1,h2,p,li{
-    font-family: 'Open Sans', sans-serif;
+  *{
+    font-family: 'Zen Kurenaido', sans-serif;
   }
   h2{
     font-weight: 500;
@@ -215,12 +223,13 @@ allesDatKlikbaarIsKnoppen.forEach(element => {
 
 
 
+
 #trailer {
   height: 35px;
   width: 35px;
   border-radius: 20px;
   border-style: solid;
-  border-color: #0ca5e9;
+  border-color: black;
   border-width: 6px;
   position: fixed;
   left: 0px;
@@ -256,6 +265,26 @@ a,button{
     }
     
     100%{
+  height: 35px;
+  width: 35px;
+    }
+}
+
+@keyframes trailerNotClickable{
+    0%{
+  border-color: red;
+  height: 35px;
+  width: 35px;
+    }
+    
+    50%{
+  height: 55px;
+  width: 55px;
+  border-radius: 30px;
+    }
+
+    100%{
+      border-color: black;
   height: 35px;
   width: 35px;
     }
