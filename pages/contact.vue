@@ -10,7 +10,7 @@
     <FormKit v-if="isFormOpen" submit-label="Verstuur je bericht!" type="form" @submit="submitHandler" #default="{ value }">
       <FormKit type="text" name="naam" id="naam" validation="required" placeholder="Naam"/>
       <FormKit type="email" name="email" id="email" validation="required" placeholder="E-mail"/>
-      <FormKit class="dark:text-white" type="textarea" name="message" id="message" validation="required" placeholder="Uw bericht" />
+      <FormKit class="dark:text-white" type="textarea" name="message" id="message" validation="required" placeholder="Bericht" />
     </FormKit>
       <div v-if="!isFormOpen">
         <p class="text-[1.4em]">Verstuurd!<br>Ik neem zo spoedig mogelijk contact op 👋🏻</p>
@@ -41,11 +41,31 @@
   .dark #message{
     color: white;
   }
+  #input_1{
+    background-color: white!important;
+    color: black;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    font-style: italic;
+  }
+  .dark #input_1{
+    background-color: #0c4a6e!important;
+    color: white;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    font-style: italic;
+  }
+  #input_1:hover{
+    transform: scale(0.9);
+  }
 </style>
 
 <script>
 
       export default {
+        layout: "contact",
         data: () => ({
           isFormOpen: true,
         }),
@@ -57,7 +77,9 @@
             text: 'Contactformulier ingevuld door: ' + values['naam'] + ', hun e-mail is: ' + values['email'] + ' en hun bericht is: ' + values['message']
             })
           this.isFormOpen =  false
-         }
+         },
+         
+         
        }
       }
 

@@ -4,7 +4,7 @@
       <Meta name="description" content="Portfolio van Evi Wammes"/>
       <Meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </Head>
-    <header class="w-full inline-flex sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100 dark:bg-gray-950" >
+    <header class="relative w-full inline-flex sm:text-center text-right mt-0 sm:mt-10 bg-indigo-100 dark:bg-gray-950 z-10" >
         <div class="container w-full sm:w-fit inline-block m-auto p-5 shadow-2xl bg-indigo-100 dark:bg-sky-700 dark:text-white sm:rounded-xl grow sm:grow-0">
             <div class="flex w-full justify-center">
                <RouterLink to='/' class="flex relative sm:hidden w-1/2 text-left text-3xl text-red-800 items-center leading-0 dark:text-white -mt-2" id="volledigeNaam">{{ subnaam }}</RouterLink>
@@ -58,8 +58,8 @@
         </div>
     </header>
 
-    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[101.7vh] flex items-center justify-center sm:-mt-[8.5em] z-0 bg-indigo-100 dark:bg-gray-950 background">
-      <div class="sm:w-3/5 w-4/5 sm:mt-[7em]">
+    <div class="w-full h-fit py-20 sm:py-0 sm:min-h-[101.7vh] flex items-center justify-center sm:-mt-[7.5em] 2xl:-mt-[8em] 2xl:min-h-[100vh] z-0 bg-indigo-100 dark:bg-gray-950 background">
+      <div class="sm:w-3/5 2xl:w-1/2 w-4/5 sm:mt-[7em] dark:bg-gray-950">
         <slot />
       </div>
     </div>
@@ -146,9 +146,9 @@ document.querySelector('body').addEventListener('mouseleave', function() {
 })
 document.querySelector('body').style.cursor = 'none';
 
-const allesDatKlikbaarIsA = document.querySelectorAll('a');
-const allesDatKlikbaarIsKnoppen = document.querySelectorAll('button');
-const allesDatNietKlikbaarIs = document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,img')
+var allesDatKlikbaarIsA = document.querySelectorAll('a');
+var allesDatKlikbaarIsKnoppen = document.querySelectorAll('button');
+var allesDatNietKlikbaarIs = document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,img')
 allesDatKlikbaarIsA.forEach(element => {
   element.addEventListener('mouseover', function(){
     trailer.style.animation = 'scaleAnimate 0.2s forwards';

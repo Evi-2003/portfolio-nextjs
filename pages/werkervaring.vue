@@ -1,4 +1,5 @@
 <template>
+  
   <div class="flex flex-col sm:flex-row w-full text-center dark:text-white h-full">
     <div class="w-full text-left space-y-2 ">
       <h1 class="text-5xl sm:text-6xl mb-10">Werkervaring</h1>
@@ -10,6 +11,14 @@
             <h3 class="text-xl">Webdesign & Webdevelopment</h3>
             <h4 class="text-lg">ZZP</h4>
             <span class="text-base opacity-60 font-bold">jan. 2023 - heden</span>
+          </div>
+        </li>
+        <li class="list-item">
+          <div class="list-content">
+            <div class="circle w-4 h-4 bg-black rounded-full absolute -ml-[1.85rem] dark:bg-white"></div>
+            <h3 class="text-xl">Vrijwilligerswerk: Genderpraatjes</h3>
+            <h4 class="text-lg hover:underline underline-offset-4"><a href="https://genderpraatjes.nl/" target="_blank">Genderpraatjes / COC</a></h4>
+            <span class="text-base opacity-60 font-bold">mrt. 2022 - heden</span>
           </div>
         </li>
         <li class="list-item">

@@ -1,9 +1,8 @@
 
 <template>
-  <NuxtPage :key="$route.fullPath" />
   <div class="flex flex-col sm:flex-row flex w-full text-center dark:text-white h-full">
     <div class="flex flex-col justify-center w-auto text-left space-y-2 ">
-      <h1 class="text-5xl sm:text-6xl">{{ naam }}</h1>
+      <h1 class="text-3xl sm:text-5xl">{{ naam }}</h1>
       <h2 class="text-3xl">Freelancer 💻, en student 📖</h2>
       <p class="text-lg">Ik volg de opleiding <b><a href="https://www.hva.nl/opleidingen/communication-and-multimedia-design">CMD</a></b> op het HVA.<br>
       Ook werk ik als freelancer om websites te bouwen voor klanten. Het gaat hier vaak om Wordpress websites. Ook ben ik veel bezig met het leren van VueJS, Nuxt3, en ThreeJS.<br><br>
@@ -21,7 +20,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <style>
@@ -31,5 +29,6 @@
 <script setup>
   
   var naam = 'Evi Wammes'
+  
 
 </script>
