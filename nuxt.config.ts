@@ -25,6 +25,9 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@nuxt/image-edge',
         '@formkit/nuxt',
+        ['@nuxt-modules/compression', {
+          algorithm: 'brotliCompress'
+        }],
         ['nuxt-mail', {
           message: {
             from: 'mail@eviwammes.nl',
