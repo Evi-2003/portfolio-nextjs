@@ -9,7 +9,7 @@
           <div class="list-content">
             <div class="circle w-4 h-4 bg-black rounded-full absolute -ml-[1.85rem] dark:bg-white"></div>
             <h3 class="text-xl">Webdesign & Webdevelopment</h3>
-            <h4 class="text-lg">ZZP</h4>
+            <h4 class="text-lg">Eigenaar - <a class="text-lg hover:underline" href="https://webchange.nl" aria-label="Evi Wammes doet Webdesign & Webdevelopment bij WebChange, haar bedrjf." target="_blank">WebChange</a></h4>
             <span class="text-base opacity-60 font-bold">jan. 2023 - heden</span>
           </div>
         </li>
