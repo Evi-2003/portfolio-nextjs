@@ -15,6 +15,7 @@
     "astro": "^3.1.0",
     "astro-particles": "^2.10.0",
     "astro-robots": "^1.0.2",
+    "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "canvas-confetti": "^1.6.0",
     "pretier": "^0.0.1",
