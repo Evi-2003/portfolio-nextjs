@@ -1,0 +1,10 @@
+<script>
+	import confetti from 'canvas-confetti';
+    document.addEventListener('astro:page-load', () => {
+        confetti({
+            particleCount: 800,
+            spread: 100
+        })
+    setupStuff();
+    }, { once: true });
+</script>

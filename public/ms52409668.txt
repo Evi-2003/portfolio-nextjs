@@ -1,5 +1,0 @@
-﻿{
-  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
-  "Domain": "eviwammes.nl",
-  "Id": "d2d0c2e0-35d7-48c4-b058-2e20dc923b9c"
-}

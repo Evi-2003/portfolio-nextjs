@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import portfolio_screenshot from '../../assets/portfolio_screenshot.webp'
+---
+<Layout title='Portfolio - Evi Wammes'>
+    <main class="grid grid-cols-3 auto-rows-min justify-start text-left dark:text-white h-full z-0 mt-5 pb-10 w-4/5 lg:w-3/5 2xl:w-4/12">
+        <h1 class="text-3xl sm:text-5xl pb-5 row-start-1 col-span-full">Portfolio</h1>
+        <span class="hidden lg:block w-fit row-start-2 col-start-1 colstext-base opacity-80 text-left bg-white dark:bg-cyan-700 dark:opacity-100 dark:text-white text-black p-1 rounded-full px-5 -mt-1 hover:scale-95"><a href="https://astro.build" target="_blank">Astro.build</a></span>
+        <span class="hidden lg:block w-fit row-start-2 col-start-2 text-base opacity-80 text-left bg-white dark:bg-cyan-700 dark:opacity-100 dark:text-white text-black p-1 rounded-full px-5 -mt-1 justify-self-center hover:scale-95"><a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a></span>
+        <span class="row-start-2 col-span-1 lg:col-start-3 text-base opacity-70 text-left sm:text-right">eviwammes.amsterdam</span>
+        <p class="text-lg sm:mt-5 row-start-4 col-span-full">
+            Als eerst; Welkom op mijn portfolio website! Ik vond het erg leuk om deze website te maken. Het was er ook echt tijd voor; Aangezien ik al wel websites bouw voor klanten, en ik nog geen eigen website had.<br aria-hidden="true">Het was tijd voor een eigen website, eigenlijk alle websites die ik heb gebouwd (voor klanten) zijn gebouwd in Wordpress met Elementor, en natuurlijk een een gedeelte CSS/JS. Maar ik wou graag iets nieuws leren, ik wou eigenlijk weg stappen van de standaard bouw-blokken als Wordpress en dergelijke tools, en het meer zelf te programmeren, omdat ik dat ook erg leuk vindt om te doen. <br aria-hidden="true"><br aria-hidden="true">Ik had al ervaring met HTML, CSS, JS (en een klein beetje Python, en PHP), maar ik kwam achter technologieën als VUE, en Nuxt3, ik was verbaasd was het allemaal zou kunnen. Ik volgde een online cursus en besloot aan de slag te gaan (veel leuker dan een cursus volgen). <br aria-hidden="true"><br aria-hidden="true">Eerst zat ik na te denken om Bootstrap te gebruiken om het CSS proces makkelijker te maken, maar ik zag online dat veel mensen meer gebruik maakte van TailwindCSS, omdat het een stuk sneller is, en minder 'bloat' heeft. Dit was dan ook een nieuwe techniek voor mij om te leren.</p>
+        <Image src={portfolio_screenshot} alt="Screenshot van mijn portfolio" class="w-full rounded-2xl row-start-5 my-5 col-span-full lg:col-span-2" />
+        <p class="text-lg row-start-6 col-span-full">Ik ben erg blij met het uiteindelijke resultaat, en wil meer websites gaan bouwen met 'echt' front-end programmeren, ik ben van plan om eigen Wordpress themes te gaan bouwen, en misschien te kijken naar alternatieven dan Wordpress, zodat ik klanten nog wel een CMS kan bieden bij hun website, maar wel een extra snelle website kan bieden zonder de 'bloat' van Wordpress. De conclusie is toch wel dat ik veel heb geleerd van dit project, en dat ik me hier verder in ga verdiepen.     
+        </p>
+    </main>
+</Layout>

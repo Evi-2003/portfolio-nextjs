@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import eviwammes from '../assets/foto_evi.webp'
+import { SEO } from "astro-seo";
+---
+
+<Layout title="Portfolio - Evi Wammes" description="Hoi! Welkom op mijn portfolio. Ik ben Evi, en ik vindt het leuk om te programmeren.">
+	<main class="grid grid-flow-col grid-cols-1 lg:grid-cols-5 items-center justify-center gap-5 w-4/5 lg:w-3/5 2xl:w-6/12">
+		<article class="col-start-1 lg:col-span-3 space-y-2">
+			<h1 class="text-4xl lg:text-5xl font-bold text-stone-800 dark:text-stone-100">Hey! Ik ben Evi.</h1>
+			<h2 class="text-xl lg:text-2xl font-medium text-sky-900 dark:text-stone-200">Student 📖 & Front-end Developer 💻</h2>
+			<p class="text-base text-stone-800 dark:text-stone-100 xl:text-lg">
+				Momenteel volg ik de opleiding CMD op het HVA, ik zit in mijn tweede jaar. Ik ben een echte tech-liefhebber, zo heb ik voor mijn huidige studie de opleiding netwerkbeheerder/systeembeheerder gedaan en verdiep ik me nu erg in front-end development.
+				<br aria-hidden="true"/><br aria-hidden="true"/>
+				 Ik ben altijd al bezig geweest met coderen, zo vind ik het geweldig om me hier in te verdiepen, nu leg ik vooral mijn focus om meer te leren over hoe je het web toegankelijker maakt.
+				<br aria-hidden="true"/><br aria-hidden="true"/>
+				 Momenteel heb ik (gedeeltelijke) kennis over Vue3, een klein beetje van Nuxt3, de CMS Strapi en Wordpress, Tailwindcss, en de laatste tijd ben ik ook veel bezig met het framework Astro. Ook ben ik bezig met het leren van React Native.
+			</p>
+		</article>
+		<aside class="aside-info col-span-full lg:col-span-2 lg:m-10 flex h-fit w-full lg:w-2/3 flex-col justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500  shadow-lg hover:shadow-2xl dark:from-cyan-800 dark:to-sky-950">
+			<Image src={eviwammes} quality="low"  format="webp" alt="Foto van Evi Wammes" class="mt-10" />
+			<ul class="h-fit w-full rounded-lg bg-sky-600 p-5 text-base font-semibold text-white dark:bg-sky-800">
+				<li class="hover:scale-95"><a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a></li>
+				<li class="hover:scale-95"><a href="tel:+31640707077">📞 06-40707077</a></li>
+				<li>📍 Amsterdam</li>
+			</ul>
+		</aside>
+	</main>
+</Layout>
