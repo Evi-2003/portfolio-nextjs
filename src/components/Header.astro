@@ -2,7 +2,7 @@
     const currentPath = Astro.url.pathname;
 ---
 <header class="flex w-full items-center justify-center my-10">
-    <nav class="relative py-4 px-3 w-fit items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 hover:drop-shadow-2xl hover:scale-[99%] shadow-2xl dark:bg-sky-700">
+    <nav class="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 hover:drop-shadow-2xl hover:scale-[99%] shadow-2xl dark:bg-sky-700">
       <ul class="flex items-center justify-center">
         <li><a href="/" class="lg:self-start lg:self-center font-bold text-3xl dark:text-white -mt-2 mr-3">&lt;evi-wammes/&gt;</a></li>
         <li class="self-end"><button knopMenu class="block w-8 lg:hidden top-5 right-5 ml-5" aria-label="Open navigatie-menu"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -15,11 +15,12 @@
         <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg></button></li>
     </ul>
-        <ul menu class="hidden w-it text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2">
-            <li class={currentPath === '/' ? 'rounded-xl active py-3 px-3' : 'w-full py-3 px-3'}><a href="/" class="hover:underline">Home</a></li>
+        <ul menu class="hidden text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2">
+            <li class={currentPath === '/' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}><a href="/" class="hover:underline">Home</a></li>
             <li class={currentPath === '/projecten' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}><a href="/projecten" class="hover:underline">Projecten</a></li>
             <li class={currentPath === '/werkervaring' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}><a href="/werkervaring" class="hover:underline">Werkervaring</a></li>
-            <li class="py-3 px-3"><a href="/contact" class="hover:underline bg-sky-700 py-2 px-5 rounded-xl text-white text-bold">Contact</a></li>
+            <li class={currentPath === '/over-mij' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}><a href="/over-mij" class="hover:underline">Over mij</a></li>
+            <li class="py-3 px-3"><a href="/contact" class="hover:underline bg-sky-500 py-2 px-5 rounded-xl text-white text-bold">Contact</a></li>
         </ul>
   
           <ul menu class="hidden lg:flex items-center justify-center space-x-5 lg:space-x-3">
