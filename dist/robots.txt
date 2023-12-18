@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /projecten
-Allow: /
-Sitemap: https://eviwammes.amsterdam/sitemap-index.xml
-Host: eviwammes.amsterdam
