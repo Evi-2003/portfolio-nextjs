@@ -1,7 +1,7 @@
 import Calendar from '../components/Calendar'
 
 async function getSeoData() {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

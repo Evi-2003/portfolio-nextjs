@@ -3,7 +3,10 @@ import { Image as ResponsiveImage } from 'react-datocms'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-async function getSeoData () {
+async function getSeoData() {
+  if (!process.env.DATO_CMS_URL) {
+    throw new Error('DatoCMS URL is not defined in environment variables.')
+  }
   const { data } = await fetch(process.env.DATO_CMS_URL, {
     method: 'POST',
     headers: {
@@ -38,10 +41,8 @@ export async function generateMetadata() {
   }
 }
 
-
 async function getBasicInfo() {
-
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -75,7 +76,6 @@ async function getBasicInfo() {
 
   return data
 }
-
 
 export default async function Home() {
   const getData = await getBasicInfo()

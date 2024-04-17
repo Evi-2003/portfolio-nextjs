@@ -4,9 +4,8 @@ import froukje from '../src/froukje-cover.png'
 import twofeet from '../src/twofeet.jpeg'
 import glassanimals from '../src/glassanimals.jpeg'
 
-
-async function getSeoData () {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+async function getSeoData() {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -40,7 +39,7 @@ export async function generateMetadata() {
 }
 
 async function getWerkErvaring() {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -75,7 +74,7 @@ export default async function Werkervaring() {
   return (
     <main className="text-center text-stone-800 dark:text-stone-100">
       <h1 className="text-5xl font-bold mb-5">Werkervaring</h1>
-      <ul className="werkvaring-list space-y-5 space-x-5 border-l-[3px] dark:border-white border-solid border-black text-left mx-10" id='werkervaring-list'>
+      <ul className="werkvaring-list space-y-5 space-x-5 border-l-[3px] dark:border-white border-solid border-black text-left mx-10" id="werkervaring-list">
         {data.map((element) => (
           <li key={element.id}>
             <figure className=" w-4 h-4 bg-black rounded-full absolute -ml-[1.85rem] dark:bg-white"></figure>
@@ -95,10 +94,13 @@ export default async function Werkervaring() {
                 month: '2-digit',
                 year: 'numeric',
               })}{' '}
-              - {element.einddatum ? new Date(element.einddatum).toLocaleDateString('en-US', {
-                month: '2-digit',
-                year: 'numeric',
-              }) : 'heden'}
+              -{' '}
+              {element.einddatum
+                ? new Date(element.einddatum).toLocaleDateString('en-US', {
+                    month: '2-digit',
+                    year: 'numeric',
+                  })
+                : 'heden'}
             </span>
           </li>
         ))}

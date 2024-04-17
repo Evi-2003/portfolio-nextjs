@@ -2,15 +2,8 @@ import { Image as ResponsiveImage } from 'react-datocms'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-import type { Metadata, ResolvingMetadata } from 'next'
-
-type Props = {
-  params: { id: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-
 async function getSeoData(slug) {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -84,7 +77,7 @@ async function getProject(slug) {
   return data
 }
 
-export default async function Projecten({ params }: { params: { slug: string } }) {
+export default async function Projecten({ params }) {
   console.log(params.slug)
   const getData = await getProject(params.slug)
   const data = getData.projecten

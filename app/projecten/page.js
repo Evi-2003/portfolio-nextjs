@@ -1,6 +1,9 @@
 import { Image as ResponsiveImage } from 'react-datocms'
 async function getSeoData() {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  if (!process.env.DATO_CMS_URL) {
+    throw new Error('DatoCMS URL is not defined in environment variables.')
+  }
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +38,7 @@ export async function generateMetadata() {
 }
 
 async function getWerkErvaring() {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -106,7 +109,6 @@ export default async function Projecten({ params }) {
           </div>
           <a
             className="row-start-4 col-span-2 lg:col-span-1 rounded-xl bg-cyan-50 px-4 py-1 text-base text-black hover:bg-sky-700 hover:text-white hover:scale-95 dark:bg-sky-800 dark:text-white"
-            href="/projecten/zonwering-apeldoorn"
             href={'/projecten/' + project.slug}
           >
             Lees meer
