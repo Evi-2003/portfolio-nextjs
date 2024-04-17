@@ -18,7 +18,7 @@
     "astro-seo": "^0.8.0",
     "canvas-confetti": "^1.9.0",
     "pretier": "^0.0.1",
-    "prettier-plugin-astro": "^0.12.1",
+    "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "sharp": "^0.32.6",
     "tailwindcss": "^3.3.5"
