@@ -91,14 +91,14 @@ export default async function Projecten({ params }) {
           } grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-sky-500 p-4 lg:p-8 text-white hover:shadow-xl dark:bg-slate-800 dark:hover:shadow-[10px_10px_10px_-5px_rgba(255,255,255,0.3)]`}
         >
           <div className="flex justify-between col-span-full">
-            <span className="row-start-1 w-fit self-center rounded-full bg-white px-2 py-1 text-left text-xs sm:text-sm text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
+            <span className="row-start-1 w-fit self-center rounded-full bg-white px-2 py-1 text-left text-xs text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
               {project.techniekGebruikt}
             </span>
             <span className="hidden lg:block col-start-2 row-start-1 w-fit self-center justify-self-center rounded-full bg-white p-1 px-2 text-left text-xs text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
               {project.werkzaamheden}
             </span>
             <span className="row-start-1 col-start-3 w-fit self-center justify-self-end text-right text-xs lg:text-sm opacity-70">
-              <a href={project.website} target="_blank">
+              <a href={`https://${project.website}`} target="_blank">
                 {project.website}
               </a>
             </span>

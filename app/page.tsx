@@ -93,7 +93,7 @@ export default async function Home() {
 
         <div className="text-base text-stone-800 dark:text-stone-100 xl:text-lg" dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </article>
-      <aside className="aside-info col-span-full self-center justify-self-center lg:col-span-2 lg:m-10 flex h-fit w-fit lg:w-2/3 flex-col justify-centerrounded-xl bg-gradient-to-r from-cyan-600 to-blue-800  shadow-lg hover:shadow-2xl dark:from-cyan-800 dark:to-sky-950 rounded-lg">
+      <aside className="aside-info col-span-full self-center justify-self-center lg:col-span-2 lg:m-10 flex h-fit w-fit flex-col justify-centerrounded-xl bg-gradient-to-r from-cyan-600 to-blue-800  shadow-lg hover:shadow-2xl dark:from-cyan-800 dark:to-sky-950 rounded-lg">
         <div className="relative w-[100%] height=[100%] pt-5">
           <ResponsiveImage data={data.foto.responsiveImage} />
         </div>
