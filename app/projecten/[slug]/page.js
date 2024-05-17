@@ -1,6 +1,29 @@
-import { Image as ResponsiveImage } from 'react-datocms'
 import { remark } from 'remark'
 import html from 'remark-html'
+
+export async function generateStaticParams() {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.DATO_CMS_API_KEY_READ_ONLY}`,
+    },
+    body: JSON.stringify({
+      query: `
+query MyQuery {
+  allProjectens {
+    id
+    slug
+  }
+}
+  `,
+    }),
+  }).then((res) => res.json())
+
+  return data.allProjectens.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 async function getSeoData(slug) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -21,7 +44,6 @@ query MyQuery {
 }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json())
 
   return data

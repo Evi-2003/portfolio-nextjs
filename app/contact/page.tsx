@@ -20,7 +20,6 @@ async function getSeoData() {
       }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json())
 
   return data
