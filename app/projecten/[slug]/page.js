@@ -51,7 +51,7 @@ query MyQuery {
 
 export async function generateMetadata({ params }) {
   const metaData = await getSeoData(params.slug)
-  console.log(params.slug)
+
   return {
     title: metaData.projecten.seoTitle.title,
     description: metaData.projecten.seoTitle.description,
@@ -59,7 +59,6 @@ export async function generateMetadata({ params }) {
 }
 
 async function getProject(slug) {
-  console.log('SLUG! ' + slug)
   const { data } = await fetch(process.env.DATO_CMS_URL, {
     method: 'POST',
     headers: {
@@ -100,7 +99,6 @@ async function getProject(slug) {
 }
 
 export default async function Projecten({ params }) {
-  console.log(params.slug)
   const getData = await getProject(params.slug)
   const data = getData.projecten
 

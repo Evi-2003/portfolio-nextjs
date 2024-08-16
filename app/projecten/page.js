@@ -30,7 +30,7 @@ async function getSeoData() {
 
 export async function generateMetadata() {
   const metaData = await getSeoData()
-  console.log(metaData)
+
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,
@@ -94,9 +94,7 @@ export default async function Projecten({ params }) {
             <span className="row-start-1 w-fit self-center rounded-full bg-white px-2 py-1 text-left text-xs text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
               {project.techniekGebruikt}
             </span>
-            <span className="hidden lg:block col-start-2 row-start-1 w-fit self-center justify-self-center rounded-full bg-white p-1 px-2 text-left text-xs text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
-              {project.werkzaamheden}
-            </span>
+
             <span className="row-start-1 col-start-3 w-fit self-center justify-self-end text-right text-xs lg:text-sm opacity-70">
               <a href={`https://${project.website}`} target="_blank">
                 {project.website}

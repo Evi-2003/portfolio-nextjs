@@ -31,7 +31,7 @@ async function getSeoData() {
 
 export async function generateMetadata() {
   const metaData = await getSeoData()
-  console.log(metaData)
+
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,
