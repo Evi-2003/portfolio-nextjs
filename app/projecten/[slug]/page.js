@@ -116,7 +116,7 @@ export default async function Projecten({ params }) {
         {data.werkzaamheden}
       </span>
       <span className="hidden lg:flex row-start-2 col-span-1 lg:col-start-3 text-base opacity-70 text-left sm:text-right">
-        <a href={data.website} target="_blank">
+        <a href={`https://${data.website}`} target="_blank">
           {data.website}
         </a>
       </span>
