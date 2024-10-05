@@ -27,10 +27,10 @@ export default function Header() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 hover:drop-shadow-2xl hover:scale-[99%] shadow-2xl dark:bg-sky-700">
+      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 shadow dark:bg-sky-700">
         <ul className="flex items-center justify-center">
           <li>
-            <Link href="/" className=" lg:self-center font-bold text-3xl dark:text-white -mt-2 mr-3">
+            <Link href="/" className=" lg:self-center font-bold text-3xl dark:text-white">
               &lt;evi-wammes/&gt;
             </Link>
           </li>
@@ -53,27 +53,27 @@ export default function Header() {
           </li>
         </ul>
         <ul className={menuOpen ? 'flex text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2' : 'hidden text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2'}>
-          <li className={currentPath === '/' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}>
+          <li className={currentPath === '/' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
             <Link href="/" className="hover:underline">
               Home
             </Link>
           </li>
-          <li className={currentPath === '/projecten' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}>
+          <li className={currentPath === '/projecten' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
             <Link href="/projecten" className="hover:underline">
               Projecten
             </Link>
           </li>
-          <li className={currentPath === '/werkervaring' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}>
+          <li className={currentPath === '/werkervaring' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
             <Link href="/werkervaring" className="hover:underline">
               Werkervaring
             </Link>
           </li>
-          <li className={currentPath === '/over-mij' ? 'rounded-xl active py-3 px-3' : 'py-3 px-3'}>
+          <li className={currentPath === '/over-mij' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
             <Link href="/over-mij" className="hover:underline">
               Over mij
             </Link>
           </li>
-          <li className="py-3 px-3">
+          <li className="py-2 px-3">
             <Link href="/contact" className="hover:underline bg-sky-500 py-2 px-5 rounded-xl text-white text-bold">
               Contact
             </Link>
