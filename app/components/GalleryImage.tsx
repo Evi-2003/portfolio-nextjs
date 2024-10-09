@@ -8,7 +8,7 @@ const GalleryImage = ({ responsiveImage, index }: { responsiveImage: responsiveI
   Fancybox.bind('[data-fancybox="gallery"]', {})
 
   return (
-    <a data-fancybox="gallery" data-src={responsiveImage.webpSrcSet}>
+    <a data-fancybox="gallery" data-src={responsiveImage.webpSrcSet} className="cursor-pointer">
       <Image
         data={responsiveImage}
         pictureClassName="object-cover"
