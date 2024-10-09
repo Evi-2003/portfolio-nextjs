@@ -85,14 +85,15 @@ export default async function Projecten({ params }) {
     <main className="grid-rows-auto mt-4 gap-3 space-y-5 lg:space-y-0 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto grid-cols-1 lg:grid-cols-2 w-4/5 lg:w-4/5 2xl:w-8/12">
       <h1 className="col-span-3 row-span-1 text-5xl font-bold text-stone-800 dark:text-stone-100 mb-3">Projecten</h1>
       {data.map((project, index) => (
-        <article
+        <Link
+          href={'/projecten/' + project.slug}
           key={project.id}
           className={`self-start col-start-${index % 2 === 0 ? 1 : 2} row-start-${
             Math.floor(index / 2) + 3
-          } grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-sky-500 p-4 lg:p-8 text-white hover:shadow dark:bg-gray-800`}
+          } grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-neutral-100 p-4 lg:p test-stone-900 dark:text-stone-100 hover:shadow dark:bg-gray-800`}
         >
           <div className="flex justify-between col-span-full">
-            <span className="row-start-1 w-fit self-center rounded-full bg-white px-3 py-1 text-left text-xs text-black opacity-80 dark:bg-gray-950 dark:text-white dark:opacity-100">
+            <span className="row-start-1 w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-xs text-black opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100">
               {project.techniekGebruikt}
             </span>
 
@@ -102,17 +103,11 @@ export default async function Projecten({ params }) {
               </a>
             </span>
           </div>
-          <h2 className="col-span-full row-start-2 h-10 w-fit text-left text-2xl sm:text-3xl">{project.title}</h2>
+          <h2 className="col-span-full row-start-2 w-fit text-left text-lg">{project.title}</h2>
           <div className="col-span-3 row-start-3 w-full rounded-2xl">
             <ResponsiveImage data={project.image.responsiveImage} />
           </div>
-          <Link
-            className="row-start-4 col-span-2 lg:col-span-1 rounded-xl bg-cyan-50 px-4 py-1 text-base text-black hover:bg-sky-700 hover:text-white hover:scale-95 dark:bg-gray-950 dark:text-white"
-            href={'/projecten/' + project.slug}
-          >
-            Lees meer
-          </Link>
-        </article>
+        </Link>
       ))}
     </main>
   )

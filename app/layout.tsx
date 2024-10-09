@@ -14,7 +14,7 @@ export default function RootLayout({
     <PlausibleProvider domain="eviwammes.dev">
       <NavProvider>
         <html lang="nl-NL">
-          <body className={'flex flex-col items-center justify-center bg-indigo-100 dark:bg-neutral-900 pb-5 '}>
+          <body className={'flex flex-col items-center from-white to-gray-100 bg-gradient-to-b min-h-screen dark:from-neutral-900 dark:to-neutral-950 pb-5 '}>
             <Header />
             {children}
           </body>

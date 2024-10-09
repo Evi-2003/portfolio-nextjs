@@ -26,7 +26,7 @@ export default function Header() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 shadow dark:bg-gray-800">
+      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-neutral-100 rounded-2xl text-stone-950 shadow dark:bg-gray-800">
         <ul className="flex items-center justify-center">
           <li onClick={() => toggleIsOpen()}>
             <Link href="/" className=" lg:self-center font-bold text-3xl dark:text-white">
@@ -77,8 +77,8 @@ export default function Header() {
               Gallerij
             </Link>
           </li>
-          <li className="py-2 pl-3" onClick={() => toggleIsOpen()}>
-            <Link href="/contact" className="hover:underline bg-sky-500 dark:bg-gray-950 py-2 px-5 rounded-xl text-white text-bold">
+          <li className="my-2" onClick={() => toggleIsOpen()}>
+            <Link href="/contact" className="hover:underline bg-gray-950 py-2 px-5 rounded-xl text-white text-bold w-full">
               Contact
             </Link>
           </li>

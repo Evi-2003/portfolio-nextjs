@@ -93,11 +93,12 @@ export default async function Home() {
 
         <div className="text-base text-stone-800 dark:text-stone-100 xl:text-lg" dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </article>
-      <aside className="aside-info col-span-full self-center justify-self-center lg:col-span-2 lg:m-10 flex h-fit w-fit flex-col justify-center rounded-xl bg-gradient-to-r from-cyan-600 to-blue-800 hover:shadow-2xl dark:from-cyan-800 dark:to-sky-950 rounded-lg">
+      <aside className="aside-info col-span-full self-center justify-self-center lg:col-span-2 lg:m-10 flex h-fit w-fit flex-col justify-center rounded-lg border dark:border-white/10 divide-y dark:divide-white/10 gap-3">
         <div className="relative w-[100%] height=[100%] pt-5">
           <ResponsiveImage data={data.foto.responsiveImage} />
         </div>
-        <ul className="h-fit w-full rounded-lg bg-sky-600 p-5 text-lg md:text-base font-semibold text-white dark:bg-gray-800">
+
+        <ul className="h-fit w-full bg-transparant px-3 text-lg md:text-base font-semibold dark:text-stone-100 py-2 gap-1 flex flex-col">
           <li className="hover:scale-95">
             <a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a>
           </li>
