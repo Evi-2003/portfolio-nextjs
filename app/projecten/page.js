@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Image as ResponsiveImage } from 'react-datocms'
 async function getSeoData() {
   if (!process.env.DATO_CMS_URL) {
@@ -88,10 +89,10 @@ export default async function Projecten({ params }) {
           key={project.id}
           className={`self-start col-start-${index % 2 === 0 ? 1 : 2} row-start-${
             Math.floor(index / 2) + 3
-          } grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-sky-500 p-4 lg:p-8 text-white hover:shadow-xl dark:bg-slate-800 dark:hover:shadow-[10px_10px_10px_-5px_rgba(255,255,255,0.3)]`}
+          } grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-sky-500 p-4 lg:p-8 text-white hover:shadow dark:bg-gray-800`}
         >
           <div className="flex justify-between col-span-full">
-            <span className="row-start-1 w-fit self-center rounded-full bg-white px-2 py-1 text-left text-xs text-black opacity-80 dark:bg-cyan-700 dark:text-white dark:opacity-100">
+            <span className="row-start-1 w-fit self-center rounded-full bg-white px-3 py-1 text-left text-xs text-black opacity-80 dark:bg-gray-950 dark:text-white dark:opacity-100">
               {project.techniekGebruikt}
             </span>
 
@@ -105,12 +106,12 @@ export default async function Projecten({ params }) {
           <div className="col-span-3 row-start-3 w-full rounded-2xl">
             <ResponsiveImage data={project.image.responsiveImage} />
           </div>
-          <a
-            className="row-start-4 col-span-2 lg:col-span-1 rounded-xl bg-cyan-50 px-4 py-1 text-base text-black hover:bg-sky-700 hover:text-white hover:scale-95 dark:bg-sky-800 dark:text-white"
+          <Link
+            className="row-start-4 col-span-2 lg:col-span-1 rounded-xl bg-cyan-50 px-4 py-1 text-base text-black hover:bg-sky-700 hover:text-white hover:scale-95 dark:bg-gray-950 dark:text-white"
             href={'/projecten/' + project.slug}
           >
             Lees meer
-          </a>
+          </Link>
         </article>
       ))}
     </main>

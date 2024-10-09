@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Zen_Kurenaido } from 'next/font/google'
 import { usePathname } from 'next/navigation'
 import DarkModeSwitch from './DarkModeSwitch'
@@ -17,6 +17,8 @@ export default function Header() {
     setMenuOpen((prevMenuOpen) => !prevMenuOpen)
   }
 
+  useEffect(handleMenuToggle, [currentPath])
+
   return (
     <header className={'flex w-full items-center justify-center my-10 ' + zen_kurenaido.className}>
       <Head>
@@ -27,7 +29,7 @@ export default function Header() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 shadow dark:bg-sky-700">
+      <nav className="relative py-4 px-3 items-center justify-center flex flex-col lg:flex-row gap-5 bg-sky-100 rounded-2xl text-stone-950 shadow dark:bg-gray-800">
         <ul className="flex items-center justify-center">
           <li>
             <Link href="/" className=" lg:self-center font-bold text-3xl dark:text-white">
@@ -36,7 +38,7 @@ export default function Header() {
           </li>
           <li className="self-end">
             <button onClick={handleMenuToggle} className="block w-8 lg:hidden top-5 right-5 ml-5" aria-label="Open navigatie-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" className="dark:stroke-white stroke-gray-950" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -45,7 +47,7 @@ export default function Header() {
           </li>
           <li className="self-end">
             <button onClick={handleMenuToggle} className="hidden block w-8 lg:hidden top-5 right-5 ml-5" aria-label="Sluit navigatie-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="dark:stroke-white stroke-gray-950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
@@ -53,33 +55,33 @@ export default function Header() {
           </li>
         </ul>
         <ul className={menuOpen ? 'flex text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2' : 'hidden text-center lg:flex flex-col lg:flex-row text-xl dark:text-white gap-2'}>
-          <li className={currentPath === '/' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+          <li className={currentPath === '/' ? 'rounded-xl active py-2 px-2' : 'py-2 px-2'}>
             <Link href="/" className="hover:underline">
               Home
             </Link>
           </li>
-          <li className={currentPath === '/projecten' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+          <li className={currentPath === '/projecten' ? 'rounded-xl active py-2 px-2' : 'py-2 px-2'}>
             <Link href="/projecten" className="hover:underline">
               Projecten
             </Link>
           </li>
-          <li className={currentPath === '/werkervaring' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+          <li className={currentPath === '/werkervaring' ? 'rounded-xl active py-2 px-2' : 'py-2 px-2'}>
             <Link href="/werkervaring" className="hover:underline">
               Werkervaring
             </Link>
           </li>
-          <li className={currentPath === '/over-mij' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+          <li className={currentPath === '/over-mij' ? 'rounded-xl active py-2 px-2' : 'py-2 px-2'}>
             <Link href="/over-mij" className="hover:underline">
               Over mij
             </Link>
           </li>
-          <li className={currentPath === '/gallery' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+          <li className={currentPath === '/gallery' ? 'rounded-xl active py-2 px-2' : 'py-2 px-2'}>
             <Link href="/gallery" className="hover:underline">
               Gallerij
             </Link>
           </li>
-          <li className="py-2 px-3">
-            <Link href="/contact" className="hover:underline bg-sky-500 py-2 px-5 rounded-xl text-white text-bold">
+          <li className="py-2 pl-3">
+            <Link href="/contact" className="hover:underline bg-sky-500 dark:bg-gray-950 py-2 px-5 rounded-xl text-white text-bold">
               Contact
             </Link>
           </li>

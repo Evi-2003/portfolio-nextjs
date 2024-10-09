@@ -59,7 +59,7 @@ export default function DarkModeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-gray-950 bg-yellow-400 dark:hover:bg-yellow-400 dark:bg-black sm:w-auto w-auto mt-5 sm:mt-0"
+      className="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-gray-950 bg-yellow-500 dark:hover:bg-yellow-400 dark:bg-black sm:w-auto w-auto mt-5 sm:mt-0"
       aria-label="Verander van kleur thema"
     >
       <svg fill="#000000" className="w-6 h-6 fill-white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.242 489.242">

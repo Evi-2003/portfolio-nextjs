@@ -51,6 +51,40 @@ interface responsiveImage {
   }
 }
 
+async function getSeoData() {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.DATO_CMS_API_KEY_READ_ONLY}`,
+    },
+    body: JSON.stringify({
+      query: `
+      query getSeoData {
+        pagina(filter: {slug: {eq: "gallery"}}) {
+          id
+          seoGegevens {
+            description
+            title
+          }
+        }
+      }
+  `,
+    }),
+  }).then((res) => res.json())
+
+  return data
+}
+
+export async function generateMetadata() {
+  const metaData = await getSeoData()
+
+  return {
+    title: metaData.pagina.seoGegevens.title,
+    description: metaData.pagina.seoGegevens.description,
+  }
+}
+
 const Page = async () => {
   const { afbeelding } = await getGalleryImages()
 
