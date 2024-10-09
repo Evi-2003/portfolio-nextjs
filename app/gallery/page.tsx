@@ -46,7 +46,7 @@ interface responsiveImage {
     height: number
     bgColor: string
     base64: string
-    aspectRatio: string
+    aspectRatio: number
     alt: string
   }
 }
