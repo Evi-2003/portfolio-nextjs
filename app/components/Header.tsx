@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Zen_Kurenaido } from 'next/font/google'
 import { usePathname } from 'next/navigation'
 import DarkModeSwitch from './DarkModeSwitch'
@@ -71,6 +71,11 @@ export default function Header() {
           <li className={currentPath === '/over-mij' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
             <Link href="/over-mij" className="hover:underline">
               Over mij
+            </Link>
+          </li>
+          <li className={currentPath === '/gallery' ? 'rounded-xl active py-2 px-3' : 'py-2 px-3'}>
+            <Link href="/gallery" className="hover:underline">
+              Gallerij
             </Link>
           </li>
           <li className="py-2 px-3">
