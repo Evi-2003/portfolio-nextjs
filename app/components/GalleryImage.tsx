@@ -8,12 +8,12 @@ const GalleryImage = ({ responsiveImage, index }: { responsiveImage: responsiveI
   Fancybox.bind('[data-fancybox="gallery"]', {})
 
   return (
-    <a data-fancybox="gallery" data-src={responsiveImage.webpSrcSet} className="cursor-pointer">
-      <Image
-        data={responsiveImage}
-        pictureClassName="object-cover"
-        className={`rounded-xl overflow-hidden ${index % 2 === 0 ? 'row-span-3' : 'row-span-1'} ${index % 2 !== 0 ? 'col-span-1' : 'col-span-1'}`}
-      />
+    <a
+      data-fancybox="gallery"
+      data-src={responsiveImage.webpSrcSet}
+      className={`cursor-pointer rounded-xl overflow-hidden ${index % 2 === 0 ? 'row-span-3' : 'row-span-1'} ${index % 2 !== 0 ? 'col-span-1' : 'col-span-1'}`}
+    >
+      <Image data={responsiveImage} pictureClassName="object-cover" className="w-full h-full" />
     </a>
   )
 }
