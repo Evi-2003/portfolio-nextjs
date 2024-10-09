@@ -1,4 +1,7 @@
 import { Image } from 'react-datocms'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import GalleryImage from '../components/GalleryImage'
 
 async function getGalleryImages() {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -35,7 +38,7 @@ async function getGalleryImages() {
   return data
 }
 
-interface responsiveImage {
+export interface responsiveImage {
   responsiveImage: {
     width: number
     webpSrcSet: string
@@ -87,16 +90,12 @@ export async function generateMetadata() {
 
 const Page = async () => {
   const { afbeelding } = await getGalleryImages()
+  Fancybox.bind('[data-fancybox="gallery"]', {})
 
   return (
     <main className="w-5/6 overflow-hidden min-h-screen grid lg:grid-cols-2 grid-cols-1 xl:grid-cols-3 gap-2">
       {afbeelding.afbeeldingen.map((afbeelding: responsiveImage, index: number) => (
-        <Image
-          data={afbeelding.responsiveImage}
-          pictureClassName="object-cover"
-          key={afbeelding.responsiveImage.src}
-          className={`rounded-xl overflow-hidden ${index % 2 === 0 ? 'row-span-3' : 'row-span-1'} ${index % 2 !== 0 ? 'col-span-1' : 'col-span-1'}`}
-        />
+        <GalleryImage responsiveImage={afbeelding.responsiveImage} key={`gallery-image-${index}`} index={index} />
       ))}
     </main>
   )
