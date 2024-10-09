@@ -56,7 +56,7 @@ const Page = async () => {
 
   return (
     <main className="w-5/6 overflow-hidden min-h-screen grid lg:grid-cols-2 grid-cols-1 xl:grid-cols-3 gap-2">
-      {afbeelding.afbeeldingen.map((afbeelding: responsiveImage, index) => (
+      {afbeelding.afbeeldingen.map((afbeelding: responsiveImage, index: number) => (
         <Image
           data={afbeelding.responsiveImage}
           pictureClassName="object-cover"
