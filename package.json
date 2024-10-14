@@ -16,7 +16,7 @@
     "next-plausible": "^3.12.2",
     "react": "^18",
     "react-datocms": "^6.0.1",
-    "react-dom": "^18",
+    "react-dom": "^18.3.1",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0"
