@@ -10,12 +10,12 @@ export async function generateStaticParams() {
     },
     body: JSON.stringify({
       query: `
-query MyQuery {
-  allProjectens {
-    id
-    slug
-  }
-}
+      query MyQuery {
+      allProjectens {
+        id
+        slug
+      }
+    }
   `,
     }),
   }).then((res) => res.json())
@@ -34,14 +34,14 @@ async function getSeoData(slug) {
     },
     body: JSON.stringify({
       query: `
-query MyQuery {
-  projecten(filter: {slug: {eq: "${slug}"}}) {
-    seoTitle {
-      description
-      title
-    }
-  }
-}
+      query MyQuery {
+        projecten(filter: {slug: {eq: "${slug}"}}, locale: nl) {
+          seoTitle {
+            description
+            title
+          }
+        }
+      }
   `,
     }),
   }).then((res) => res.json())
@@ -50,7 +50,9 @@ query MyQuery {
 }
 
 export async function generateMetadata({ params }) {
-  const metaData = await getSeoData(params.slug)
+  const slug = params.slug.split('/')
+
+  const metaData = await getSeoData(slug[0])
 
   return {
     title: metaData.projecten.seoTitle.title,
@@ -58,7 +60,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-async function getProject(slug) {
+async function getProject(slug, lng) {
   const { data } = await fetch(process.env.DATO_CMS_URL, {
     method: 'POST',
     headers: {
@@ -68,7 +70,7 @@ async function getProject(slug) {
     body: JSON.stringify({
       query: `
       query getProject {
-        projecten(filter: {slug: {eq: "${slug}"}}) {
+        projecten(filter: {slug: {eq: "${slug}"}}, locale: ${lng}) {
           id
           slug
           techniekGebruikt
@@ -98,8 +100,10 @@ async function getProject(slug) {
   return data
 }
 
-export default async function Projecten({ params }) {
-  const getData = await getProject(params.slug)
+export default async function Projecten({ params: { slug, lang } }) {
+  const slugSplitted = slug.split('/')
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const getData = await getProject(slugSplitted[0], lng)
   const data = getData.projecten
 
   const processedContent = await remark().use(html).process(data.content)
@@ -108,13 +112,15 @@ export default async function Projecten({ params }) {
 
   return (
     <main className="grid grid-cols-3 auto-rows-min justify-start text-left dark:text-white h-full z-0 mt-5 pb-10 w-4/5 lg:w-3/5 2xl:w-4/12">
-      <h1 className="text-3xl sm:text-5xl pb-5 row-start-1 col-span-full">{data.title}</h1>
+      <h1 className="text-2xl sm:text-4xl pb-5 row-start-1 col-span-full">{data.title}</h1>
       <span className="hidden lg:block w-fit row-start-2 col-start-1 colstext-base opacity-80 text-left bg-white dark:bg-cyan-700 dark:opacity-100 dark:text-white text-black p-1 rounded-full px-5 -mt-1">
         {data.techniekGebruikt}
       </span>
-      <span className="hidden lg:flex w-fit row-start-2 col-start-2 text-sm opacity-80 text-left bg-white dark:bg-cyan-700 dark:opacity-100 dark:text-white text-black p-1 rounded-full px-5 -mt-1 justify-self-center items-center">
-        {data.werkzaamheden}
-      </span>
+      {data.werkzaamheden && (
+        <span className="hidden lg:flex w-fit row-start-2 col-start-2 text-sm opacity-80 text-left bg-white dark:bg-cyan-700 dark:opacity-100 dark:text-white text-black p-1 rounded-full px-5 -mt-1 justify-self-center items-center">
+          {data.werkzaamheden}
+        </span>
+      )}
       <span className="hidden lg:flex row-start-2 col-span-1 lg:col-start-3 text-base opacity-70 text-left sm:text-right">
         <a href={`https://${data.website}`} target="_blank">
           {data.website}

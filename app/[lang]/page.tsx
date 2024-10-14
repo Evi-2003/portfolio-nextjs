@@ -3,7 +3,7 @@ import { Image as ResponsiveImage } from 'react-datocms'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-async function getSeoData() {
+async function getSeoData(lng: string) {
   if (!process.env.DATO_CMS_URL) {
     throw new Error('DatoCMS URL is not defined in environment variables.')
   }
@@ -16,7 +16,7 @@ async function getSeoData() {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "/"}}) {
+        pagina(filter: {slug: {eq: "/"}}, locale: ${lng}) {
           id
           seoGegevens {
             description
@@ -32,8 +32,9 @@ async function getSeoData() {
   return data
 }
 
-export async function generateMetadata() {
-  const metaData = await getSeoData()
+export async function generateMetadata({ params: { lang } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const metaData = await getSeoData(lng)
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -41,7 +42,7 @@ export async function generateMetadata() {
   }
 }
 
-async function getBasicInfo() {
+async function getBasicInfo(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -51,7 +52,7 @@ async function getBasicInfo() {
     body: JSON.stringify({
       query: `
         query getDataAboutMe {
-          overMij {
+          overMij(locale: ${lng}) {
             foto {
               responsiveImage(imgixParams: { fit: max, w: 300, h: 250, auto: format }) {
                 sizes
@@ -63,6 +64,7 @@ async function getBasicInfo() {
                 base64
               }
             }
+            heading
             voornaam
             achternaam
             functie
@@ -77,8 +79,9 @@ async function getBasicInfo() {
   return data
 }
 
-export default async function Home() {
-  const getData = await getBasicInfo()
+export default async function Home({ params: { lang } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const getData = await getBasicInfo(lng)
   const data = getData.overMij
 
   const processedContent = await remark().use(html).process(data.omschrijving)
@@ -88,7 +91,7 @@ export default async function Home() {
   return (
     <main className="grid grid-flow-col grid-cols-1 lg:grid-cols-5 items-center justify-center gap-5 w-4/5 lg:w-3/5 2xl:w-6/12">
       <article className="col-start-1 lg:col-span-3 space-y-2">
-        <h1 className="text-4xl lg:text-5xl font-bold text-stone-800 dark:text-stone-100">Hey! Ik ben {data.voornaam}.</h1>
+        <h1 className="text-4xl lg:text-4xl font-bold text-stone-800 dark:text-stone-100">{data.heading}</h1>
         <h2 className="text-lg lg:text-2xl font-medium text-sky-900 dark:text-stone-200">{data.functie}</h2>
 
         <div className="text-base text-stone-800 dark:text-stone-100 xl:text-lg" dangerouslySetInnerHTML={{ __html: contentHtml }} />

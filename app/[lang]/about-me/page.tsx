@@ -4,7 +4,7 @@ import froukje from '../src/froukje-cover.png'
 import twofeet from '../src/twofeet.jpeg'
 import glassanimals from '../src/glassanimals.jpeg'
 
-async function getSeoData() {
+async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -14,7 +14,7 @@ async function getSeoData() {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "over-mij"}}) {
+        pagina(filter: {slug: {eq: "about-me"}}, locale: ${lng}) {
           id
           seoGegevens {
             description
@@ -29,8 +29,9 @@ async function getSeoData() {
   return data
 }
 
-export async function generateMetadata() {
-  const metaData = await getSeoData()
+export async function generateMetadata({ params: { lang } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const metaData = await getSeoData(lng)
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -38,7 +39,7 @@ export async function generateMetadata() {
   }
 }
 
-async function getOverMij() {
+async function getOverMij(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -48,7 +49,7 @@ async function getOverMij() {
     body: JSON.stringify({
       query: `
         query getDataAboutMe {
-            overMij {
+            overMij(locale: ${lng}) {
                 titelOverMijPagina
                   subtitel
             }
@@ -61,15 +62,16 @@ async function getOverMij() {
   return data
 }
 
-export default async function overMij() {
-  const getData = await getOverMij()
+export default async function overMij({ params: { lang } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const getData = await getOverMij(lng)
   const data = getData.overMij
   return (
     <main className="grid grid-cols-2 gap-2 w-4/5 lg:w-3/5 2xl:w-6/12 text-stone-800 dark:text-stone-100">
-      <h1 className="text-4xl lg:text-5xl font-bold col-span-full row-start-1">{data.titelOverMijPagina}</h1>
+      <h1 className="text-4xl lg:text-4xl font-bold col-span-full row-start-1">{data.titelOverMijPagina}</h1>
       <h2 className="text-xl lg:text-2xl font-medium row-start-2 col-span-full pb-2">{data.subtitel}</h2>
       <section className=" row-start-3 col-span-full bg-slate-100 dark:bg-gray-800 px-10 py-5 pb-10 dark:text-stone-100 rounded-lg w-full space-y-2 shadow flex flex-col justify-center">
-        <h3 className="text-2xl font-semibold text-center mb-2">Mijn favoriete artiesten 🎶</h3>
+        <h3 className="text-2xl font-semibold text-center mb-2">{lng === 'en' ? 'My favorite artists 🎶' : 'Mijn favoriete artiesten 🎶'}</h3>
         <ul className="flex flex-col lg:flex-row gap-10 items-center justify-center">
           <li className="font-bold text-center w-44 h-44 hover:scale-95">
             <a href="https://open.spotify.com/artist/1zT9SWCzN45r7oVhy0VYLK?si=WiFVQXTKRmWKtRyiwcQylQ" aria-label="De Spotify van de artiest S10" target="_blank" className="pt-5">
@@ -98,7 +100,7 @@ export default async function overMij() {
         </ul>
       </section>
       <section className="h-fit  row-start-4 col-span-full lg:col-span-1 bg-slate-100 dark:bg-gray-800 px-10 py-5 pb-10 dark:text-stone-100 rounded-lg space-y-2 shadow flex flex-col justify-start">
-        <h3 className="text-2xl font-semibold text-center mb-2">Mijn favoriete nummers 🔊</h3>
+        <h3 className="text-2xl font-semibold text-center mb-2">{lng === 'en' ? 'My favorite songs 🔊' : 'Mijn favoriete nummers 🔊'}</h3>
         <ul className="flex flex-col gap-1 items-center justify-center">
           <li>
             <iframe
@@ -139,7 +141,7 @@ export default async function overMij() {
         </ul>
       </section>
       <section className="h-fit  bg-slate-100 col-span-full lg:col-start-2 row-start-5 lg:row-start-4 h-fit dark:bg-gray-800 px-10 py-5 pb-10 dark:text-stone-100 rounded-lg space-y-2 shadow flex flex-col justify-center w-full">
-        <h3 className="text-2xl font-semibold text-center mb-2">Goeie muziek 🎧</h3>
+        <h3 className="text-2xl font-semibold text-center mb-2">{lng === 'en' ? 'Great music 🎧' : 'Goeie muziek 🎧'}</h3>
         <iframe
           src="https://open.spotify.com/embed/playlist/6R7LQidnLidYgzdZzINase?utm_source=generator&theme=0"
           width="100%"

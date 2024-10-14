@@ -36,7 +36,7 @@ export async function generateMetadata() {
 export default function Contact() {
   return (
     <main className="text-center w-4/5  2xl:w-6/12 text-stone-800 dark:text-stone-100">
-      <h1 className="text-5xl font-bold mb-5">Contact</h1>
+      <h1 className="text-4xl font-bold mb-5">Contact</h1>
       <Calendar />
     </main>
   )

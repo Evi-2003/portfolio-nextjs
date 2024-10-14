@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Image as ResponsiveImage } from 'react-datocms'
-async function getSeoData() {
+
+async function getSeoData(lng) {
   if (!process.env.DATO_CMS_URL) {
     throw new Error('DatoCMS URL is not defined in environment variables.')
   }
@@ -13,7 +14,8 @@ async function getSeoData() {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "projecten"}}) {
+        pagina(filter: {slug: {eq: "projects"}}, locale: ${lng}) {
+          label
           id
           seoGegevens {
             description
@@ -30,7 +32,7 @@ async function getSeoData() {
 }
 
 export async function generateMetadata() {
-  const metaData = await getSeoData()
+  const metaData = await getSeoData('en')
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -38,7 +40,7 @@ export async function generateMetadata() {
   }
 }
 
-async function getWerkErvaring() {
+async function getWerkErvaring(lng) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -48,7 +50,7 @@ async function getWerkErvaring() {
     body: JSON.stringify({
       query: `
       query getProjecten {
-        allProjectens{
+        allProjectens(locale: ${lng}){
           id
           title
           techniekGebruikt
@@ -66,7 +68,7 @@ async function getWerkErvaring() {
         webpSrcSet
         base64
       }
-}
+      }
         }
       }
     `,
@@ -77,16 +79,18 @@ async function getWerkErvaring() {
   return data
 }
 
-export default async function Projecten({ params }) {
-  const getData = await getWerkErvaring()
+export default async function Projecten({ params: { lang } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const getData = await getWerkErvaring(lng)
+  const { pagina } = await getSeoData(lng)
   const data = getData.allProjectens
 
   return (
     <main className="grid-rows-auto mt-4 gap-3 space-y-5 lg:space-y-0 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto grid-cols-1 lg:grid-cols-2 w-4/5 lg:w-4/5 2xl:w-8/12">
-      <h1 className="col-span-3 row-span-1 text-5xl font-bold text-stone-800 dark:text-stone-100 mb-3">Projecten</h1>
+      <h1 className="col-span-3 row-span-1 text-4xl font-bold text-stone-800 dark:text-stone-100 mb-3">{pagina.label}</h1>
       {data.map((project, index) => (
         <Link
-          href={'/projecten/' + project.slug}
+          href={'projects/' + project.slug}
           key={project.id}
           className={`self-start col-start-${index % 2 === 0 ? 1 : 2} row-start-${
             Math.floor(index / 2) + 3
