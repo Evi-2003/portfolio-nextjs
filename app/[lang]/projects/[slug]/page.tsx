@@ -20,12 +20,12 @@ export async function generateStaticParams() {
     }),
   }).then((res) => res.json())
 
-  return data.allProjectens.map((post) => ({
+  return data.allProjectens.map((post: { slug: string }) => ({
     slug: post.slug,
   }))
 }
 
-async function getSeoData(slug) {
+async function getSeoData(slug: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -49,10 +49,9 @@ async function getSeoData(slug) {
   return data
 }
 
-export async function generateMetadata({ params }) {
-  const slug = params.slug.split('/')
-
-  const metaData = await getSeoData(slug[0])
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const metaData = await getSeoData(lng)
 
   return {
     title: metaData.projecten.seoTitle.title,
@@ -60,8 +59,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
-async function getProject(slug, lng) {
-  const { data } = await fetch(process.env.DATO_CMS_URL, {
+async function getProject(slug: string, lng: string) {
+  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -100,7 +99,7 @@ async function getProject(slug, lng) {
   return data
 }
 
-export default async function Projecten({ params: { slug, lang } }) {
+export default async function Projecten({ params: { slug, lang } }: { params: { slug: string; lang: string } }) {
   const slugSplitted = slug.split('/')
   const lng = lang === 'en-US' ? 'en' : 'nl'
   const getData = await getProject(slugSplitted[0], lng)

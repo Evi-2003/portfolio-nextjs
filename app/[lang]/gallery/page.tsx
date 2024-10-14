@@ -80,8 +80,9 @@ async function getSeoData(lng: string) {
   return data
 }
 
-export async function generateMetadata() {
-  const metaData = await getSeoData('en')
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const metaData = await getSeoData(lng)
 
   return {
     title: metaData.pagina.seoGegevens.title,

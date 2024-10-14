@@ -1,6 +1,6 @@
 import Calendar from '../components/Calendar'
 
-async function getSeoData() {
+async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -10,7 +10,7 @@ async function getSeoData() {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "contact"}}) {
+        pagina(filter: {slug: {eq: "contact"}}, locale: ${lng}) {
           id
           seoGegevens {
             description
@@ -25,8 +25,10 @@ async function getSeoData() {
   return data
 }
 
-export async function generateMetadata() {
-  const metaData = await getSeoData()
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+  const lng = lang === 'en-US' ? 'en' : 'nl'
+  const metaData = await getSeoData(lng)
+
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,

@@ -32,7 +32,7 @@ async function getSeoData(lng: string) {
   return data
 }
 
-export async function generateMetadata({ params: { lang } }) {
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
   const lng = lang === 'en-US' ? 'en' : 'nl'
   const metaData = await getSeoData(lng)
 
@@ -79,7 +79,7 @@ async function getBasicInfo(lng: string) {
   return data
 }
 
-export default async function Home({ params: { lang } }) {
+export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const lng = lang === 'en-US' ? 'en' : 'nl'
   const getData = await getBasicInfo(lng)
   const data = getData.overMij
