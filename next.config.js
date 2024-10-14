@@ -26,6 +26,6 @@ module.exports = {
         destination: '/en-US/contact',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};

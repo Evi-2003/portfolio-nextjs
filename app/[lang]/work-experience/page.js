@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import s10 from '../src/s10.jpeg'
-import froukje from '../src/froukje-cover.png'
-import twofeet from '../src/twofeet.jpeg'
-import glassanimals from '../src/glassanimals.jpeg'
+import Image from 'next/image';
+import froukje from '../src/froukje-cover.png';
+import glassanimals from '../src/glassanimals.jpeg';
+import s10 from '../src/s10.jpeg';
+import twofeet from '../src/twofeet.jpeg';
 
 async function getSeoData(lng) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -25,17 +25,17 @@ async function getSeoData(lng) {
       }
   `,
     }),
-  }).then((res) => res.json())
+  }).then((res) => res.json());
 
-  return data
+  return data;
 }
 
 export async function generateMetadata() {
-  const metaData = await getSeoData('en')
+  const metaData = await getSeoData('en');
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,
-  }
+  };
 }
 
 async function getWerkErvaring(lng) {
@@ -61,36 +61,47 @@ async function getWerkErvaring(lng) {
     `,
     }),
     next: { revalidate: 10 },
-  }).then((res) => res.json())
+  }).then((res) => res.json());
 
-  return data
+  return data;
 }
 
 export default async function Werkervaring({ params: { lang } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl'
-  const getData = await getWerkErvaring(lng)
-  const { pagina } = await getSeoData(lng)
-  const data = getData.allWerkervarings
+  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const getData = await getWerkErvaring(lng);
+  const { pagina } = await getSeoData(lng);
+  const data = getData.allWerkervarings;
 
   return (
     <main className="text-center text-stone-800 dark:text-stone-100">
-      <h1 className="text-4xl font-bold mb-5">{pagina.label}</h1>
-      <ul className="werkvaring-list space-y-5 space-x-5 border-l-[3px] dark:border-white border-solid border-black text-left mx-10" id="werkervaring-list">
+      <h1 className="mb-5 text-4xl font-bold">{pagina.label}</h1>
+      <ul
+        className="werkvaring-list mx-10 space-x-5 space-y-5 border-l-[3px] border-solid border-black text-left
+          dark:border-white"
+        id="werkervaring-list"
+      >
         {data.map((element) => (
           <li key={element.id}>
-            <figure className=" w-4 h-4 bg-black rounded-full absolute -ml-[1.85rem] dark:bg-white"></figure>
+            <figure className="absolute -ml-[1.85rem] h-4 w-4 rounded-full bg-black dark:bg-white"></figure>
             <h3 className="text-xl">{element.functie}</h3>
             <h4 className="text-lg">
               <a
                 className="text-lg hover:underline"
                 href={element.bedrijfsWebsite}
-                aria-label={'Evi Wammes werkt bij ' + element.bedrijf + ' vanaf ' + element.startdatum + ' tot ' + element.einddatum}
+                aria-label={
+                  'Evi Wammes werkt bij ' +
+                  element.bedrijf +
+                  ' vanaf ' +
+                  element.startdatum +
+                  ' tot ' +
+                  element.einddatum
+                }
                 target="_blank"
               >
                 {element.bedrijf}
               </a>
             </h4>
-            <span className="text-base opacity-60 font-bold">
+            <span className="text-base font-bold opacity-60">
               {new Date(element.startdatum).toLocaleDateString('en-US', {
                 month: '2-digit',
                 year: 'numeric',
@@ -102,12 +113,12 @@ export default async function Werkervaring({ params: { lang } }) {
                     year: 'numeric',
                   })
                 : lng === 'en'
-                ? 'Present'
-                : 'Heden'}
+                  ? 'Present'
+                  : 'Heden'}
             </span>
           </li>
         ))}
       </ul>
     </main>
-  )
+  );
 }
