@@ -1,4 +1,5 @@
-import Calendar from '../components/Calendar';
+import Calendar from '@/app/components/Calendar';
+import checkLanguage from '@/app/utils/checkLanguage';
 
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -26,7 +27,7 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
   return {

@@ -1,3 +1,4 @@
+import checkLanguage from '@/app/utils/checkLanguage';
 import { remark } from 'remark';
 import html from 'remark-html';
 
@@ -25,7 +26,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getSeoData(slug: string) {
+async function getSeoData(slug: string, lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -35,7 +36,7 @@ async function getSeoData(slug: string) {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        projecten(filter: {slug: {eq: "${slug}"}}, locale: en) {
+        projecten(filter: {slug: {eq: "${slug}"}}, locale: ${lng}) {
           seoTitle {
             description
             title
@@ -50,9 +51,9 @@ async function getSeoData(slug: string) {
 }
 
 export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
 
-  const metaData = await getSeoData(slug);
+  const metaData = await getSeoData(slug, lng);
 
   return {
     title: metaData.projecten.seoTitle.title,
@@ -94,7 +95,6 @@ async function getProject(slug: string, lng: string) {
     }
     `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
@@ -102,7 +102,7 @@ async function getProject(slug: string, lng: string) {
 
 export default async function Projecten({ params: { slug, lang } }: { params: { slug: string; lang: string } }) {
   const slugSplitted = slug.split('/');
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const getData = await getProject(slugSplitted[0], lng);
   const data = getData.projecten;
 

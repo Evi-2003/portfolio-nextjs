@@ -2,13 +2,13 @@
 
 import { Fancybox } from '@fancyapps/ui';
 import { Image } from 'react-datocms';
-import { responsiveImage } from '../gallery/page';
+import { IResponsiveImage } from '../[lang]/gallery/page';
 
 const GalleryImage = ({
   responsiveImage,
   index,
 }: {
-  responsiveImage: responsiveImage['responsiveImage'];
+  responsiveImage: IResponsiveImage['responsiveImage'];
   index: number;
 }) => {
   Fancybox.bind('[data-fancybox="gallery"]', {});

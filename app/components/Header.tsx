@@ -1,11 +1,9 @@
 import { Zen_Kurenaido } from 'next/font/google';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
-import NavButton from './NavButton';
 import NavList from './NavList';
 
-const zen_kurenaido = Zen_Kurenaido({
+const zenKurenaido = Zen_Kurenaido({
   weight: '400',
   subsets: ['latin'],
 });
@@ -28,7 +26,6 @@ async function getNavItems(lng: string) {
           }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
@@ -39,7 +36,7 @@ const Header = async ({ lng }: { lng: string }) => {
   const { allPaginas } = await getNavItems(lngFormatted);
 
   return (
-    <header className={'my-10 flex w-full items-center justify-center ' + zen_kurenaido.className}>
+    <header className={'my-10 flex w-full items-center justify-center ' + zenKurenaido.className}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

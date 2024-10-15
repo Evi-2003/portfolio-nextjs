@@ -1,10 +1,8 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { GeistMono } from 'geist/font/mono';
+import '@/app/globals.css';
+import Header from '@/app/components/Header';
+import NavProvider from '@/app/components/providers/NavProvider';
 import { GeistSans } from 'geist/font/sans';
 import PlausibleProvider from 'next-plausible';
-import Header from './components/Header';
-import NavProvider from './components/providers/NavProvider';
 
 export default function RootLayout({
   children,

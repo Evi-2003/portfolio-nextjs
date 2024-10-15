@@ -1,3 +1,4 @@
+import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { Image as ResponsiveImage } from 'react-datocms';
 
@@ -25,14 +26,13 @@ async function getSeoData(lng: string) {
       }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
 }
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
   return {
@@ -74,14 +74,13 @@ async function getWerkErvaring(lng: string) {
       }
     `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
 }
 
 export default async function Projecten({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const getData = await getWerkErvaring(lng);
   const { pagina } = await getSeoData(lng);
   const data = getData.allProjectens;

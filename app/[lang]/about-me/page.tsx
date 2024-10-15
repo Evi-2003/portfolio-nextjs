@@ -1,8 +1,9 @@
+import froukje from '@/app/images/froukje-cover.png';
+import glassanimals from '@/app/images/glassanimals.jpeg';
+import s10 from '@/app/images/s10.jpeg';
+import twofeet from '@/app/images/twofeet.jpeg';
+import checkLanguage from '@/app/utils/checkLanguage';
 import Image from 'next/image';
-import froukje from '../src/froukje-cover.png';
-import glassanimals from '../src/glassanimals.jpeg';
-import s10 from '../src/s10.jpeg';
-import twofeet from '../src/twofeet.jpeg';
 
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -30,7 +31,7 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
   return {
@@ -56,14 +57,13 @@ async function getOverMij(lng: string) {
           }
     `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
 }
 
 export default async function overMij({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const getData = await getOverMij(lng);
   const data = getData.overMij;
   return (

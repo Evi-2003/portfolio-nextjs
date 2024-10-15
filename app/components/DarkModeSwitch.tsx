@@ -1,17 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 export default function DarkModeSwitch() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const toggleTheme = () => {
     if (document.body.classList.contains('dark')) {
       document.body.classList.remove('dark');
-      setIsDarkMode(false);
+
       localStorage.setItem('theme', 'light');
     } else {
       document.body.classList.add('dark');
-      setIsDarkMode(true);
+
       localStorage.setItem('theme', 'dark');
     }
   };
@@ -27,23 +26,18 @@ export default function DarkModeSwitch() {
     const updateTheme = () => {
       if (darkMediaQuery.matches) {
         document.body.classList.add('dark');
-        setIsDarkMode(true);
       } else if (lightMediaQuery.matches || (!darkMediaQuery.matches && !checkNightTime())) {
         document.body.classList.remove('dark');
-        setIsDarkMode(false);
       } else if (!darkMediaQuery.matches && !lightMediaQuery.matches && checkNightTime()) {
         document.body.classList.add('dark');
-        setIsDarkMode(true);
       }
     };
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       document.body.classList.add('dark');
-      setIsDarkMode(true);
     }
     if (savedTheme === 'light') {
       document.body.classList.remove('dark');
-      setIsDarkMode(false);
     }
     if (!(savedTheme === 'dark' || savedTheme === 'light')) {
       updateTheme();

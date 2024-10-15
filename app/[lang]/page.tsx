@@ -1,3 +1,4 @@
+import checkLanguage from '@/app/utils/checkLanguage';
 import { Image as ResponsiveImage } from 'react-datocms';
 import { remark } from 'remark';
 import html from 'remark-html';
@@ -25,14 +26,13 @@ async function getSeoData(lng: string) {
       }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
 }
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
   return {
@@ -72,14 +72,13 @@ async function getBasicInfo(lng: string) {
         }
   `,
     }),
-    next: { revalidate: 10 },
   }).then((res) => res.json());
 
   return data;
 }
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const getData = await getBasicInfo(lng);
   const data = getData.overMij;
 

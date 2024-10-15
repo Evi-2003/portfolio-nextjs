@@ -1,7 +1,7 @@
 import { Fancybox } from '@fancyapps/ui';
-import { Image } from 'react-datocms';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
-import GalleryImage from '../components/GalleryImage';
+import GalleryImage from '@/app/components/GalleryImage';
+import checkLanguage from '@/app/utils/checkLanguage';
 
 async function getGalleryImages(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -39,7 +39,7 @@ async function getGalleryImages(lng: string) {
   return data;
 }
 
-export interface responsiveImage {
+export interface IResponsiveImage {
   responsiveImage: {
     width: number;
     webpSrcSet: string;
@@ -81,7 +81,7 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
   return {
@@ -91,7 +91,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
 }
 
 const Page = async ({ params: { lang } }: { params: { lang: string } }) => {
-  const lng = lang === 'en-US' ? 'en' : 'nl';
+  const lng = checkLanguage(lang);
   const { allAfbeeldings } = await getGalleryImages(lng);
 
   Fancybox.bind('[data-fancybox="gallery"]', {});
@@ -107,7 +107,7 @@ const Page = async ({ params: { lang } }: { params: { lang: string } }) => {
         </span>
       </div>
 
-      {allAfbeeldings.map((collection: { fotorolletje: string; afbeeldingen: responsiveImage[] }) => (
+      {allAfbeeldings.map((collection: { fotorolletje: string; afbeeldingen: IResponsiveImage[] }) => (
         <div
           key={`image-collection-${collection.fotorolletje}`}
           className="grid min-h-screen grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 xl:grid-cols-3"
@@ -117,7 +117,7 @@ const Page = async ({ params: { lang } }: { params: { lang: string } }) => {
               text-black opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100"
           >{`${lng === 'en' ? 'Used film:' : 'Gebruikte fotorol:'} ${collection.fotorolletje}`}</span>
 
-          {collection.afbeeldingen.map((image: responsiveImage, index: number) => (
+          {collection.afbeeldingen.map((image: IResponsiveImage, index: number) => (
             <GalleryImage responsiveImage={image.responsiveImage} key={`gallery-image-${index}`} index={index} />
           ))}
         </div>
