@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react';
 
 export const NavContext = createContext({
   isNavOpen: false,
   toggleIsOpen: () => {},
-})
+});
 
 const NavProvider = ({ children }: { children: ReactNode }) => {
-  const [isNavOpen, toggleNav] = useState(false)
+  const [isNavOpen, toggleNav] = useState(false);
 
   const toggleIsOpen = () => {
-    toggleNav(!isNavOpen)
-  }
+    toggleNav(!isNavOpen);
+  };
 
-  return <NavContext.Provider value={{ isNavOpen, toggleIsOpen }}>{children}</NavContext.Provider>
-}
+  return <NavContext.Provider value={{ isNavOpen, toggleIsOpen }}>{children}</NavContext.Provider>;
+};
 
-export default NavProvider
+export default NavProvider;
