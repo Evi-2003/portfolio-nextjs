@@ -1,68 +1,71 @@
-'use client'
-import React, { useState, useEffect } from 'react'
+'use client';
+
+import React, { useEffect } from 'react';
 
 export default function DarkModeSwitch() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
   const toggleTheme = () => {
     if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('dark')
-      setIsDarkMode(false)
-      localStorage.setItem('theme', 'light')
+      document.body.classList.remove('dark');
+
+      localStorage.setItem('theme', 'light');
     } else {
-      document.body.classList.add('dark')
-      setIsDarkMode(true)
-      localStorage.setItem('theme', 'dark')
+      document.body.classList.add('dark');
+
+      localStorage.setItem('theme', 'dark');
     }
-  }
+  };
   useEffect(() => {
-    const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    const lightMediaQuery = window.matchMedia('(prefers-color-scheme: light)')
+    const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const lightMediaQuery = window.matchMedia('(prefers-color-scheme: light)');
 
     const checkNightTime = () => {
-      const now = new Date()
-      return now.getHours() > 18 || now.getHours() < 6
-    }
+      const now = new Date();
+      return now.getHours() > 18 || now.getHours() < 6;
+    };
 
     const updateTheme = () => {
       if (darkMediaQuery.matches) {
-        document.body.classList.add('dark')
-        setIsDarkMode(true)
+        document.body.classList.add('dark');
       } else if (lightMediaQuery.matches || (!darkMediaQuery.matches && !checkNightTime())) {
-        document.body.classList.remove('dark')
-        setIsDarkMode(false)
+        document.body.classList.remove('dark');
       } else if (!darkMediaQuery.matches && !lightMediaQuery.matches && checkNightTime()) {
-        document.body.classList.add('dark')
-        setIsDarkMode(true)
+        document.body.classList.add('dark');
       }
-    }
-    const savedTheme = localStorage.getItem('theme')
+    };
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-      document.body.classList.add('dark')
-      setIsDarkMode(true)
+      document.body.classList.add('dark');
     }
     if (savedTheme === 'light') {
-      document.body.classList.remove('dark')
-      setIsDarkMode(false)
+      document.body.classList.remove('dark');
     }
     if (!(savedTheme === 'dark' || savedTheme === 'light')) {
-      updateTheme()
+      updateTheme();
     }
 
-    darkMediaQuery.addEventListener('change', updateTheme)
-    lightMediaQuery.addEventListener('change', updateTheme)
+    darkMediaQuery.addEventListener('change', updateTheme);
+    lightMediaQuery.addEventListener('change', updateTheme);
 
     return () => {
-      darkMediaQuery.removeEventListener('change', updateTheme)
-      lightMediaQuery.removeEventListener('change', updateTheme)
-    }
-  }, [])
+      darkMediaQuery.removeEventListener('change', updateTheme);
+      lightMediaQuery.removeEventListener('change', updateTheme);
+    };
+  }, []);
   return (
     <button
       onClick={toggleTheme}
-      className="text-1xl rounded-xl py-2 px-3 shadow-lg font-bold hover:bg-gray-950 bg-yellow-500 dark:hover:bg-yellow-400 dark:bg-black sm:w-auto w-auto mt-5 sm:mt-0"
+      className="text-1xl mt-5 w-auto rounded-xl bg-yellow-500 px-3 py-2 font-bold shadow-lg hover:bg-gray-950 sm:mt-0
+        sm:w-auto dark:bg-black dark:hover:bg-yellow-400"
       aria-label="Verander van kleur thema"
     >
-      <svg fill="#000000" className="w-6 h-6 fill-white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.242 489.242">
+      <svg
+        fill="#000000"
+        className="h-6 w-6 fill-white"
+        version="1.1"
+        id="Capa_1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 489.242 489.242"
+      >
         <g>
           <g>
             <path
@@ -80,5 +83,5 @@ export default function DarkModeSwitch() {
         </g>
       </svg>
     </button>
-  )
+  );
 }

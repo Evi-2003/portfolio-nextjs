@@ -1,18 +1,30 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.0",
   "private": true,
+  "author": {
+      "name": "Evi Wammes",
+      "email": "mail@eviwammes.nl",
+      "url": "http://eviwammes.dev"
+  },
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "format": "prettier --write .",
+    "lint": "next lint",
+    "lint:fix": "eslint --fix . && prettier --write .",
+    "start": "next start"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.1",
     "@fancyapps/ui": "^5.0.36",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-no-relative-import-paths": "^1.5.5",
     "geist": "^1.3.1",
-    "next": "14.2.1",
+    "next": "14.2.13",
     "next-plausible": "^3.12.2",
     "react": "^18",
     "react-datocms": "^6.0.1",
@@ -25,10 +37,13 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@u3u/prettier-config": "^5.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
     "postcss": "^8",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

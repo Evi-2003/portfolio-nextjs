@@ -1,6 +1,7 @@
-import Calendar from '../components/Calendar'
+import Calendar from '@/app/components/Calendar';
+import checkLanguage from '@/app/utils/checkLanguage';
 
-async function getSeoData() {
+async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -10,7 +11,7 @@ async function getSeoData() {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "contact"}}) {
+        pagina(filter: {slug: {eq: "contact"}}, locale: ${lng}) {
           id
           seoGegevens {
             description
@@ -20,24 +21,26 @@ async function getSeoData() {
       }
   `,
     }),
-  }).then((res) => res.json())
+  }).then((res) => res.json());
 
-  return data
+  return data;
 }
 
-export async function generateMetadata() {
-  const metaData = await getSeoData()
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+  const lng = checkLanguage(lang);
+  const metaData = await getSeoData(lng);
+
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,
-  }
+  };
 }
 
 export default function Contact() {
   return (
-    <main className="text-center w-4/5  2xl:w-6/12 text-stone-800 dark:text-stone-100">
-      <h1 className="text-5xl font-bold mb-5">Contact</h1>
+    <main className="w-4/5 text-center text-stone-800 2xl:w-6/12 dark:text-stone-100">
+      <h1 className="mb-5 text-4xl font-bold">Contact</h1>
       <Calendar />
     </main>
-  )
+  );
 }
