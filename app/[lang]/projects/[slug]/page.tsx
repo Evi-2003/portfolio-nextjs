@@ -25,7 +25,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getSeoData(slug: string, lng: string) {
+async function getSeoData(slug: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -35,7 +35,7 @@ async function getSeoData(slug: string, lng: string) {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        projecten(filter: {slug: {eq: "${slug}"}}, locale: ${lng}) {
+        projecten(filter: {slug: {eq: "${slug}"}}, locale: en) {
           seoTitle {
             description
             title
@@ -49,9 +49,10 @@ async function getSeoData(slug: string, lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const lng = lang === 'en-US' ? 'en' : 'nl';
-  const metaData = await getSeoData('projecten', lng);
+
+  const metaData = await getSeoData(slug);
 
   return {
     title: metaData.projecten.seoTitle.title,
