@@ -1,7 +1,12 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.0",
   "private": true,
+  "author": {
+      "name": "Evi Wammes",
+      "email": "mail@eviwammes.nl",
+      "url": "http://eviwammes.dev"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
