@@ -17,3 +17,11 @@ iframe {
 #werkervaring-list li:first-of-type {
   margin-left: 20px;
 }
+
+ol {
+  list-style-type: decimal;
+}
+
+div p {
+  margin: revert;
+}
