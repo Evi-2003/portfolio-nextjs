@@ -87,8 +87,8 @@ export default async function Projecten({ params: { lang } }: { params: { lang: 
 
   return (
     <main
-      className="grid-rows-auto w-4/5 grid-cols-1 gap-x-3 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto
-        lg:w-4/5 lg:grid-cols-2 lg:space-y-0 2xl:w-8/12"
+      className="grid-rows-auto w-4/5 grid-cols-1 gap-x-3 space-y-3 text-center sm:grid sm:grid-flow-col
+        sm:auto-rows-auto md:gap-y-0 md:space-y-0 lg:w-4/5 lg:grid-cols-2 lg:space-y-0 2xl:w-8/12"
     >
       <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">
         {pagina.label}

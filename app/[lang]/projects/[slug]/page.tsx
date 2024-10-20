@@ -1,4 +1,5 @@
 import checkLanguage from '@/app/utils/checkLanguage';
+import Link from 'next/link';
 import { StructuredText } from 'react-datocms';
 
 export async function generateStaticParams() {
@@ -112,11 +113,18 @@ export default async function Projecten({ params: { slug, lang } }: { params: { 
 
   return (
     <main
-      className="z-0 mt-5 grid h-full w-4/5 auto-rows-min grid-cols-3 justify-start pb-10 text-left lg:w-3/5 2xl:w-4/12
+      className="grid h-full w-4/5 auto-rows-min grid-cols-3 justify-start space-y-2 pb-10 text-left lg:w-3/5 2xl:w-4/12
         dark:text-white"
     >
-      <h1 className="col-span-full row-start-1 pb-5 text-2xl sm:text-4xl">{data.title}</h1>
-      <div className="col-span-full flex gap-3">
+      <div className="col-span-full row-start-1 text-sm">
+        <Link href={`/${lng === 'nl' ? 'nl-NL' : 'en-US'}/projects`} prefetch>
+          {lng === 'en' ? 'Projects' : 'Projecten'}
+        </Link>
+        <span className="mx-2">/</span>
+        <span>{data.title}</span>
+      </div>
+      <h1 className="col-span-full row-start-2 text-2xl font-medium sm:text-4xl">{data.title}</h1>
+      <div className="col-span-full mt-2 flex gap-3">
         <span
           className="w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-xs text-black opacity-80
             dark:bg-stone-700 dark:text-white dark:opacity-100"
