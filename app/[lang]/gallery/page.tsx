@@ -98,6 +98,10 @@ const Page = async ({ params: { lang } }: { params: { lang: string } }) => {
 
   return (
     <main className="flex w-5/6 flex-col dark:text-stone-100">
+      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">
+        {lng === 'en' ? 'Gallery' : 'Galerij'}
+      </h1>
+
       <div className="flex justify-between">
         <span
           className="row-start-1 mb-2 w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-black

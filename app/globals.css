@@ -24,4 +24,9 @@ ol {
 
 div p {
   margin: revert;
+  margin: 8px 0px;
+}
+
+div p a {
+  text-decoration: underline;
 }
