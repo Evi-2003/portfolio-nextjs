@@ -32,7 +32,11 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
@@ -81,7 +85,11 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Projecten({ params: { lang } }: { params: { lang: string } }) {
+export default async function Projecten(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const getData = await getWerkErvaring(lng);
   const { pagina } = await getSeoData(lng);
@@ -104,6 +112,7 @@ export default async function Projecten({ params: { lang } }: { params: { lang: 
             werkzaamheden: string;
             website: string;
             slug: string;
+            imageid?: string;
             image: {
               responsiveImage: {
                 sizes: string;

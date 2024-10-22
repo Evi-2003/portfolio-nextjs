@@ -4,13 +4,16 @@ import NavProvider from '@/app/components/providers/NavProvider';
 import { GeistSans } from 'geist/font/sans';
 import PlausibleProvider from 'next-plausible';
 
-export default function RootLayout({
-  children,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: { lang: string };
-}>) {
+export default async function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+    params: { lang: string };
+  }>,
+) {
+  const params = await props.params;
+
+  const { children } = props;
+
   return (
     <PlausibleProvider domain="eviwammes.dev">
       <NavProvider>

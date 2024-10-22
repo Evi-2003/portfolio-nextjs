@@ -50,7 +50,11 @@ async function getSeoData(slug: string, lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string; slug: string }> }) {
+  const params = await props.params;
+
+  const { lang, slug } = params;
+
   const lng = checkLanguage(lang);
 
   const metaData = await getSeoData(slug, lng);
@@ -105,7 +109,11 @@ async function getProject(slug: string, lng: string) {
   return data;
 }
 
-export default async function Projecten({ params: { slug, lang } }: { params: { slug: string; lang: string } }) {
+export default async function Projecten(props: { params: Promise<{ slug: string; lang: string }> }) {
+  const params = await props.params;
+
+  const { slug, lang } = params;
+
   const slugSplitted = slug.split('/');
   const lng = checkLanguage(lang);
   const getData = await getProject(slugSplitted[0], lng);
