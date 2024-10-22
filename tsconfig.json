@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": "./",
-
     "esModuleInterop": true,
     "incremental": true,
     "isolatedModules": true,
@@ -16,7 +15,9 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "plugins": [
       {
@@ -25,9 +26,12 @@
     ],
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "target": "ES2017"
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
