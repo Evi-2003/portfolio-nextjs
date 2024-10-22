@@ -30,7 +30,11 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
@@ -62,7 +66,11 @@ async function getOverMij(lng: string) {
   return data;
 }
 
-export default async function overMij({ params: { lang } }: { params: { lang: string } }) {
+export default async function overMij(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const getData = await getOverMij(lng);
   const data = getData.overMij;

@@ -1,3 +1,4 @@
+import CloudflareImage from '@/app/components/CloudflareImage';
 import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { Image as ResponsiveImage } from 'react-datocms';
@@ -31,7 +32,11 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
@@ -58,6 +63,7 @@ async function getWerkErvaring(lng: string) {
           werkzaamheden
           website
           slug
+          imageid
           image{
             responsiveImage(imgixParams: { fit: max, w: 1000, h: 450, auto: format }) {
         sizes
@@ -79,7 +85,11 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Projecten({ params: { lang } }: { params: { lang: string } }) {
+export default async function Projecten(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const getData = await getWerkErvaring(lng);
   const { pagina } = await getSeoData(lng);
@@ -102,6 +112,7 @@ export default async function Projecten({ params: { lang } }: { params: { lang: 
             werkzaamheden: string;
             website: string;
             slug: string;
+            imageid?: string;
             image: {
               responsiveImage: {
                 sizes: string;
@@ -142,8 +153,18 @@ export default async function Projecten({ params: { lang } }: { params: { lang: 
               </span>
             </div>
             <h2 className="col-span-full row-start-2 w-fit text-left text-lg">{project.title}</h2>
-            <div className="col-span-3 row-start-3 w-full rounded-2xl">
-              <ResponsiveImage data={project.image.responsiveImage} />
+            <div className="col-span-3 row-start-3 w-full overflow-hidden rounded-2xl border">
+              {project.image ? (
+                <ResponsiveImage data={project.image.responsiveImage} />
+              ) : (
+                <CloudflareImage
+                  imageId={project.imageid}
+                  width={1000}
+                  height={450}
+                  className="h-full w-full object-cover"
+                  title={project.title}
+                />
+              )}
             </div>
           </Link>
         ),

@@ -62,7 +62,11 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Werkervaring({ params: { lang } }: { params: { lang: string } }) {
+export default async function Werkervaring(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const { allWerkervarings: data } = await getWerkErvaring(lng);
   const { pagina } = await getSeoData(lng);

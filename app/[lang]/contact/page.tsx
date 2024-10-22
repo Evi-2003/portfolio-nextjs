@@ -26,7 +26,11 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 

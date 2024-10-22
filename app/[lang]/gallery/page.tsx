@@ -80,7 +80,11 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const metaData = await getSeoData(lng);
 
@@ -90,7 +94,11 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
   };
 }
 
-const Page = async ({ params: { lang } }: { params: { lang: string } }) => {
+const Page = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
+
+  const { lang } = params;
+
   const lng = checkLanguage(lang);
   const { allAfbeeldings } = await getGalleryImages(lng);
 
