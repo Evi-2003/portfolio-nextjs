@@ -136,8 +136,8 @@ export default async function Projecten(props: { params: Promise<{ lang: string 
               href={'projects/' + project.slug}
               key={project.id}
               className={`self-start col-start-${index % 2 === 0 ? 1 : 2} row-start-${Math.floor(index / 2) + 3} lg:p
-              test-stone-900 grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-neutral-100 p-4 hover:shadow
-              dark:bg-gray-800 dark:text-stone-100`}
+              test-stone-900 grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-neutral-100 p-4 hover:shadow-sm
+              dark:bg-neutral-800 dark:text-stone-100`}
             >
               <div className="col-span-full flex justify-between">
                 <span
