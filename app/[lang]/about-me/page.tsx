@@ -80,7 +80,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
       <h2 className="col-span-full row-start-2 pb-2 text-xl font-medium lg:text-2xl">{data.subtitel}</h2>
       <section
         className="col-span-full row-start-3 flex w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100 px-10
-          py-5 pb-10 shadow dark:bg-gray-800 dark:text-stone-100"
+          py-5 pb-10 shadow dark:bg-neutral-800 dark:text-stone-100"
       >
         <h3 className="mb-2 text-center text-2xl font-semibold">
           {lng === 'en' ? 'My favorite artists 🎶' : 'Mijn favoriete artiesten 🎶'}
@@ -147,7 +147,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
       </section>
       <section
         className="col-span-full row-start-4 flex h-fit flex-col justify-start space-y-2 rounded-lg bg-slate-100 px-10
-          py-5 pb-10 shadow lg:col-span-1 dark:bg-gray-800 dark:text-stone-100"
+          py-5 pb-10 shadow lg:col-span-1 dark:bg-neutral-800 dark:text-stone-100"
       >
         <h3 className="mb-2 text-center text-2xl font-semibold">
           {lng === 'en' ? 'My favorite songs 🔊' : 'Mijn favoriete nummers 🔊'}
@@ -193,7 +193,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
       </section>
       <section
         className="col-span-full row-start-5 flex h-fit w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100
-          px-10 py-5 pb-10 shadow lg:col-start-2 lg:row-start-4 dark:bg-gray-800 dark:text-stone-100"
+          px-10 py-5 pb-10 shadow lg:col-start-2 lg:row-start-4 dark:bg-neutral-800 dark:text-stone-100"
       >
         <h3 className="mb-2 text-center text-2xl font-semibold">
           {lng === 'en' ? 'Great music 🎧' : 'Goeie muziek 🎧'}

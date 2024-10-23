@@ -47,7 +47,7 @@ const Header = async ({ lng }: { lng: string }) => {
       </Head>
       <nav
         className="relative flex flex-col items-center justify-center gap-5 rounded-2xl bg-neutral-100 px-3 py-4
-          text-stone-950 shadow lg:flex-row dark:bg-gray-800"
+          text-stone-950 shadow lg:flex-row dark:bg-neutral-800"
       >
         <NavList allPaginas={allPaginas} lng={lng} />
       </nav>
