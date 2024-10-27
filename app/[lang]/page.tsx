@@ -114,19 +114,27 @@ export default async function Home(props: { params: Promise<{ lang: string }> })
           className="bg-transparant flex h-fit w-full flex-col gap-1 px-3 py-2 text-lg font-semibold md:text-base
             dark:text-stone-100"
         >
-          <li className="hover:underline">
-            <a href="mailto:mail@eviwammes.nl" aria-label="Send an email to mail@eviwammes.nl">
+          <li>
+            <a
+              className="decoration-stone-900/50 underline-offset-4 hover:underline dark:decoration-stone-100/50"
+              href="mailto:mail@eviwammes.nl"
+              aria-label="Send an email to mail@eviwammes.nl"
+            >
               ✉️ <span className="sr-only">Email: </span>mail@eviwammes.nl
             </a>
           </li>
-          <li className="hover:underline">
-            <a href="tel:+31640707077" aria-label="Call 06-40707077">
+          <li>
+            <a
+              href="tel:+31640707077"
+              aria-label="Call 06-40707077"
+              className="decoration-stone-900/50 underline-offset-4 hover:underline dark:decoration-stone-100/50"
+            >
               📞 <span className="sr-only">Phone: </span>06-40707077
             </a>
           </li>
           <li>
             <a
-              className="hover:underline"
+              className="decoration-stone-900/50 underline-offset-4 hover:underline dark:decoration-stone-100/50"
               href="https://maps.app.goo.gl/ARmC54ZH69zgyWVe9"
               aria-label="View location on Google Maps: Amsterdam, NL"
             >
