@@ -114,13 +114,25 @@ export default async function Home(props: { params: Promise<{ lang: string }> })
           className="bg-transparant flex h-fit w-full flex-col gap-1 px-3 py-2 text-lg font-semibold md:text-base
             dark:text-stone-100"
         >
-          <li className="hover:scale-95">
-            <a href="mailto:mail@eviwammes.nl">✉️ mail@eviwammes.nl</a>
+          <li className="hover:underline">
+            <a href="mailto:mail@eviwammes.nl" aria-label="Send an email to mail@eviwammes.nl">
+              ✉️ <span className="sr-only">Email: </span>mail@eviwammes.nl
+            </a>
           </li>
-          <li className="hover:scale-95">
-            <a href="tel:+31640707077">📞 06-40707077</a>
+          <li className="hover:underline">
+            <a href="tel:+31640707077" aria-label="Call 06-40707077">
+              📞 <span className="sr-only">Phone: </span>06-40707077
+            </a>
           </li>
-          <li>📍 Amsterdam</li>
+          <li>
+            <a
+              className="hover:underline"
+              href="https://maps.app.goo.gl/ARmC54ZH69zgyWVe9"
+              aria-label="View location on Google Maps: Amsterdam, NL"
+            >
+              📍 <span className="sr-only">Location: </span>Amsterdam, NL
+            </a>
+          </li>
         </ul>
       </aside>
     </main>
