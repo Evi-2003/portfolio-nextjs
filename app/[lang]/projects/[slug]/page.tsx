@@ -2,6 +2,8 @@ import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { StructuredText } from 'react-datocms';
 
+export const revalidate = 86400;
+
 export async function generateStaticParams() {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',

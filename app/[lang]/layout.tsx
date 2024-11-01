@@ -4,6 +4,8 @@ import NavProvider from '@/app/components/providers/NavProvider';
 import { GeistSans } from 'geist/font/sans';
 import PlausibleProvider from 'next-plausible';
 
+export const revalidate = 86400;
+
 export default async function RootLayout(
   props: Readonly<{
     children: React.ReactNode;

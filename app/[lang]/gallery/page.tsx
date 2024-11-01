@@ -3,6 +3,8 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import GalleryImage from '@/app/components/GalleryImage';
 import checkLanguage from '@/app/utils/checkLanguage';
 
+export const revalidate = 86400;
+
 async function getGalleryImages(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',

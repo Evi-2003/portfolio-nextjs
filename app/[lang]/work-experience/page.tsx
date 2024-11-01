@@ -1,6 +1,8 @@
 import checkLanguage from '@/app/utils/checkLanguage';
 import React from 'react';
 
+export const revalidate = 86400;
+
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
