@@ -5,6 +5,8 @@ import twofeet from '@/app/images/twofeet.jpeg';
 import checkLanguage from '@/app/utils/checkLanguage';
 import Image from 'next/image';
 
+export const revalidate = 86400;
+
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
