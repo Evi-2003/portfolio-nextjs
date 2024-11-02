@@ -83,13 +83,8 @@ async function getBasicInfo(lng: string) {
   return data;
 }
 
-export default async function Home(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const getData = await getBasicInfo(lng);
+export default async function Home() {
+  const getData = await getBasicInfo('en');
   const data = getData.overMij;
 
   return (

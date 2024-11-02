@@ -1,4 +1,3 @@
-import checkLanguage from '@/app/utils/checkLanguage';
 import React from 'react';
 
 async function getSeoData(lng: string) {
@@ -28,7 +27,7 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata() {
-  const metaData = await getSeoData('en');
+  const metaData = await getSeoData('nl');
   return {
     title: metaData.pagina.seoGegevens.title,
     description: metaData.pagina.seoGegevens.description,
@@ -62,14 +61,9 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Werkervaring(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const { allWerkervarings: data } = await getWerkErvaring(lng);
-  const { pagina } = await getSeoData(lng);
+export default async function Werkervaring() {
+  const { allWerkervarings: data } = await getWerkErvaring('nl');
+  const { pagina } = await getSeoData('nl');
 
   return (
     <main className="text-center text-stone-800 dark:text-stone-100">
@@ -119,9 +113,7 @@ export default async function Werkervaring(props: { params: Promise<{ lang: stri
                       month: '2-digit',
                       year: 'numeric',
                     })
-                  : lng === 'en'
-                    ? 'Present'
-                    : 'Heden'}
+                  : 'Heden'}
               </span>
             </li>
           ),

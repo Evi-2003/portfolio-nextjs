@@ -109,14 +109,14 @@ async function getProject(slug: string, lng: string) {
   return data;
 }
 
-export default async function Projecten(props: { params: Promise<{ slug: string; lang: string }> }) {
+export default async function Projecten(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
 
-  const { slug, lang } = params;
+  const { slug } = params;
 
   const slugSplitted = slug.split('/');
-  const lng = checkLanguage(lang);
-  const getData = await getProject(slugSplitted[0], lng);
+
+  const getData = await getProject(slugSplitted[0], 'en');
   const data = getData.projecten;
 
   return (
@@ -125,8 +125,8 @@ export default async function Projecten(props: { params: Promise<{ slug: string;
         dark:text-white"
     >
       <div className="col-span-full row-start-1 text-sm">
-        <Link href={`/${lng === 'nl' ? 'nl-NL' : 'en-US'}/projects`} prefetch>
-          {lng === 'en' ? 'Projects' : 'Projecten'}
+        <Link href={'/en-US/projects'} prefetch>
+          Projects
         </Link>
         <span className="mx-2">/</span>
         <span>{data.title}</span>

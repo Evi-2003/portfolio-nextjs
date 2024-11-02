@@ -1,4 +1,3 @@
-import checkLanguage from '@/app/utils/checkLanguage';
 import React from 'react';
 
 async function getSeoData(lng: string) {
@@ -62,14 +61,9 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Werkervaring(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const { allWerkervarings: data } = await getWerkErvaring(lng);
-  const { pagina } = await getSeoData(lng);
+export default async function Werkervaring() {
+  const { allWerkervarings: data } = await getWerkErvaring('en');
+  const { pagina } = await getSeoData('en');
 
   return (
     <main className="text-center text-stone-800 dark:text-stone-100">
@@ -119,9 +113,7 @@ export default async function Werkervaring(props: { params: Promise<{ lang: stri
                       month: '2-digit',
                       year: 'numeric',
                     })
-                  : lng === 'en'
-                    ? 'Present'
-                    : 'Heden'}
+                  : 'Present'}
               </span>
             </li>
           ),

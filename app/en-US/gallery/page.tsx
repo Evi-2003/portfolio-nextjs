@@ -97,28 +97,21 @@ export async function generateMetadata(props: { params: Promise<{ lang: string }
   };
 }
 
-const Page = async (props: { params: Promise<{ lang: string }> }) => {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const { allAfbeeldings } = await getGalleryImages(lng);
+const Page = async () => {
+  const { allAfbeeldings } = await getGalleryImages('en');
 
   Fancybox.bind('[data-fancybox="gallery"]', {});
 
   return (
     <main className="flex w-5/6 flex-col dark:text-stone-100">
-      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">
-        {lng === 'en' ? 'Gallery' : 'Galerij'}
-      </h1>
+      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">Gallery</h1>
 
       <div className="flex justify-between">
         <span
           className="row-start-1 mb-2 w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-black
             opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100"
         >
-          {`${lng === 'en' ? 'Used camera:' : 'Gebruikte camera:'} Pentax ME Super`}
+          Used camera: Pentax ME Super
         </span>
       </div>
 
@@ -140,7 +133,7 @@ const Page = async (props: { params: Promise<{ lang: string }> }) => {
             <span
               className={`${index > 0 && 'my-2'} col-span-full row-start-1 w-fit self-center rounded-full bg-stone-300
               px-3 py-1 text-left text-black opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100`}
-            >{`${lng === 'en' ? 'Used film:' : 'Gebruikte fotorol:'} ${collection.fotorolletje}`}</span>
+            >{`Used film: ${collection.fotorolletje}`}</span>
 
             {collection.cloudflareAfbeeldingen.map((image: { imageId: string }, indexCloudflare: number) => (
               <GalleryImage
