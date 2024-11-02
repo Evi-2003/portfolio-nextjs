@@ -4,16 +4,11 @@ import NavProvider from '@/app/components/providers/NavProvider';
 import { GeistSans } from 'geist/font/sans';
 import PlausibleProvider from 'next-plausible';
 
-export const revalidate = 86400;
-
 export default async function RootLayout(
   props: Readonly<{
     children: React.ReactNode;
-    params: { lang: string };
   }>,
 ) {
-  const params = await props.params;
-
   const { children } = props;
 
   return (
@@ -30,7 +25,7 @@ export default async function RootLayout(
             className={`flex min-h-screen flex-col items-center bg-gradient-to-b from-white to-gray-100 pb-5
               dark:from-neutral-900 dark:to-neutral-950 ${GeistSans.className}`}
           >
-            <Header lng={params.lang} />
+            <Header lng={'en-US'} />
             {children}
           </body>
         </html>

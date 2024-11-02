@@ -1,8 +1,6 @@
 import checkLanguage from '@/app/utils/checkLanguage';
 import { Image as ResponsiveImage, StructuredText } from 'react-datocms';
 
-export const revalidate = 86400;
-
 async function getSeoData(lng: string) {
   if (!process.env.DATO_CMS_URL) {
     throw new Error('DatoCMS URL is not defined in environment variables.');
