@@ -9,7 +9,11 @@ const LanguageDropdown = () => {
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const slug = params.split('/')[2];
 
-    router.push(`/${event.target.value}/${slug ?? ''}`);
+    if (event.target.value === 'en-US') {
+      router.push(`/${slug ?? ''}`);
+    } else {
+      router.push(`/${event.target.value}/${slug ?? ''}`);
+    }
   };
 
   return (

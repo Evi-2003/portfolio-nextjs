@@ -17,7 +17,11 @@ const NavItem = ({ label, slug, idx }: { label: string; slug: string; idx: numbe
       onClick={() => toggleIsOpen()}
       className={path === slug.slice(1) || (!path && idx === 0) ? 'active rounded-xl px-2 py-2' : 'px-2 py-2'}
     >
-      <Link href={`/${currentLang}/${slug.slice(1)}`} className="hover:underline" prefetch={true}>
+      <Link
+        href={`${currentLang === 'en-US' ? '' : `/${currentLang}`}/${slug.slice(1)}`}
+        className="hover:underline"
+        prefetch={true}
+      >
         {label}
       </Link>
     </li>
