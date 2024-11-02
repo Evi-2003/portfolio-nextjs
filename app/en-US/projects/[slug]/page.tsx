@@ -1,4 +1,3 @@
-import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { StructuredText } from 'react-datocms';
 
@@ -53,11 +52,9 @@ async function getSeoData(slug: string, lng: string) {
 export async function generateMetadata(props: { params: Promise<{ lang: string; slug: string }> }) {
   const params = await props.params;
 
-  const { lang, slug } = params;
+  const { slug } = params;
 
-  const lng = checkLanguage(lang);
-
-  const metaData = await getSeoData(slug, lng);
+  const metaData = await getSeoData(slug, 'en');
 
   return {
     title: metaData.projecten.seoTitle.title,

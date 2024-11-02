@@ -1,4 +1,3 @@
-import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { StructuredText } from 'react-datocms';
 
@@ -50,14 +49,12 @@ async function getSeoData(slug: string, lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string; slug: string }> }) {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
 
-  const { lang, slug } = params;
+  const { slug } = params;
 
-  const lng = checkLanguage(lang);
-
-  const metaData = await getSeoData(slug, lng);
+  const metaData = await getSeoData(slug, 'nl');
 
   return {
     title: metaData.projecten.seoTitle.title,
@@ -112,11 +109,11 @@ async function getProject(slug: string, lng: string) {
 export default async function Projecten(props: { params: Promise<{ slug: string; lang: string }> }) {
   const params = await props.params;
 
-  const { slug, lang } = params;
+  const { slug } = params;
 
   const slugSplitted = slug.split('/');
-  const lng = checkLanguage(lang);
-  const getData = await getProject(slugSplitted[0], lng);
+
+  const getData = await getProject(slugSplitted[0], 'nl');
   const data = getData.projecten;
 
   return (
@@ -125,8 +122,8 @@ export default async function Projecten(props: { params: Promise<{ slug: string;
         dark:text-white"
     >
       <div className="col-span-full row-start-1 text-sm">
-        <Link href={`/${lng === 'nl' ? 'nl-NL' : 'en-US'}/projects`} prefetch>
-          {lng === 'en' ? 'Projects' : 'Projecten'}
+        <Link href={'/nl-NL/projects'} prefetch>
+          Projecten
         </Link>
         <span className="mx-2">/</span>
         <span>{data.title}</span>

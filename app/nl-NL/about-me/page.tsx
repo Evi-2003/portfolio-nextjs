@@ -2,7 +2,6 @@ import froukje from '@/app/images/froukje-cover.png';
 import glassanimals from '@/app/images/glassanimals.jpeg';
 import s10 from '@/app/images/s10.jpeg';
 import twofeet from '@/app/images/twofeet.jpeg';
-import checkLanguage from '@/app/utils/checkLanguage';
 import Image from 'next/image';
 
 async function getSeoData(lng: string) {
@@ -30,13 +29,8 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const metaData = await getSeoData(lng);
+export async function generateMetadata() {
+  const metaData = await getSeoData('nl');
 
   return {
     title: metaData.pagina.seoGegevens.title,

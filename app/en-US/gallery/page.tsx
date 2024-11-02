@@ -1,7 +1,6 @@
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import GalleryImage from '@/app/components/GalleryImage';
-import checkLanguage from '@/app/utils/checkLanguage';
 
 async function getGalleryImages(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -83,13 +82,8 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const metaData = await getSeoData(lng);
+export async function generateMetadata() {
+  const metaData = await getSeoData('en');
 
   return {
     title: metaData.pagina.seoGegevens.title,
