@@ -1,18 +1,18 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const LanguageDropdown = () => {
   const params = usePathname();
-  const router = useRouter();
 
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const slug = params.split('/')[2];
 
+    // Because of a current bug with router.push, i will use window.location.href, it might be dirty, but it's a good enough fix for now
     if (event.target.value === 'en-US') {
-      router.push(`/${slug ?? ''}`);
+      window.location.href = `/${slug ?? ''}`;
     } else {
-      router.push(`/${event.target.value}/${slug ?? ''}`);
+      window.location.href = `/${event.target.value}/${slug ?? ''}`;
     }
   };
 
