@@ -1,7 +1,4 @@
-import checkLanguage from '@/app/utils/checkLanguage';
 import { Image as ResponsiveImage, StructuredText } from 'react-datocms';
-
-export const revalidate = 86400;
 
 async function getSeoData(lng: string) {
   if (!process.env.DATO_CMS_URL) {
@@ -31,13 +28,8 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const metaData = await getSeoData(lng);
+export async function generateMetadata() {
+  const metaData = await getSeoData('nl');
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -85,13 +77,8 @@ async function getBasicInfo(lng: string) {
   return data;
 }
 
-export default async function Home(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const getData = await getBasicInfo(lng);
+export default async function Home() {
+  const getData = await getBasicInfo('nl');
   const data = getData.overMij;
 
   return (

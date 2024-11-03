@@ -14,7 +14,7 @@ const CloudflareImage = ({
   width: number;
   height: number;
   className?: string;
-  title: string;
+  title?: string;
 }) => {
   if (!imageId) {
     return <div className={`bg-gray-200 ${className}`} style={{ width, height }} />;
@@ -22,7 +22,7 @@ const CloudflareImage = ({
 
   const imageSrc = `https://imagedelivery.net/MIBm4UuP4Jw-6-_5GPO_5w/${imageId}/public`;
 
-  return <Image src={imageSrc} quality={80} width={width} height={height} className={className} alt={title} />;
+  return <Image src={imageSrc} quality={80} width={width} height={height} className={className} alt={title ?? ''} />;
 };
 
 export default CloudflareImage;

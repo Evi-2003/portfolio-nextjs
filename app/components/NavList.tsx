@@ -25,7 +25,7 @@ const NavList = ({
     <>
       <ul className="flex items-center justify-between">
         <li onClick={() => isNavOpen && toggleIsOpen()}>
-          <Link href={`/${lng}`} className="text-2xl font-bold lg:self-center dark:text-white">
+          <Link href={`${lng === 'en' ? '/' : '/nl-NL'}`} className="text-2xl font-bold lg:self-center dark:text-white">
             &lt;evi-wammes/&gt;
           </Link>
         </li>

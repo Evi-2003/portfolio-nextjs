@@ -1,9 +1,6 @@
 import CloudflareImage from '@/app/components/CloudflareImage';
-import checkLanguage from '@/app/utils/checkLanguage';
 import Link from 'next/link';
 import { Image as ResponsiveImage } from 'react-datocms';
-
-export const revalidate = 86400;
 
 async function getSeoData(lng: string) {
   if (!process.env.DATO_CMS_URL) {
@@ -34,13 +31,8 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const metaData = await getSeoData(lng);
+export async function generateMetadata() {
+  const metaData = await getSeoData('en');
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -87,14 +79,9 @@ async function getWerkErvaring(lng: string) {
   return data;
 }
 
-export default async function Projecten(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const getData = await getWerkErvaring(lng);
-  const { pagina } = await getSeoData(lng);
+export default async function Projecten() {
+  const getData = await getWerkErvaring('en');
+  const { pagina } = await getSeoData('en');
   const data = getData.allProjectens;
 
   return (

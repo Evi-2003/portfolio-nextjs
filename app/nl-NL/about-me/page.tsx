@@ -2,10 +2,7 @@ import froukje from '@/app/images/froukje-cover.png';
 import glassanimals from '@/app/images/glassanimals.jpeg';
 import s10 from '@/app/images/s10.jpeg';
 import twofeet from '@/app/images/twofeet.jpeg';
-import checkLanguage from '@/app/utils/checkLanguage';
 import Image from 'next/image';
-
-export const revalidate = 86400;
 
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -32,13 +29,8 @@ async function getSeoData(lng: string) {
   return data;
 }
 
-export async function generateMetadata(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const metaData = await getSeoData(lng);
+export async function generateMetadata() {
+  const metaData = await getSeoData('nl');
 
   return {
     title: metaData.pagina.seoGegevens.title,
@@ -68,13 +60,8 @@ async function getOverMij(lng: string) {
   return data;
 }
 
-export default async function overMij(props: { params: Promise<{ lang: string }> }) {
-  const params = await props.params;
-
-  const { lang } = params;
-
-  const lng = checkLanguage(lang);
-  const getData = await getOverMij(lng);
+export default async function overMij() {
+  const getData = await getOverMij('nl');
   const data = getData.overMij;
   return (
     <main className="grid w-4/5 grid-cols-2 gap-2 text-stone-800 lg:w-3/5 2xl:w-6/12 dark:text-stone-100">
@@ -84,9 +71,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
         className="col-span-full row-start-3 flex w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100 px-10
           py-5 pb-10 shadow dark:bg-neutral-800 dark:text-stone-100"
       >
-        <h3 className="mb-2 text-center text-2xl font-semibold">
-          {lng === 'en' ? 'My favorite artists 🎶' : 'Mijn favoriete artiesten 🎶'}
-        </h3>
+        <h3 className="mb-2 text-center text-2xl font-semibold">Mijn favoriete artiesten 🎶</h3>
         <ul className="flex flex-col items-center justify-center gap-10 lg:flex-row">
           <li className="h-44 w-44 text-center font-bold hover:scale-95">
             <a
@@ -151,9 +136,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
         className="col-span-full row-start-4 flex h-fit flex-col justify-start space-y-2 rounded-lg bg-slate-100 px-10
           py-5 pb-10 shadow lg:col-span-1 dark:bg-neutral-800 dark:text-stone-100"
       >
-        <h3 className="mb-2 text-center text-2xl font-semibold">
-          {lng === 'en' ? 'My favorite songs 🔊' : 'Mijn favoriete nummers 🔊'}
-        </h3>
+        <h3 className="mb-2 text-center text-2xl font-semibold">Mijn favoriete nummers 🔊</h3>
         <ul className="flex flex-col items-center justify-center gap-1">
           <li>
             <iframe
@@ -197,9 +180,7 @@ export default async function overMij(props: { params: Promise<{ lang: string }>
         className="col-span-full row-start-5 flex h-fit w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100
           px-10 py-5 pb-10 shadow lg:col-start-2 lg:row-start-4 dark:bg-neutral-800 dark:text-stone-100"
       >
-        <h3 className="mb-2 text-center text-2xl font-semibold">
-          {lng === 'en' ? 'Great music 🎧' : 'Goeie muziek 🎧'}
-        </h3>
+        <h3 className="mb-2 text-center text-2xl font-semibold">Goeie muziek 🎧</h3>
         <iframe
           src="https://open.spotify.com/embed/playlist/6R7LQidnLidYgzdZzINase?utm_source=generator&theme=0"
           width="100%"
