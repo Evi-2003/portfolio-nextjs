@@ -156,7 +156,10 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
         )}
       </div>
 
-      <div className="col-span-full text-balance text-base text-stone-800 lg:w-4/5 dark:text-stone-100">
+      <div
+        id="blog-content"
+        className="col-span-full text-balance text-base text-stone-800 lg:w-4/5 dark:text-stone-100"
+      >
         <StructuredText data={data?.contentNew} />
       </div>
     </main>
