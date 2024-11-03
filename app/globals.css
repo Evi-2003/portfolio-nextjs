@@ -40,3 +40,7 @@ div p a {
 #blog-content hr {
   margin: 15px 0px;
 }
+
+pre {
+  overflow: scroll;
+}
