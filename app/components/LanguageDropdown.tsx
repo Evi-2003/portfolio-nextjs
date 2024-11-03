@@ -4,15 +4,21 @@ import { usePathname } from 'next/navigation';
 
 const LanguageDropdown = () => {
   const params = usePathname();
+  const allowedLanguages = ['en-US', 'nl-NL'];
 
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const slug = params.split('/')[2];
 
     // Because of a current bug with router.push, i will use window.location.href, it might be dirty, but it's a good enough fix for now
-    if (event.target.value === 'en-US') {
-      window.location.href = `/${slug ?? ''}`;
+    const selectedLanguage = event.target.value;
+    if (allowedLanguages.includes(selectedLanguage)) {
+      if (selectedLanguage === 'en-US') {
+        window.location.href = `/${slug ?? ''}`;
+      } else {
+        window.location.href = `/${selectedLanguage}/${slug ?? ''}`;
+      }
     } else {
-      window.location.href = `/${event.target.value}/${slug ?? ''}`;
+      console.error('Invalid language selected');
     }
   };
 
