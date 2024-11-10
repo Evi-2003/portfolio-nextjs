@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 async function getSeoData(lng: string) {
@@ -45,13 +46,17 @@ async function getWerkErvaring(lng: string) {
       query: `
         query getWerkErvaring {
           allWerkervarings(locale: ${lng}) {
-            bedrijf
-            
+            bedrijf 
             bedrijfsWebsite
             startdatum
             einddatum
             functie
             id
+            shortText
+            icon {
+             alt
+             url
+            }
           }
         }
     `,
@@ -68,26 +73,49 @@ export default async function Werkervaring() {
   return (
     <main className="text-center text-stone-800 dark:text-stone-100">
       <h1 className="mb-5 text-4xl font-bold">{pagina.label}</h1>
-      <ul
-        className="werkvaring-list mx-10 space-x-5 space-y-5 border-l-[3px] border-solid border-black text-left
-          dark:border-white"
-        id="werkervaring-list"
-      >
-        {data.map(
-          (element: {
-            bedrijf: string;
-            bedrijfsWebsite: string;
-            startdatum: string;
-            einddatum: string;
-            functie: string;
-            id: string;
-          }) => (
-            <li key={element.id}>
-              <figure className="absolute -ml-[1.85rem] h-4 w-4 rounded-full bg-black dark:bg-white"></figure>
-              <h3 className="text-xl">{element.functie}</h3>
-              <h4 className="text-lg">
+      <div className="pl mx-5 max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
+        <ul className="divide-y divide-stone-900/30 pl-5 text-left dark:divide-stone-100/30">
+          {data.map(
+            (element: {
+              bedrijf: string;
+              bedrijfsWebsite: string;
+              startdatum: string;
+              einddatum: string;
+              functie: string;
+              id: string;
+              shortText: string;
+              icon: {
+                url: string;
+                alt: string;
+                responsiveImage: {
+                  width: number;
+                  alt: string;
+                  src: string;
+                  title: string;
+                  webpSrcSet: string;
+                  srcSet: string;
+                };
+              };
+            }) => (
+              <li className="gap flex flex-col pt-3" key={element.id}>
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-medium leading-6">{element.functie}</span>
+                  <span className="whitespace-nowrap text-base opacity-60">
+                    {new Date(element.startdatum).toLocaleDateString('nl-NL', {
+                      month: '2-digit',
+                      year: 'numeric',
+                    })}{' '}
+                    -{' '}
+                    {element.einddatum
+                      ? new Date(element.einddatum).toLocaleDateString('nl-NL', {
+                          month: '2-digit',
+                          year: 'numeric',
+                        })
+                      : 'Heden'}
+                  </span>
+                </div>
                 <a
-                  className="text-lg hover:underline"
+                  className="gap gap flex items-center gap-2 text-lg opacity-80 hover:underline"
                   href={element.bedrijfsWebsite}
                   aria-label={
                     'Evi Wammes werkt bij ' +
@@ -99,26 +127,23 @@ export default async function Werkervaring() {
                   }
                   target="_blank"
                 >
+                  {element.icon?.url && (
+                    <Image
+                      className="aspect-square size-5 invert dark:invert-0"
+                      src={element.icon.url}
+                      alt={element.icon.alt}
+                      width={20}
+                      height={20}
+                    />
+                  )}
                   {element.bedrijf}
                 </a>
-              </h4>
-              <span className="text-base font-bold opacity-60">
-                {new Date(element.startdatum).toLocaleDateString('en-US', {
-                  month: '2-digit',
-                  year: 'numeric',
-                })}{' '}
-                -{' '}
-                {element.einddatum
-                  ? new Date(element.einddatum).toLocaleDateString('en-US', {
-                      month: '2-digit',
-                      year: 'numeric',
-                    })
-                  : 'Heden'}
-              </span>
-            </li>
-          ),
-        )}
-      </ul>
+                <p className="-mt-[0.2px] text-balance pb-1 text-base opacity-60">{element.shortText}</p>
+              </li>
+            ),
+          )}
+        </ul>
+      </div>
     </main>
   );
 }

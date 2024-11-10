@@ -14,13 +14,6 @@ html.dark li.active {
 iframe {
   border-radius: 12px;
 }
-#werkervaring-list li:first-of-type {
-  margin-left: 20px;
-}
-
-ol {
-  list-style-type: decimal;
-}
 
 div p {
   margin: revert;
@@ -32,8 +25,8 @@ div p a {
 }
 
 #blog-content h2 {
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.75rem; /* 28px */
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 600;
 }
 
