@@ -18,7 +18,7 @@
   "dependencies": {
     "@calcom/embed-react": "^1.5.1",
     "@fancyapps/ui": "^5.0.36",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^8.10.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-import": "^2.31.0",
