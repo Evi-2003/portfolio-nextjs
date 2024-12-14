@@ -71,9 +71,9 @@ export default async function Werkervaring() {
   const { pagina } = await getSeoData('nl');
 
   return (
-    <main className="text-center text-stone-800 dark:text-stone-100">
+    <div className="mx-auto text-center text-stone-800 dark:text-stone-100">
       <h1 className="mb-5 text-4xl font-bold">{pagina.label}</h1>
-      <div className="pl mx-5 max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
+      <div className="pl mx-5 mx-auto max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
         <ul className="divide-y divide-stone-900/30 pl-5 text-left dark:divide-stone-100/30">
           {data.map(
             (element: {
@@ -144,6 +144,6 @@ export default async function Werkervaring() {
           )}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }

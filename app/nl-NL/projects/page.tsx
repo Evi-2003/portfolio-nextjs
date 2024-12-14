@@ -85,9 +85,8 @@ export default async function Projecten() {
   const data = getData.allProjectens;
 
   return (
-    <main
-      className="grid-rows-auto w-4/5 grid-cols-1 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto lg:w-4/5
-        lg:grid-cols-2 2xl:w-8/12"
+    <div
+      className="grid-rows-auto w-full grid-cols-1 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto lg:grid-cols-2"
     >
       <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 md:mb-0 dark:text-stone-100">
         {pagina.label}
@@ -167,6 +166,6 @@ export default async function Projecten() {
           ),
         )}
       </div>
-    </main>
+    </div>
   );
 }
