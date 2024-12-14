@@ -117,10 +117,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string;
   const data = getData.projecten;
 
   return (
-    <main
-      className="grid h-full w-4/5 auto-rows-min grid-cols-3 justify-start space-y-2 pb-10 text-left lg:w-3/5 2xl:w-4/12
-        dark:text-white"
-    >
+    <div className="grid h-full w-full auto-rows-min grid-cols-3 justify-start space-y-2 pb-10 text-left dark:text-white">
       <div className="col-span-full row-start-1 text-sm">
         <Link href={'/nl-NL/projects'} prefetch>
           Projecten
@@ -162,6 +159,6 @@ export default async function Projecten(props: { params: Promise<{ slug: string;
       >
         <StructuredText data={data?.contentNew} />
       </div>
-    </main>
+    </div>
   );
 }

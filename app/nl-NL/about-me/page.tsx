@@ -64,7 +64,7 @@ export default async function overMij() {
   const getData = await getOverMij('nl');
   const data = getData.overMij;
   return (
-    <main className="grid w-4/5 grid-cols-2 gap-2 text-stone-800 lg:w-3/5 2xl:w-6/12 dark:text-stone-100">
+    <main className="grid w-full grid-cols-2 gap-2 text-stone-800 dark:text-stone-100">
       <h1 className="col-span-full row-start-1 text-4xl font-bold lg:text-4xl">{data.titelOverMijPagina}</h1>
       <h2 className="col-span-full row-start-2 pb-2 text-xl font-medium lg:text-2xl">{data.subtitel}</h2>
       <section

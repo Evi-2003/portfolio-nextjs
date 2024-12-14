@@ -97,7 +97,7 @@ const Page = async () => {
   Fancybox.bind('[data-fancybox="gallery"]', {});
 
   return (
-    <main className="flex w-5/6 flex-col dark:text-stone-100">
+    <main className="flex w-full flex-col dark:text-stone-100">
       <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">Galerij</h1>
 
       <div className="flex justify-between">

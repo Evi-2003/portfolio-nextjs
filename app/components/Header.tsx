@@ -36,7 +36,7 @@ const Header = async ({ lng }: { lng: string }) => {
   const { allPaginas } = await getNavItems(lngFormatted);
 
   return (
-    <header className={'my-10 flex w-full items-center justify-center ' + zenKurenaido.className}>
+    <header className={'my-10 flex w-full max-w-screen-lg items-center justify-between ' + zenKurenaido.className}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -46,7 +46,7 @@ const Header = async ({ lng }: { lng: string }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <nav
-        className="relative flex flex-col items-center justify-center gap-5 rounded-2xl bg-neutral-100 px-3 py-4
+        className="relative flex w-full flex-col items-center justify-between gap-5 rounded-2xl bg-neutral-100 px-3 py-4
           text-stone-950 shadow lg:flex-row dark:bg-neutral-800"
       >
         <NavList allPaginas={allPaginas} lng={lng} />
