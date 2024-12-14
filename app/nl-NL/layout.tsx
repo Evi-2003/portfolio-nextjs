@@ -26,7 +26,7 @@ export default async function RootLayout(
               dark:from-neutral-900 dark:to-neutral-950 ${GeistSans.className}`}
           >
             <Header lng={'nl-NL'} />
-            <main className="mx-auto w-full max-w-screen-lg">{children}</main>
+            <main className="max-w-screen mx-auto w-full">{children}</main>
           </body>
         </html>
       </NavProvider>

@@ -36,7 +36,7 @@ const Header = async ({ lng }: { lng: string }) => {
   const { allPaginas } = await getNavItems(lngFormatted);
 
   return (
-    <header className={'my-10 flex w-full max-w-screen-lg items-center justify-between ' + zenKurenaido.className}>
+    <header className={'max-w-screen my-10 flex w-full items-center justify-between ' + zenKurenaido.className}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
