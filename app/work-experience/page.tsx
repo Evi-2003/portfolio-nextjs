@@ -72,8 +72,8 @@ export default async function Werkervaring() {
 
   return (
     <div className="mx-auto text-center text-stone-800 dark:text-stone-100">
-      <h1 className="mb-5 text-4xl font-bold">{pagina.label}</h1>
-      <div className="pl mx-5 mx-auto max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
+      <h1 className="mb-5 text-3xl font-bold">{pagina.label}</h1>
+      <div className="pl mx-auto max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
         <ul className="divide-y divide-stone-900/30 pl-5 text-left dark:divide-stone-100/30">
           {data.map(
             (element: {
@@ -97,10 +97,10 @@ export default async function Werkervaring() {
                 };
               };
             }) => (
-              <li className="gap flex flex-col pt-3" key={element.id}>
+              <li className="flex flex-col py-3" key={element.id}>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-medium leading-6">{element.functie}</span>
-                  <span className="whitespace-nowrap text-base opacity-60">
+                  <span className="whitespace-nowrap text-sm opacity-50">
                     {new Date(element.startdatum).toLocaleDateString('en-US', {
                       month: '2-digit',
                       year: 'numeric',
@@ -115,7 +115,7 @@ export default async function Werkervaring() {
                   </span>
                 </div>
                 <a
-                  className="gap gap flex items-center gap-2 text-lg opacity-80 hover:underline"
+                  className="flex items-center gap-2 text-base opacity-80 hover:underline"
                   href={element.bedrijfsWebsite}
                   aria-label={
                     'Evi Wammes werkt bij ' +
@@ -129,7 +129,7 @@ export default async function Werkervaring() {
                 >
                   {element.icon?.url && (
                     <Image
-                      className="aspect-square size-5 invert dark:invert-0"
+                      className="aspect-square size-4 invert dark:invert-0"
                       src={element.icon.url}
                       alt={element.icon.alt}
                       width={20}
@@ -138,7 +138,7 @@ export default async function Werkervaring() {
                   )}
                   {element.bedrijf}
                 </a>
-                <p className="-mt-[0.2px] text-balance pb-1 text-base opacity-60">{element.shortText}</p>
+                <p className="text-balance pb-1 text-base opacity-60">{element.shortText}</p>
               </li>
             ),
           )}

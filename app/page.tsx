@@ -84,8 +84,8 @@ export default async function Home() {
   return (
     <div className="grid w-full grid-flow-col grid-cols-1 gap-5">
       <article className="col-start-1 lg:col-span-3">
-        <h1 className="text-4xl font-bold text-stone-800 lg:text-4xl dark:text-stone-100">{data.heading}</h1>
-        <h2 className="text-lg font-medium text-sky-900 lg:text-2xl dark:text-stone-200">{data.functie}</h2>
+        <h1 className="text-3xl font-bold text-stone-800 lg:text-3xl dark:text-stone-100">{data.heading}</h1>
+        <h2 className="text-lg font-medium text-sky-900 lg:text-lg dark:text-stone-200">{data.functie}</h2>
         <div className="text-balance text-base text-stone-800 xl:text-lg dark:text-stone-100">
           <StructuredText data={data?.aboutMe} />
         </div>

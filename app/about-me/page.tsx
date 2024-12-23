@@ -65,7 +65,7 @@ export default async function overMij() {
   const data = getData.overMij;
   return (
     <main className="grid w-full grid-cols-2 gap-2 text-stone-800 dark:text-stone-100">
-      <h1 className="col-span-full row-start-1 text-4xl font-bold lg:text-4xl">{data.titelOverMijPagina}</h1>
+      <h1 className="col-span-full row-start-1 text-3xl font-bold lg:text-3xl">{data.titelOverMijPagina}</h1>
       <h2 className="col-span-full row-start-2 pb-2 text-xl font-medium lg:text-2xl">{data.subtitel}</h2>
       <section
         className="col-span-full row-start-3 flex w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100 px-10

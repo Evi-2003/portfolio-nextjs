@@ -88,7 +88,7 @@ export default async function Projecten() {
     <div
       className="grid-rows-auto w-full grid-cols-1 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto lg:grid-cols-2"
     >
-      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 md:mb-0 dark:text-stone-100">
+      <h1 className="col-span-3 row-span-1 mb-3 text-3xl font-bold text-stone-800 md:mb-0 dark:text-stone-100">
         {pagina.label}
       </h1>
       <div

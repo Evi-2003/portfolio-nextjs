@@ -98,7 +98,7 @@ const Page = async () => {
 
   return (
     <div className="flex w-full flex-col dark:text-stone-100">
-      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 dark:text-stone-100">Gallery</h1>
+      <h1 className="col-span-3 row-span-1 mb-3 text-3xl font-bold text-stone-800 dark:text-stone-100">Gallery</h1>
 
       <div className="flex justify-between">
         <span
@@ -122,10 +122,10 @@ const Page = async () => {
         ) => (
           <div
             key={`image-collection-${collection.fotorolletje}`}
-            className="grid min-h-screen grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 xl:grid-cols-3"
+            className="grid grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 xl:grid-cols-3"
           >
             <span
-              className={`${index > 0 && 'my-2'} col-span-full row-start-1 w-fit self-center rounded-full bg-stone-300
+              className={`${index > 0 && 'mt-2'} col-span-full row-start-1 w-fit self-center rounded-full bg-stone-300
               px-3 py-1 text-left text-black opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100`}
             >{`Used film: ${collection.fotorolletje}`}</span>
 

@@ -125,7 +125,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string;
         <span className="mx-2">/</span>
         <span>{data.title}</span>
       </div>
-      <h1 className="col-span-full row-start-2 text-2xl font-medium sm:text-4xl">{data.title}</h1>
+      <h1 className="col-span-full row-start-2 text-2xl font-medium sm:text-3xl">{data.title}</h1>
       <div className="col-span-full mt-2 flex gap-3">
         <span
           className="w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-xs text-black opacity-80

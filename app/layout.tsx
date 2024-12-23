@@ -17,7 +17,7 @@ export default async function RootLayout(
         <html lang="nl-NL">
           <head>
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
             <link rel="manifest" href="/site.webmanifest" />
           </head>
@@ -26,7 +26,7 @@ export default async function RootLayout(
               md:px-3 dark:from-neutral-900 dark:to-neutral-950 ${GeistSans.className}`}
           >
             <Header lng={'en-US'} />
-            <main className="max-w-screen mx-auto w-full">{children}</main>
+            <main className="mx-auto w-full max-w-screen">{children}</main>
           </body>
         </html>
       </NavProvider>
