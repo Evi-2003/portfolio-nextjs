@@ -2,8 +2,8 @@
 
 import { Fancybox } from '@fancyapps/ui';
 import { Image } from 'react-datocms';
-import { IResponsiveImage } from '../nl-NL/gallery/page';
 import CloudflareImage from './CloudflareImage';
+import { IResponsiveImage } from './Gallery';
 
 const GalleryImage = ({
   responsiveImage,

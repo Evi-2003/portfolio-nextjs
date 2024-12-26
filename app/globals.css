@@ -2,33 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-li.active {
-  background-color: black;
-  color: white;
-}
-html.dark li.active {
-  background-color: white;
-  color: black;
+.img-bg {
+  background: white;
 }
 
-iframe {
-  border-radius: 12px;
-}
-
-div p a {
-  text-decoration: underline;
-}
-
-#blog-content h2 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-}
-
-#blog-content hr {
-  margin: 15px 0px;
-}
-
-pre {
-  overflow: scroll;
+body.dark .img-bg {
+  background: rgb(23 23 23 / 1);
 }

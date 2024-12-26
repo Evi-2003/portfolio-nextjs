@@ -1,5 +1,7 @@
-import Image from 'next/image';
+import { executeQuery } from '@datocms/cda-client';
 import React from 'react';
+import Experience from '../components/Experience';
+import { EDUCATION_QUERY } from '../queries/Education';
 
 async function getSeoData(lng: string) {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
@@ -28,10 +30,11 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata() {
-  const metaData = await getSeoData('en');
+  const seoData = await getSeoData('en');
+
   return {
-    title: metaData.pagina.seoGegevens.title,
-    description: metaData.pagina.seoGegevens.description,
+    title: seoData.pagina.seoGegevens.title,
+    description: seoData.pagina.seoGegevens.description,
   };
 }
 
@@ -68,82 +71,14 @@ async function getWerkErvaring(lng: string) {
 
 export default async function Werkervaring() {
   const { allWerkervarings: data } = await getWerkErvaring('en');
-  const { pagina } = await getSeoData('en');
+  const { allEducations } = await executeQuery(EDUCATION_QUERY, {
+    token: process.env.DATO_CMS_API_KEY_READ_ONLY ?? '',
+    environment: 'main',
+  });
 
   return (
-    <div className="mx-auto text-center text-stone-800 dark:text-stone-100">
-      <h1 className="mb-5 text-3xl font-bold">{pagina.label}</h1>
-      <div className="pl mx-auto max-w-md rounded-xl bg-stone-200 py-2 pr-5 dark:bg-stone-900">
-        <ul className="divide-y divide-stone-900/30 pl-5 text-left dark:divide-stone-100/30">
-          {data.map(
-            (element: {
-              bedrijf: string;
-              bedrijfsWebsite: string;
-              startdatum: string;
-              einddatum: string;
-              functie: string;
-              id: string;
-              shortText: string;
-              icon: {
-                url: string;
-                alt: string;
-                responsiveImage: {
-                  width: number;
-                  alt: string;
-                  src: string;
-                  title: string;
-                  webpSrcSet: string;
-                  srcSet: string;
-                };
-              };
-            }) => (
-              <li className="flex flex-col py-3" key={element.id}>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-medium leading-6">{element.functie}</span>
-                  <span className="whitespace-nowrap text-sm opacity-50">
-                    {new Date(element.startdatum).toLocaleDateString('en-US', {
-                      month: '2-digit',
-                      year: 'numeric',
-                    })}{' '}
-                    -{' '}
-                    {element.einddatum
-                      ? new Date(element.einddatum).toLocaleDateString('en-US', {
-                          month: '2-digit',
-                          year: 'numeric',
-                        })
-                      : 'Present'}
-                  </span>
-                </div>
-                <a
-                  className="flex items-center gap-2 text-base opacity-80 hover:underline"
-                  href={element.bedrijfsWebsite}
-                  aria-label={
-                    'Evi Wammes werkt bij ' +
-                    element.bedrijf +
-                    ' vanaf ' +
-                    element.startdatum +
-                    ' tot ' +
-                    element.einddatum
-                  }
-                  target="_blank"
-                >
-                  {element.icon?.url && (
-                    <Image
-                      className="aspect-square size-4 invert dark:invert-0"
-                      src={element.icon.url}
-                      alt={element.icon.alt}
-                      width={20}
-                      height={20}
-                    />
-                  )}
-                  {element.bedrijf}
-                </a>
-                <p className="text-balance pb-1 text-base opacity-60">{element.shortText}</p>
-              </li>
-            ),
-          )}
-        </ul>
-      </div>
+    <div className="mx-auto flex flex-col gap-3 text-center text-stone-800 dark:text-stone-100">
+      <Experience data={data} education={allEducations} />
     </div>
   );
 }

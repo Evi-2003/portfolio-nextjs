@@ -14,7 +14,7 @@ export default async function RootLayout(
   return (
     <PlausibleProvider domain="eviwammes.dev">
       <NavProvider>
-        <html lang="nl-NL">
+        <html lang="en-US">
           <head>
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
@@ -26,7 +26,7 @@ export default async function RootLayout(
               md:px-3 dark:from-neutral-900 dark:to-neutral-950 ${GeistSans.className}`}
           >
             <Header lng={'en-US'} />
-            <main className="mx-auto w-full max-w-screen">{children}</main>
+            <main className="mx-auto w-full max-w-screen-md">{children}</main>
           </body>
         </html>
       </NavProvider>
