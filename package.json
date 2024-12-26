@@ -36,7 +36,8 @@
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
-    "urql": "^4.2.1"
+    "urql": "^4.2.1",
+    "sanitize-html": "^2.14.0"
   },
   "devDependencies": {
     "@types/node": "^20",
