@@ -9,3 +9,11 @@
 body.dark .img-bg {
   background: rgb(23 23 23 / 1);
 }
+
+.hide-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}

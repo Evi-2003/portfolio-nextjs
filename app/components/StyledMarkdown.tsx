@@ -9,6 +9,7 @@ export default function StyledMarkdown({ content }: { content: string | undefine
     <Markdown
       rehypePlugins={[rehypeHighlight]}
       remarkPlugins={[remarkGfm]}
+      className=""
       components={{
         h1: ({ children }) => <h1 className="my-4 text-3xl font-bold">{children}</h1>,
         h2: ({ children }) => <h2 className="my-3 text-2xl font-semibold">{children}</h2>,
@@ -27,7 +28,9 @@ export default function StyledMarkdown({ content }: { content: string | undefine
             {children}
           </a>
         ),
-        pre: ({ children }) => <pre className="ml-3 rounded-md opacity-70">{children}</pre>,
+        pre: ({ children }) => (
+          <pre className="hide-scrollbar ml-3 max-w-[100vw] overflow-x-scroll rounded-md opacity-70">{children}</pre>
+        ),
         hr: () => <hr className="my-4 opacity-10" />,
       }}
     >
