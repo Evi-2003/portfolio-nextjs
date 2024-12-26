@@ -1,10 +1,14 @@
 import Markdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 
 export default function StyledMarkdown({ content }: { content: string | undefined | null }) {
   if (!content) return null;
 
   return (
     <Markdown
+      rehypePlugins={[rehypeHighlight]}
+      remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ children }) => <h1 className="my-4 text-3xl font-bold">{children}</h1>,
         h2: ({ children }) => <h2 className="my-3 text-2xl font-semibold">{children}</h2>,
@@ -16,7 +20,6 @@ export default function StyledMarkdown({ content }: { content: string | undefine
         blockquote: ({ children }) => (
           <blockquote className="my-4 border-l-4 border-gray-300 pl-4 italic">{children}</blockquote>
         ),
-        code: ({ children }) => <code className="rounded bg-gray-200 p-1">{children}</code>,
         em: ({ children }) => <em className="text-base italic">{children}</em>,
         strong: ({ children }) => <strong className="text-base font-bold">{children}</strong>,
         a: ({ children, href }) => (
@@ -24,6 +27,8 @@ export default function StyledMarkdown({ content }: { content: string | undefine
             {children}
           </a>
         ),
+        pre: ({ children }) => <pre className="ml-3 rounded-md opacity-70">{children}</pre>,
+        hr: () => <hr className="my-4 opacity-10" />,
       }}
     >
       {content}
