@@ -1,6 +1,5 @@
 import StyledMarkdown from '@/app/components/StyledMarkdown';
 import Link from 'next/link';
-import { StructuredText } from 'react-datocms';
 
 export async function generateStaticParams() {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
