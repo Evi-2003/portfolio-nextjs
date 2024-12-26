@@ -1,3 +1,4 @@
+import StyledMarkdown from '@/app/components/StyledMarkdown';
 import Link from 'next/link';
 import { StructuredText } from 'react-datocms';
 
@@ -73,32 +74,28 @@ async function getProject(slug: string, lng: string) {
       query: `
       query getProject {
         projecten(filter: {slug: {eq: "${slug}"}}, locale: ${lng}) {
-          id
-          slug
+      slug
+    
           techniekGebruikt
           title
           website
           werkzaamheden
-          content
-              contentNew(locale: ${lng}) {
-      value
-      links
-      blocks
-    }
-          image{
-            responsiveImage(imgixParams: { fit: max, w: 1000, h: 450, auto: format }) {
-        sizes
-        src
-        width
-        height
-        alt
-        title
-        webpSrcSet
-        base64
+          content(markdown: false)
+        
+    image {
+        responsiveImage(imgixParams: { fit: max, w: 1000, h: 450, auto: format }) {
+            sizes
+            src
+            width
+            height
+            alt
+            title
+            webpSrcSet
+            base64
       }
+    }
         }
       }
-    }
     `,
     }),
   }).then((res) => res.json());
@@ -114,6 +111,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
   const slugSplitted = slug.split('/');
 
   const getData = await getProject(slugSplitted[0], 'en');
+  console.log(getData);
   const data = getData.projecten;
 
   return (
@@ -157,7 +155,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
         id="blog-content"
         className="col-span-full text-balance text-base text-stone-800 lg:w-4/5 dark:text-stone-100"
       >
-        <StructuredText data={data?.contentNew} />
+        <StyledMarkdown content={data?.content} />
       </div>
     </div>
   );
