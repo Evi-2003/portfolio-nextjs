@@ -22,7 +22,7 @@ export default async function RootLayout(
             <link rel="manifest" href="/site.webmanifest" />
           </head>
           <body
-            className={`flex min-h-screen flex-col items-center bg-gradient-to-b from-white to-gray-100 px-12 pb-5
+            className={`flex min-h-screen flex-col items-center bg-gradient-to-b from-white to-gray-100 px-6 pb-5
               md:px-3 dark:from-neutral-900 dark:to-neutral-950 ${GeistSans.className}`}
           >
             <Header lng={'en-US'} />

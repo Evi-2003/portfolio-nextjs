@@ -5,5 +5,17 @@ export const markdownToText = (markdown: string) => {
     allowedTags: [], // Remove all HTML tags
     allowedAttributes: {}, // Remove all HTML attributes
   });
-  return sanitizedMarkdown.replace(/^\s*#+\s*/gm, ''); // Remove Markdown headings (e.g., # Heading)
+
+  // Remove all Markdown syntax
+  const plainText = sanitizedMarkdown
+    .replace(/^\s*#+\s*/gm, '') // Remove headings (e.g., # Heading)
+    .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold syntax (e.g., **text**)
+    .replace(/\*(.*?)\*/g, '$1') // Remove italic syntax (e.g., *text*)
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links (e.g., [text](url))
+    .replace(/`(.*?)`/g, '$1') // Remove inline code (e.g., `code`)
+    .replace(/~~(.*?)~~/g, '$1') // Remove strikethrough (e.g., ~~text~~)
+    .replace(/\n+/g, '\n') // Normalize newlines
+    .trim(); // Trim leading/trailing whitespace
+
+  return plainText;
 };
