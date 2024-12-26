@@ -37,7 +37,7 @@ export async function generateMetadata() {
 
 const aboutMe = () => {
   return (
-    <main className="flex w-full flex-col gap-3 text-stone-800 dark:text-stone-100">
+    <div className="flex w-full flex-col gap-3 text-stone-800 dark:text-stone-100">
       <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
         <div
           className="flex h-fit w-full flex-col rounded-lg border border-black/10 bg-neutral-100 p-4
@@ -69,7 +69,7 @@ const aboutMe = () => {
       </div>
 
       <Gallery />
-    </main>
+    </div>
   );
 };
 

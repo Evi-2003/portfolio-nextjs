@@ -46,7 +46,7 @@ const blog = async () => {
   });
 
   return (
-    <main className="flex w-full flex-col gap-2 text-stone-800 dark:text-stone-100">
+    <div className="flex w-full flex-col gap-2 text-stone-800 dark:text-stone-100">
       <h1 className="text-balance text-3xl font-bold">Blog</h1>
       <ul className="flex w-fit min-w-96 max-w-96 flex-col gap-4">
         {result?.allBlogs.map((post) => (
@@ -65,7 +65,7 @@ const blog = async () => {
           </Link>
         ))}
       </ul>
-    </main>
+    </div>
   );
 };
 
