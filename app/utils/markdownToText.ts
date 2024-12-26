@@ -5,6 +5,5 @@ export const markdownToText = (markdown: string) => {
     allowedTags: [], // Remove all HTML tags
     allowedAttributes: {}, // Remove all HTML attributes
   });
-  return sanitizedMarkdown
-    .replace(/^\s*#+\s*/gm, ''); // Remove Markdown headings (e.g., # Heading)
+  return sanitizedMarkdown.replace(/^\s*#+\s*/gm, ''); // Remove Markdown headings (e.g., # Heading)
 };
