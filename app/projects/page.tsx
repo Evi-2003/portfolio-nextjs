@@ -85,46 +85,40 @@ export default async function Projecten() {
   const data = getData.allProjectens;
 
   return (
-    <div
-      className="grid-rows-auto w-full grid-cols-1 text-center sm:grid sm:grid-flow-col sm:auto-rows-auto lg:grid-cols-2"
-    >
-      <h1 className="col-span-3 row-span-1 mb-3 text-4xl font-bold text-stone-800 md:mb-0 dark:text-stone-100">
-        {pagina.label}
-      </h1>
+    <div className="flex w-full flex-col gap-3 text-center">
+      <h1 className="col-span-3 row-span-1 text-3xl font-bold text-stone-800 dark:text-stone-100">{pagina.label}</h1>
+
       <div
-        className="grid-rows-auto col-span-full row-start-2 grid-cols-1 gap-3 space-y-3 text-center sm:grid
-          sm:grid-flow-col sm:auto-rows-auto md:-mt-3 md:space-y-0 lg:grid-cols-2"
+        className="grid-rows-auto col-span-full row-start-2 grid-cols-1 gap-2 space-y-2 text-center sm:grid
+          sm:auto-rows-auto md:space-y-0 lg:grid-cols-2"
       >
         {data.map(
-          (
-            project: {
-              id: string;
-              title: string;
-              techniekGebruikt: string;
-              werkzaamheden: string;
-              website: string;
-              slug: string;
-              imageid?: string;
-              image: {
-                responsiveImage: {
-                  sizes: string;
-                  src: string;
-                  width: number;
-                  height: number;
-                  alt: string;
-                  title: string;
-                  webpSrcSet: string;
-                  base64: string;
-                };
+          (project: {
+            id: string;
+            title: string;
+            techniekGebruikt: string;
+            werkzaamheden: string;
+            website: string;
+            slug: string;
+            imageid?: string;
+            image: {
+              responsiveImage: {
+                sizes: string;
+                src: string;
+                width: number;
+                height: number;
+                alt: string;
+                title: string;
+                webpSrcSet: string;
+                base64: string;
               };
-            },
-            index: number,
-          ) => (
+            };
+          }) => (
             <Link
               href={'projects/' + project.slug}
               key={project.id}
-              className={`self-start col-start-${index % 2 === 0 ? 1 : 2} row-start-${Math.floor(index / 2) + 3} lg:p
-              test-stone-900 grid h-fit auto-rows-auto grid-cols-3 gap-y-2 rounded-xl bg-neutral-100 p-4 hover:shadow-sm
+              className={`lg:p test-stone-900 col-span-1 grid h-fit auto-rows-auto grid-cols-3 gap-y-2 self-start
+              rounded-xl border border-black/10 bg-neutral-100 p-4 hover:shadow-sm dark:border-white/10
               dark:bg-neutral-800 dark:text-stone-100`}
             >
               <div className="col-span-full flex justify-between">
@@ -145,19 +139,22 @@ export default async function Projecten() {
                 </span>
               </div>
               <h2 className="col-span-full row-start-2 w-fit text-left text-lg">{project.title}</h2>
-              <div className="col-span-3 row-start-3 w-full overflow-hidden rounded-2xl border bg-[#F8F8F8]">
+              <div
+                className="col-span-3 row-start-3 inline-block w-full overflow-hidden rounded-2xl border
+                  border-stone-800/10 bg-neutral-100 dark:border-neutral-100/10 dark:bg-neutral-800"
+              >
                 {project.image ? (
                   <ResponsiveImage
                     objectFit="scale-down"
                     data={project.image.responsiveImage}
-                    className="h-80 bg-[#F8F8F8] object-scale-down"
+                    className="img-bg block aspect-video object-scale-down"
                   />
                 ) : (
                   <CloudflareImage
                     imageId={project.imageid}
                     width={1000}
                     height={300}
-                    className="h-80 bg-[#F8F8F8] object-scale-down"
+                    className="img-bg block aspect-video object-scale-down"
                     title={project.title}
                   />
                 )}

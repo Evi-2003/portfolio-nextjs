@@ -6,29 +6,17 @@ import { useContext } from 'react';
 import { NavContext } from './providers/NavProvider';
 
 const NavItem = ({ label, slug, idx }: { label: string; slug: string; idx: number }) => {
-  const currentPath = usePathname();
-  const currentLang = currentPath.split('/')[1];
-  const path = currentPath.split('/')[2];
-
+  const pathname = usePathname();
   const { toggleIsOpen } = useContext(NavContext);
 
   return (
     <li
       onClick={() => toggleIsOpen()}
       className={
-        path === slug.slice(1) ||
-        currentLang === slug.slice(1) ||
-        (!path && !currentLang && idx === 0) ||
-        (currentLang === 'nl-NL' && !path && idx === 0)
-          ? 'active rounded-xl px-2 py-2'
-          : 'px-2 py-2'
+        pathname === slug || (pathname === '/' && idx === 0) ? 'rounded-lg bg-stone-300 p-2 dark:bg-stone-900' : 'p-2'
       }
     >
-      <Link
-        href={`${currentLang === 'nl-NL' ? `/${currentLang}` : ''}/${slug.slice(1)}`}
-        className="hover:underline"
-        prefetch={true}
-      >
+      <Link href={slug} className="hover:underline" prefetch={true}>
         {label}
       </Link>
     </li>

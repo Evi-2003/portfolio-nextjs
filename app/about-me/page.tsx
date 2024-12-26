@@ -1,10 +1,6 @@
-import froukje from '@/app/images/froukje-cover.png';
-import glassanimals from '@/app/images/glassanimals.jpeg';
-import s10 from '@/app/images/s10.jpeg';
-import twofeet from '@/app/images/twofeet.jpeg';
-import Image from 'next/image';
+import Gallery from '../components/Gallery';
 
-async function getSeoData(lng: string) {
+async function getSeoData() {
   const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
     method: 'POST',
     headers: {
@@ -14,8 +10,9 @@ async function getSeoData(lng: string) {
     body: JSON.stringify({
       query: `
       query getSeoData {
-        pagina(filter: {slug: {eq: "about-me"}}, locale: ${lng}) {
+        pagina(filter: {slug: {eq: "about-me"}}) {
           id
+          label
           seoGegevens {
             description
             title
@@ -30,179 +27,50 @@ async function getSeoData(lng: string) {
 }
 
 export async function generateMetadata() {
-  const metaData = await getSeoData('en');
+  const seoData = await getSeoData();
 
   return {
-    title: metaData.pagina.seoGegevens.title,
-    description: metaData.pagina.seoGegevens.description,
+    title: seoData.pagina.seoGegevens.title,
+    description: seoData.pagina.seoGegevens.description,
   };
 }
 
-async function getOverMij(lng: string) {
-  const { data } = await fetch(`${process.env.DATO_CMS_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.DATO_CMS_API_KEY_READ_ONLY}`,
-    },
-    body: JSON.stringify({
-      query: `
-        query getDataAboutMe {
-            overMij(locale: ${lng}) {
-                titelOverMijPagina
-                  subtitel
-            }
-          }
-    `,
-    }),
-  }).then((res) => res.json());
-
-  return data;
-}
-
-export default async function overMij() {
-  const getData = await getOverMij('en');
-  const data = getData.overMij;
+const aboutMe = () => {
   return (
-    <main className="grid w-full grid-cols-2 gap-2 text-stone-800 dark:text-stone-100">
-      <h1 className="col-span-full row-start-1 text-4xl font-bold lg:text-4xl">{data.titelOverMijPagina}</h1>
-      <h2 className="col-span-full row-start-2 pb-2 text-xl font-medium lg:text-2xl">{data.subtitel}</h2>
-      <section
-        className="col-span-full row-start-3 flex w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100 px-10
-          py-5 pb-10 shadow dark:bg-neutral-800 dark:text-stone-100"
-      >
-        <h3 className="mb-2 text-center text-2xl font-semibold">My favorite artists 🎶</h3>
-        <ul className="flex flex-col items-center justify-center gap-10 lg:flex-row">
-          <li className="h-44 w-44 text-center font-bold hover:scale-95">
-            <a
-              href="https://open.spotify.com/artist/1zT9SWCzN45r7oVhy0VYLK?si=WiFVQXTKRmWKtRyiwcQylQ"
-              aria-label="De Spotify van de artiest S10"
-              target="_blank"
-              className="pt-5"
-            >
-              <Image
-                src={s10}
-                alt="Album cover van S10"
-                className="mb-1 h-44 w-44 rounded-lg object-cover shadow hover:shadow-2xl"
-              />
-              S10
-            </a>
-          </li>
-          <li className="h-44 w-44 text-center font-bold hover:scale-95">
-            <a
-              href="https://open.spotify.com/artist/0uBVyPbLZRDNEBiA4fZUlp?si=MX8Fk458R7ucCwaEScXKXA"
-              aria-label="De Spotify van de artiest Froukje"
-              target="_blank"
-            >
-              <Image
-                src={froukje}
-                alt="Album cover van Froukje"
-                className="mb-1 h-44 w-44 rounded-lg object-cover shadow hover:shadow-2xl"
-              />
-              Froukje
-            </a>
-          </li>
-          <li className="h-44 w-44 text-center font-bold hover:scale-95">
-            <a
-              href="https://open.spotify.com/artist/5sWHDYs0csV6RS48xBl0tH?si=XGNrt1KrTPOIHU4V2jVdwQ"
-              aria-label="De Spotify van de artiest Two Feet"
-              target="_blank"
-            >
-              <Image
-                src={twofeet}
-                alt="Album cover van Two feet"
-                className="mb-1 h-44 w-44 rounded-lg object-cover shadow hover:shadow-2xl"
-              />
-              Two Feet
-            </a>
-          </li>
-          <li className="h-44 w-44 text-center font-bold hover:scale-95">
-            <a
-              href="https://open.spotify.com/artist/4yvcSjfu4PC0CYQyLy4wSq?si=RGNvcgmDQj25SltAIUdVZQ"
-              aria-label="De Spotify van de artiest Glass Animals"
-              target="_blank"
-            >
-              <Image
-                src={glassanimals}
-                alt="Album cover van Glass Animals"
-                className="mb-1 h-44 w-44 rounded-lg object-cover shadow hover:shadow-2xl"
-              />
-              Glass Animals
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section
-        className="col-span-full row-start-4 flex h-fit flex-col justify-start space-y-2 rounded-lg bg-slate-100 px-10
-          py-5 pb-10 shadow lg:col-span-1 dark:bg-neutral-800 dark:text-stone-100"
-      >
-        <h3 className="mb-2 text-center text-2xl font-semibold">My favorite songs 🔊</h3>
-        <ul className="flex flex-col items-center justify-center gap-1">
-          <li>
-            <iframe
-              src="https://open.spotify.com/embed/track/5Tq1M5F1nV66RDh5Q1dD3q?utm_source=generator&theme=0"
-              width="100%"
-              height="152"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </li>
-          <li>
-            <iframe
-              src="https://open.spotify.com/embed/track/2u6twH8SHtv37ctUqQ4iEX?utm_source=generator"
-              width="100%"
-              height="152"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </li>
-          <li>
-            <iframe
-              src="https://open.spotify.com/embed/track/7tZdkPtebOG29TzPPHlsem?utm_source=generator&theme=0"
-              width="100%"
-              height="152"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </li>
-          <li>
-            <iframe
-              src="https://open.spotify.com/embed/track/1gk3FhAV07q9Jg77UxnVjX?utm_source=generator"
-              width="100%"
-              height="152"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </li>
-        </ul>
-      </section>
-      <section
-        className="col-span-full row-start-5 flex h-fit w-full flex-col justify-center space-y-2 rounded-lg bg-slate-100
-          px-10 py-5 pb-10 shadow lg:col-start-2 lg:row-start-4 dark:bg-neutral-800 dark:text-stone-100"
-      >
-        <h3 className="mb-2 text-center text-2xl font-semibold">Great music 🎧</h3>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/6R7LQidnLidYgzdZzINase?utm_source=generator&theme=0"
-          width="100%"
-          height="352"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/3LbyOC3bbfdtiiJcDQPkiu?utm_source=generator&theme=0"
-          width="100%"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/01rxlkJVw81NyvZaaukjO8?utm_source=generator&theme=0"
-          width="100%"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </section>
+    <main className="flex w-full flex-col gap-3 text-stone-800 dark:text-stone-100">
+      <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <div
+          className="flex h-fit w-full flex-col rounded-lg border border-black/10 bg-neutral-100 p-4
+            dark:border-white/10 dark:bg-neutral-800 dark:text-stone-100"
+        >
+          <span className="font-semibold">what i love to do:</span>
+          <ul className="list-decimal pl-6">
+            <li>bouldering and lead climbing 🧗‍♂️</li>
+            <li>go to concerts 🎸</li>
+            <li>traveling 🌍</li>
+            <li>coding 💻</li>
+            <li>anything tech related 🤖</li>
+          </ul>
+        </div>
+
+        <div
+          className="flex w-full flex-col rounded-lg border border-black/10 bg-neutral-100 p-4 dark:border-white/10
+            dark:bg-neutral-800 dark:text-stone-100"
+        >
+          <span className="font-semibold">what i really want to do in 2025:</span>
+          <ul className="text list-decimal pl-6">
+            <li>go snowboarding for the first time 🏂</li>
+            <li>go on a vacation! 🌍</li>
+            <li>finding a great internship! 💼</li>
+            <li>meeting alot of new people! 🤝</li>
+            <li>learn a lot more about app development, and performance optimization 💻</li>
+          </ul>
+        </div>
+      </div>
+
+      <Gallery />
     </main>
   );
-}
+};
+
+export default aboutMe;
