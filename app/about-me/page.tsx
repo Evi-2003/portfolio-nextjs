@@ -63,7 +63,7 @@ const aboutMe = () => {
             <li>go on a vacation! 🌍</li>
             <li>finding a great internship! 💼</li>
             <li>meeting alot of new people! 🤝</li>
-            <li>learn a lot more about app development, and performance optimization 💻</li>
+            <li>learn a lot more about development, and performance optimization 💻</li>
           </ul>
         </div>
       </div>
