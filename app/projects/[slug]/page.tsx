@@ -110,7 +110,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
   const slugSplitted = slug.split('/');
 
   const getData = await getProject(slugSplitted[0], 'en');
-  console.log(getData);
+
   const data = getData.projecten;
 
   return (

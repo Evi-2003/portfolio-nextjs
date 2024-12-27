@@ -48,7 +48,7 @@ const blog = async () => {
   return (
     <div className="flex w-full flex-col gap-2 text-stone-800 dark:text-stone-100">
       <h1 className="text-balance text-3xl font-bold">Blog</h1>
-      <ul className="flex w-fit min-w-96 max-w-96 flex-col gap-4">
+      <ul className="flex w-fit max-w-96 flex-col gap-4 md:min-w-96">
         {result?.allBlogs.map((post) => (
           <Link
             prefetch
