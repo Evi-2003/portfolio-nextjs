@@ -25,7 +25,7 @@ const GalleryImage = ({
           : `https://imagedelivery.net/MIBm4UuP4Jw-6-_5GPO_5w/${imageId}/public`
       }
       className={`cursor-pointer overflow-hidden rounded-xl ${index % 2 === 0 ? 'row-span-3' : 'row-span-1'}
-        ${index % 2 !== 0 ? 'col-span-1' : 'col-span-1'}`}
+        ${index % 1 !== 0 ? 'col-span-1' : 'col-span-1'}`}
     >
       {responsiveImage ? (
         <Image objectFit="cover" data={responsiveImage} pictureClassName="object-cover" className="h-full w-full" />
