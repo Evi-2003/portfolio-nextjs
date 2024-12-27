@@ -95,7 +95,7 @@ export default async function Home() {
       </article>
 
       <aside
-        className="aside-info col-span-full flex h-fit w-fit flex-col justify-center gap-3 divide-y self-center
+        className="aside-info col-span-full flex h-fit w-fit flex-col justify-center divide-y self-center
           justify-self-center rounded-lg border lg:col-span-2 dark:divide-white/10 dark:border-white/10"
       >
         <div className="height=[100%] relative w-[100%] pt-5">
