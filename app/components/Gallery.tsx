@@ -101,7 +101,7 @@ const Gallery = async () => {
               <GalleryImage
                 imageId={image.imageId}
                 key={`gallery-image-cloudflare-${index - indexCloudflare}`}
-                index={index}
+                index={indexCloudflare + 1}
               />
             ))}
 
