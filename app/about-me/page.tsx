@@ -59,7 +59,7 @@ const aboutMe = () => {
         >
           <span className="font-semibold">what i really want to do in 2025:</span>
           <ul className="text list-decimal pl-6">
-            <li>go snowboarding for the first time 🏂</li>
+            <li>go snowboarding for the first time 🏂 (✅)</li>
             <li>go on a vacation! 🌍</li>
             <li>finding a great internship! 💼</li>
             <li>meeting alot of new people! 🤝</li>
