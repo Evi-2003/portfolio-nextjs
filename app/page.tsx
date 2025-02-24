@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Image as ResponsiveImage } from 'react-datocms';
 import StyledMarkdown from './components/StyledMarkdown';
 
