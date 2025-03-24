@@ -116,7 +116,7 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
   return (
     <div className="grid h-full w-full auto-rows-min grid-cols-3 justify-start space-y-2 pb-10 text-left dark:text-white">
       <div className="col-span-full row-start-1 text-sm">
-        <Link href={'/en-US/projects'} prefetch>
+        <Link href={'/projects'} prefetch>
           Projects
         </Link>
         <span className="mx-2">/</span>
