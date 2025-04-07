@@ -116,15 +116,6 @@ export default async function Home() {
           </li>
           <li className="flex gap-2">
             <a
-              href="tel:+31640707077"
-              aria-label="Call 06-40707077"
-              className="decoration-stone-900/50 underline-offset-4 hover:underline dark:decoration-stone-100/50"
-            >
-              📞 <span className="sr-only">Phone: </span>06-40707077
-            </a>
-          </li>
-          <li className="flex gap-2">
-            <a
               className="decoration-stone-900/50 underline-offset-4 hover:underline dark:decoration-stone-100/50"
               href="https://maps.app.goo.gl/ARmC54ZH69zgyWVe9"
               aria-label="View location on Google Maps: Amsterdam, NL"
