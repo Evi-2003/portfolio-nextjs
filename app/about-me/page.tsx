@@ -45,7 +45,7 @@ const aboutMe = () => {
         >
           <span className="font-semibold">what i love to do:</span>
           <ul className="list-decimal pl-6">
-            <li>bouldering and lead climbing 🧗‍♂️</li>
+            <li>bouldering 🧗‍♂️</li>
             <li>go to concerts 🎸</li>
             <li>traveling 🌍</li>
             <li>coding 💻</li>
@@ -60,8 +60,8 @@ const aboutMe = () => {
           <span className="font-semibold">what i really want to do in 2025:</span>
           <ul className="text list-decimal pl-6">
             <li>go snowboarding for the first time 🏂 (✅)</li>
+            <li>finding a great internship! 💼 (✅)</li>
             <li>go on a vacation! 🌍</li>
-            <li>finding a great internship! 💼</li>
             <li>meeting alot of new people! 🤝</li>
             <li>learn a lot more about development, and performance optimization 💻</li>
           </ul>
