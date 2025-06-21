@@ -19,7 +19,7 @@
     "@calcom/embed-react": "^1.5.1",
     "@datocms/cda-client": "^0.2.5",
     "@fancyapps/ui": "^5.0.36",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.10.0",
     "date-fns": "^4.1.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
