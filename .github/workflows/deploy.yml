@@ -82,6 +82,10 @@ jobs:
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          DATOCMS_READONLY_TOKEN: ${{ secrets.DATOCMS_READONLY_TOKEN }}
+          DATO_CMS_API_KEY_READ_ONLY: ${{ secrets.DATO_CMS_API_KEY_READ_ONLY }}
+          DATO_CMS_URL: ${{ secrets.DATO_CMS_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
