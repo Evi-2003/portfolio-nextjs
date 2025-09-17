@@ -41,7 +41,7 @@
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "sanitize-html": "^2.14.0",
-    "shiki": "^1.24.4",
+    "shiki": "^1.29.2",
     "urql": "^4.2.1"
   },
   "devDependencies": {
