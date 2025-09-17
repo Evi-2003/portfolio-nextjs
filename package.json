@@ -40,7 +40,7 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
-    "sanitize-html": "^2.14.0",
+    "sanitize-html": "^2.17.0",
     "shiki": "^1.29.2",
     "urql": "^4.2.1"
   },
@@ -48,7 +48,7 @@
     "@types/node": "^24",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/sanitize-html": "^2.13.0",
+    "@types/sanitize-html": "^2.16.0",
     "@u3u/prettier-config": "^5.1.0",
     "eslint": "^8",
     "eslint-config-next": "15.5.3",
