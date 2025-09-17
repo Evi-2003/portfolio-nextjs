@@ -3,6 +3,12 @@
     "next/core-web-vitals",
     "airbnb-typescript"
   ],
+  "ignorePatterns": [
+    "out/**/*",
+    ".next/**/*",
+    "node_modules/**/*",
+    "**/*.min.js"
+  ],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
