@@ -2,12 +2,7 @@
 # yarn lockfile v1
 
 
-"@0no-co/graphql.web@^1.0.1":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@0no-co/graphql.web/-/graphql.web-1.0.11.tgz#035cbc6523af43358b81993f10b13e8d7a79c816"
-  integrity sha512-xuSJ9WXwTmtngWkbdEoopMo6F8NLtjy84UNAMsAr5C3/2SgAL/dEU10TMqTIsipqPQ8HA/7WzeqQ9DEQxSvPPA==
-
-"@0no-co/graphql.web@^1.0.11", "@0no-co/graphql.web@^1.0.5":
+"@0no-co/graphql.web@^1.0.1", "@0no-co/graphql.web@^1.0.11", "@0no-co/graphql.web@^1.0.5":
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/@0no-co/graphql.web/-/graphql.web-1.0.12.tgz#5fab8caaf5e6dae88e31111305f93dfd152de2fb"
   integrity sha512-BTDjjsV/zSPy5fqItwm+KWUfh9CSe9tTtR6rCB72ddtkAxdcHbi4Ir4r/L1Et4lyxmL+i7Rb3m9sjLLi9tYrzA==
@@ -274,10 +269,10 @@
   dependencies:
     "@calcom/embed-core" "1.5.1"
 
-"@datocms/cda-client@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@datocms/cda-client/-/cda-client-0.2.5.tgz#49e89b8b8b5316312e46e0eecebd74052ef9ece1"
-  integrity sha512-oBO4L/roXtUXsQIfweITAW9KSiu4+Hes7gL0h9R8NiM0zfskUkEdllyVqVe7K/dQB5IT2DPJAbFbCaIeSwX8qQ==
+"@datocms/cda-client@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@datocms/cda-client/-/cda-client-0.2.7.tgz#028797e71b6589b96e297c5ccc57d6da8c654072"
+  integrity sha512-0dH411Os2NkjwLJrmrEH+9N2Scne8o7qaYFlil11ma22VBWJsPL9VgK2DwDK7n+3QfE1TA+lNvy4SYmRCYt+Ng==
   dependencies:
     "@0no-co/graphql.web" "^1.0.11"
 
