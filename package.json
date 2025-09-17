@@ -50,7 +50,7 @@
     "@types/sanitize-html": "^2.13.0",
     "@u3u/prettier-config": "^5.1.0",
     "eslint": "^8",
-    "eslint-config-next": "14.2.1",
+    "eslint-config-next": "15.5.3",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
