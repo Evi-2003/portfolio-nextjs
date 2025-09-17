@@ -1,3 +1,11 @@
-Portfolio
+# Portfolio
 
-This portfolio is build with Next.js and Tailwind CSS. It uses Datocms as a headless CMS. The project is deployed on Vercel. It uses Typescript,
+My personal portfolio website.
+
+## Tech Stack
+
+- Next.js
+- TypeScript  
+- Tailwind CSS
+- DatoCMS
+- Deployed on Github Pages
