@@ -511,42 +511,41 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mux/mux-player-react@*":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-3.1.0.tgz#fed522ddb1e7fd59593e320773eab61a7aebe5de"
-  integrity sha512-oJWcRtDNE84KKSi/5tz7CKGHBLA34V9XlLnv30qqVMAvfifa3S0lY82gP41YA0OfYANwp5Sg29bbh3quekusPg==
+"@mux/mux-player-react@>=2.5.0 <3":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.9.1.tgz#d844f7a335195d1f45100432b133b96436f01e42"
+  integrity sha512-1BpMs1J7P+d+/QCf9/mkTk/NPYR6sOskR4Ih0uFZjDAqNUN7/C9Q0FEJ6hF3sFXwAXo50RhnfCzsC5uYx3QHbA==
   dependencies:
-    "@mux/mux-player" "3.1.0"
-    "@mux/playback-core" "0.27.0"
+    "@mux/mux-player" "2.9.1"
+    "@mux/playback-core" "0.25.2"
     prop-types "^15.7.2"
 
-"@mux/mux-player@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-3.1.0.tgz#cb017d427a3676c5e20c51ca58ecdb23a76fcc4f"
-  integrity sha512-vU7HjvM3KLDfMwMfjbotlhjQrakwm9A4zixxtzBdxwDMLKf0FUKiFOGyTGOdsIKNBRVlS5Ffz9ERU+3Hh+XcBQ==
+"@mux/mux-player@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.9.1.tgz#4fb209386ecf855f6c6d6efb12a7caa53de31869"
+  integrity sha512-TAyoUSPTV0IXWGMOknL6O+IeGSEJ8aS154DzyzqZgdd3zDJHM8JpkyNHgtowatMHT2lB6h+qMtWfp4u3ijpo2A==
   dependencies:
-    "@mux/mux-video" "0.22.0"
-    "@mux/playback-core" "0.27.0"
-    media-chrome "~4.2.1"
-    player.style "^0.0.8"
+    "@mux/mux-video" "0.20.2"
+    "@mux/playback-core" "0.25.2"
+    media-chrome "~3.2.5"
 
-"@mux/mux-video@0.22.0":
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.22.0.tgz#7369022d40e8811be540a57ddef547981df01790"
-  integrity sha512-VrY4AVc6KkQcG0EPOtHf7aGXFwO1DTLZKtRRdPCx0KWSAlwR1II5YnHcEAwPbi1Uv94Hykq3Lbjt5dLqRNXKtA==
+"@mux/mux-video@0.20.2":
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.20.2.tgz#09345355ca549fcef5688abd88ee15a44b8f2390"
+  integrity sha512-CqkK9EZZWdQE4U62JKlmWDskirT+D9C4suh2tSqKb2CA/0S4ybbbrVWcCKF7xfadUacfKO1yPsOKbe46F6phVQ==
   dependencies:
-    "@mux/playback-core" "0.27.0"
-    castable-video "~1.1.0"
+    "@mux/playback-core" "0.25.2"
+    castable-video "~1.0.9"
     custom-media-element "~1.3.1"
     media-tracks "~0.3.2"
 
-"@mux/playback-core@0.27.0":
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.27.0.tgz#1bc7496c52c08c6a1c1963761e414882cd39f8c3"
-  integrity sha512-9kzpGRJNXLNMfFV6hvOde2+Uy3HyllwwEt9H5r4gYXOmrivQ6IWIGr9nXrUy7fmNkx6H05W+96zt1GhtBTlSDQ==
+"@mux/playback-core@0.25.2":
+  version "0.25.2"
+  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.25.2.tgz#3a2a95ab88cc3acd192e643f8aa8c4a042583f72"
+  integrity sha512-vrBbCgLHwmPpVxF0QGj+sXHUVXSxgDJJhVm8pxPXEkbw0vjPNHTXgAd/Ty6JA0vZ0ZjoQuAa17AxJ+c02JYeWQ==
   dependencies:
     hls.js "~1.5.11"
-    mux-embed "^5.3.1"
+    mux-embed "~5.2.0"
 
 "@next/env@15.4.7":
   version "15.4.7"
@@ -1375,10 +1374,10 @@ caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001669:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001677.tgz#27c2e2c637e007cfa864a16f7dfe7cde66b38b5f"
   integrity sha512-fmfjsOlJUpMWu+mAAtZZZHz7UEwsUxIIvu1TJfO1HqFQvB/B+ii0xr9B5HpbZY/mC4XZ8SvjHJqtAY6pDPQEog==
 
-castable-video@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/castable-video/-/castable-video-1.1.0.tgz#f578f2f4c3bcfabaa795aface7b7061b8909c491"
-  integrity sha512-64/roq+vieXz8aOEvSs5bohHRym1fxhvHQMZXPn8/s8z0oi7XD5B67fnt9gFyCsfzH8RnuYJ0PxMSYjbMPHOtw==
+castable-video@~1.0.9:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/castable-video/-/castable-video-1.0.10.tgz#503cba7927e3bedb2b1c38707cc194aee1ae3e22"
+  integrity sha512-tJgUv+8/zE191y8EKojvB0eKIyKA9obIttd6Wpdm6x2qBmuwZ7wDgzVCSmf5cN2v9jBiuu0s7O5poz8a8cFX/w==
   dependencies:
     custom-media-element "~1.3.2"
 
@@ -1599,17 +1598,17 @@ datocms-listen@^0.1.9:
   dependencies:
     "@0no-co/graphql.web" "^1.0.1"
 
-datocms-structured-text-generic-html-renderer@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-4.0.1.tgz#618fb80e099eb0db4af064b49489eb33cd4a5ee4"
-  integrity sha512-umEWXyBHP3fo1YsOL7AhFxWrmb2LNxiRV26+C8NMkwoBZ/RbF9+dBaGIBv1D/NeasCjq560hBdm7jqChxxIi/A==
+datocms-structured-text-generic-html-renderer@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-5.1.1.tgz#cc86b3c75819ecc458ab7dd91355a7ae34e3e06b"
+  integrity sha512-OC7k0vT1drg0YPKjdUI/T5o4k7nNGk2176Cr92T/Q1L/Bfdv0eKyETRuQLck1dZk3gCuWVro+KFzlLieCtOiUg==
   dependencies:
-    datocms-structured-text-utils "^4.0.1"
+    datocms-structured-text-utils "^5.1.1"
 
-datocms-structured-text-utils@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-4.0.1.tgz#616f6c76c133adae256a5793df8148be2d5f3297"
-  integrity sha512-2rK4bZfzKpdKw2AZhnnD043QkGOUaJDOUGPrQHo5w4hvU4jTBGGxoaTg4KIb3Q5Yo+XUFvreb+U0+86xdh7I+Q==
+datocms-structured-text-utils@^5.0.0, datocms-structured-text-utils@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-5.1.1.tgz#7e5937abfcc754f26a4d6c5f766ac5fbc65ecff0"
+  integrity sha512-czjqlsQGVGiE3wYiWtG04mdFmMBOmzemHbMXrj7iFMN2/50neZb84RQyAZbcwc6wD+ok02ybgnjBYE3efcmhYQ==
   dependencies:
     array-flatten "^3.0.0"
 
@@ -3415,10 +3414,10 @@ mdast-util-to-string@^4.0.0:
   dependencies:
     "@types/mdast" "^4.0.0"
 
-media-chrome@^4.1.0, media-chrome@~4.2.1:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-4.2.2.tgz#89657d569c0702f451d5db2c05299aa87f515f7e"
-  integrity sha512-+leHKTd4jv2ykyubJQgv0sG/+xcizJI900UdEpiH68vA2gK6RzJM8jRgCMR9S+NtOmonfTPAcBTs97O97oYNjg==
+media-chrome@~3.2.5:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-3.2.5.tgz#657722a216e3c0f877d9522fce7425e25da7e137"
+  integrity sha512-tTsgS7x77Bn4p/wca/Si/7A+Q3z9DzKq0SOkroQvrNMXBVyQasMayDcsKg5Ur5NGsymZfttnJi7tXvVr/tPj8g==
 
 media-tracks@~0.3.2:
   version "0.3.3"
@@ -3776,10 +3775,10 @@ ms@^2.1.1, ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-mux-embed@^5.3.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/mux-embed/-/mux-embed-5.4.1.tgz#f15730f91a60f0272668b80bc4d467fdd885d539"
-  integrity sha512-WsBV/K5tXiXi5pg1Ex65rO8gbHqljdbwfNuDNYVYsV8jZ1pe9leFe9ElSYfVa2nsooCBB196X+FKXlZs9KPYog==
+mux-embed@~5.2.0:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/mux-embed/-/mux-embed-5.2.1.tgz#b2f1d8e7653d7386ff298beabbdf5d4940707baf"
+  integrity sha512-NukHw91xeEVDBeXVDBpi2BvXNix7gSuvdtyvOph5yR/ROn1hHbTlcYWoKQyCyJX9frsF00UROEul+S8wPzU3aQ==
 
 mvdan-sh@^0.10.1:
   version "0.10.1"
@@ -4093,13 +4092,6 @@ pkg-types@^1.0.3, pkg-types@^1.2.0:
     mlly "^1.7.2"
     pathe "^1.1.2"
 
-player.style@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/player.style/-/player.style-0.0.8.tgz#8efd503a62df70b915e466b4b7ea96c1bc7130fc"
-  integrity sha512-ScmFzio3634eEn+ejpkEw13F5xYvnPghtaZz/Kg7QQP78ECrxdjRVqwVPZhUwbYxmg5OIScByOgHfrHpzTtR1Q==
-  dependencies:
-    media-chrome "^4.1.0"
-
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz#89bb63c6fada2c3e90adc4a647beeeb39cc7bf8f"
@@ -4324,15 +4316,15 @@ randexp@0.4.6:
     discontinuous-range "1.0.0"
     ret "~0.1.10"
 
-react-datocms@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.0.3.tgz#72b5fbf2cc1e74f9c8f1b8eb94978e2ce9f8436d"
-  integrity sha512-SMKmwAs/kAZP5qa4G9Ja7S19Nmv8AfK3gkW+elW0QWTR8iHWNoqhDNabsrcJUCRyKb3ahjLqzPpSe/yvcEIBMQ==
+react-datocms@^7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.2.tgz#f87ce6f29fca1ef8eb438f5774c57ee97402999c"
+  integrity sha512-7iSpj7au6LRCDCwCyJEnaoTFHa/jyTKZ20WhabTXfUJganowulSFIJ6Pu1He9eCwcYyvkUO4hSQtcVYnn1Ay8g==
   dependencies:
-    "@mux/mux-player-react" "*"
+    "@mux/mux-player-react" ">=2.5.0 <3"
     datocms-listen "^0.1.9"
-    datocms-structured-text-generic-html-renderer "^4.0.1"
-    datocms-structured-text-utils "^4.0.1"
+    datocms-structured-text-generic-html-renderer "^5.0.0"
+    datocms-structured-text-utils "^5.0.0"
     react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
     use-deep-compare-effect "^1.6.1"
