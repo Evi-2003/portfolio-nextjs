@@ -42,7 +42,7 @@
     "remark-parse": "^11.0.0",
     "sanitize-html": "^2.17.0",
     "shiki": "^1.29.2",
-    "urql": "^4.2.1"
+    "urql": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^24",
