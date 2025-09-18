@@ -24,7 +24,7 @@
     "@typescript-eslint/parser": "^8.10.0",
     "date-fns": "^4.1.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-no-relative-import-paths": "^1.6.1",
     "geist": "^1.5.1",
     "gql.tada": "^1.8.13",
