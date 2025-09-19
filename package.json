@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/node": "^24",
     "@types/react": "^19",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^19",
     "@types/sanitize-html": "^2.16.0",
     "@u3u/prettier-config": "^5.2.0",
     "eslint": "^8",
