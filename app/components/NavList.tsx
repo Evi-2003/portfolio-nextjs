@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useContext } from 'react';
-import DarkModeSwitch from './DarkModeSwitch';
+
 import NavButton from './NavButton';
 import NavItem from './NavItem';
 import { NavContext } from './providers/NavProvider';
@@ -56,16 +56,12 @@ const NavList = ({
       <ul
         className={
           isNavOpen
-            ? `grid w-fit grid-cols-3 flex-col items-center justify-center gap-2 text-center text-xl lg:flex lg:flex-row
+            ? `grid w-fit grid-cols-2 flex-col items-center justify-center gap-2 text-center text-xl lg:flex lg:flex-row
               dark:text-white`
             : 'hidden flex-col gap-2 text-center text-xl lg:flex lg:flex-row dark:text-white'
         }
       >
-        <li>
-          <DarkModeSwitch />
-        </li>
-
-        <li onClick={() => toggleIsOpen()}>
+<li onClick={() => toggleIsOpen()}>
           <Link href="https://github.com/Evi-2003" target="_blank" aria-label="Github van Evi Wammes">
             <button
               className="text-1xl mt-5 w-auto rounded-xl px-3 py-2 font-bold shadow-lg hover:bg-red-500 sm:mt-0
