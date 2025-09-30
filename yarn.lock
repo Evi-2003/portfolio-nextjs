@@ -229,10 +229,10 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.57.1.tgz"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@fancyapps/ui@^6.0.32":
-  version "6.0.32"
-  resolved "https://registry.npmjs.org/@fancyapps/ui/-/ui-6.0.32.tgz"
-  integrity sha512-A+TWnWai/8ixtFBTxcfyle7tgGwE31U3S4DwTgnBgHETMbqvbwB0gOlH4mDshm0rFxtz742CjC8wlo1JlB9wrQ==
+"@fancyapps/ui@^6.0.33":
+  version "6.0.33"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-6.0.33.tgz#cd29faa67617e42b198bd91f7f3e019809bbeafb"
+  integrity sha512-5fEp3cjSv7nbLt8kNLengh/JWFq3rLQlsqsQRL3/RESANrl/AOSlOQSrrIVYj3YkTUh4udwpZZWubp+gF5GPnw==
 
 "@gql.tada/cli-utils@1.7.1":
   version "1.7.1"
