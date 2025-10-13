@@ -21,7 +21,7 @@
     "@fancyapps/ui": "^6.0.34",
     "@tailwindcss/postcss": "^4.1.14",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.1",
     "date-fns": "^4.1.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-import": "^2.32.0",
