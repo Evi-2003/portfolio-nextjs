@@ -28,7 +28,7 @@
     "eslint-plugin-no-relative-import-paths": "^1.6.1",
     "geist": "^1.5.1",
     "gql.tada": "^1.8.13",
-    "next": "^15.5.4",
+    "next": "^15.5.5",
     "next-plausible": "^3.12.4",
     "react": "^19.2.0",
     "react-datocms": "^7.2.3",
