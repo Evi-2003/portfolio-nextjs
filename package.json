@@ -19,7 +19,7 @@
     "@calcom/embed-react": "^1.5.3",
     "@datocms/cda-client": "^0.2.7",
     "@fancyapps/ui": "^6.1.0",
-    "@tailwindcss/postcss": "^4.1.15",
+    "@tailwindcss/postcss": "^4.1.16",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^8.46.2",
     "date-fns": "^4.1.0",
