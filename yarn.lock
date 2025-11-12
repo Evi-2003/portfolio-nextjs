@@ -249,10 +249,10 @@
   resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-6.1.5.tgz#7764aef947e0b1073ec3892aba5c3eb72a4e5976"
   integrity sha512-uFNm+rlrVMD8vqnthVC0l9ME+V8HRUma5LLpkR/2DACUNKSpE8qppcns0ZITcODdUmV/dGxPHTnymihohp2/Og==
 
-"@gql.tada/cli-utils@1.7.1":
-  version "1.7.1"
-  resolved "https://registry.npmjs.org/@gql.tada/cli-utils/-/cli-utils-1.7.1.tgz"
-  integrity sha512-wg5ysZNQxtNQm67T3laVWmZzLpGb7QfyYWZdaUD2r1OjDj5Bgftq7eQlplmH+hsdffjuUyhJw/b5XAjeE2mJtg==
+"@gql.tada/cli-utils@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@gql.tada/cli-utils/-/cli-utils-1.7.2.tgz#3dcdc4baacaed8f499b65b4202fdccdaf7340273"
+  integrity sha512-Qbc7hbLvCz6IliIJpJuKJa9p05b2Jona7ov7+qofCsMRxHRZE1kpAmZMvL8JCI4c0IagpIlWNaMizXEQUe8XjQ==
   dependencies:
     "@0no-co/graphqlsp" "^1.12.13"
     "@gql.tada/internal" "1.0.8"
@@ -2572,14 +2572,14 @@ gopd@^1.0.1, gopd@^1.2.0:
   resolved "https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz"
   integrity sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==
 
-gql.tada@^1.8.13:
-  version "1.8.13"
-  resolved "https://registry.npmjs.org/gql.tada/-/gql.tada-1.8.13.tgz"
-  integrity sha512-fYoorairdPgxtE7Sf1X9/6bSN9Kt2+PN8KLg3hcF8972qFnawwUgs1OLVU8efZMHwL7EBHhhKBhrsGPlOs2lZQ==
+gql.tada@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/gql.tada/-/gql.tada-1.9.0.tgz#94555d50cf6e969db25c8e88bf0b3fe603732bf4"
+  integrity sha512-1LMiA46dRs5oF7Qev6vMU32gmiNvM3+3nHoQZA9K9j2xQzH8xOAWnnJrLSbZOFHTSdFxqn86TL6beo1/7ja/aA==
   dependencies:
     "@0no-co/graphql.web" "^1.0.5"
     "@0no-co/graphqlsp" "^1.12.13"
-    "@gql.tada/cli-utils" "1.7.1"
+    "@gql.tada/cli-utils" "1.7.2"
     "@gql.tada/internal" "1.0.8"
 
 graceful-fs@^4.2.4:
