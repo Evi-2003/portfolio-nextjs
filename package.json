@@ -51,7 +51,7 @@
     "@types/sanitize-html": "^2.16.0",
     "@u3u/prettier-config": "^5.2.0",
     "eslint": "^8",
-    "eslint-config-next": "15.5.6",
+    "eslint-config-next": "15.5.7",
     "postcss": "^8.5.6",
     "prettier": "^3.7.3",
     "tailwindcss": "^4.1.17",
