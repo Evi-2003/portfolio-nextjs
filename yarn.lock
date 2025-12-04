@@ -4519,10 +4519,10 @@ randexp@0.4.6:
     discontinuous-range "1.0.0"
     ret "~0.1.10"
 
-react-datocms@^7.2.3:
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.3.tgz#87d4587a29ecd5837f5c1fc5f57a36c7fb9e0bf9"
-  integrity sha512-gUJJD5J2Dq/VmF3Fi83p8aIqVXoNc5zC1Ikyhs59bygQlaHxPqoHMFcplQ5fFzjCLktOE0CnunVDyfbk/gbtRw==
+react-datocms@^7.2.4:
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.4.tgz#c3daf4532a73a32df2ccd34f0b21b6b99f5e19a2"
+  integrity sha512-ybi4wQD4RF1q22DemqPYWD5laIXjpzGYWcE9u6kJ/CvTPWIzsAMwCttJ7bYOQQ6t9D240/SESFeFBHeuozdcEw==
   dependencies:
     "@mux/mux-player-react" ">=2.5.0 <3"
     datocms-listen "^0.1.9"
