@@ -892,9 +892,9 @@
   integrity sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==
 
 "@types/node@^25":
-  version "25.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.0.0.tgz#c0e0022c3c7b41635c49322e6b3a0279fffa7d62"
-  integrity sha512-rl78HwuZlaDIUSeUKkmogkhebA+8K1Hy7tddZuJ3D0xV8pZSfsYGTsliGUol1JPzu9EKnTxPC4L1fiWouStRew==
+  version "25.0.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.0.2.tgz#411f9dd6cb2bf5ee46aed7199a9f85ca6b068b4e"
+  integrity sha512-gWEkeiyYE4vqjON/+Obqcoeffmk0NF15WSBwSs7zwVA2bAbTaE0SJ7P0WNGoJn8uE7fiaV5a7dKYIJriEqOrmA==
   dependencies:
     undici-types "~7.16.0"
 
@@ -5265,7 +5265,7 @@ tagged-tag@^1.0.0:
   resolved "https://registry.npmjs.org/tagged-tag/-/tagged-tag-1.0.0.tgz"
   integrity sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==
 
-tailwindcss@4.1.18, tailwindcss@^4.1.17:
+tailwindcss@4.1.18, tailwindcss@^4.1.18:
   version "4.1.18"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.18.tgz#f488ba47853abdb5354daf9679d3e7791fc4f4e3"
   integrity sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==
@@ -5297,11 +5297,6 @@ tailwindcss@^3.1.8, tailwindcss@^3.3.2:
     postcss-selector-parser "^6.0.11"
     resolve "^1.22.2"
     sucrase "^3.32.0"
-
-tailwindcss@^4.1.18:
-  version "4.1.18"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.18.tgz#f488ba47853abdb5354daf9679d3e7791fc4f4e3"
-  integrity sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==
 
 tapable@^2.2.0:
   version "2.2.1"
