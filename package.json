@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
-    "@datocms/cda-client": "^0.2.7",
+    "@datocms/cda-client": "^0.2.9",
     "@fancyapps/ui": "^6.1.7",
     "@tailwindcss/postcss": "^4.1.18",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
