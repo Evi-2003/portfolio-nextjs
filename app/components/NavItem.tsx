@@ -16,7 +16,7 @@ const NavItem = ({ label, slug, idx }: { label: string; slug: string; idx: numbe
         pathname === slug || (pathname === '/' && idx === 0) ? 'rounded-lg bg-stone-300 p-2 dark:bg-stone-900' : 'p-2'
       }
     >
-      <Link href={slug} className="hover:underline" prefetch={true}>
+      <Link href={slug} className="hover:underline">
         {label}
       </Link>
     </li>

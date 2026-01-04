@@ -87,9 +87,7 @@ const SinglePost = async ({ params }: { params: Promise<{ slug: string }> }) => 
         <span className="mx-2">/</span>
         <span>{post?.title}</span>
       </div>
-
       <h1 className="col-span-full row-start-2 text-2xl font-semibold sm:text-3xl">{post?.title}</h1>
-
       <div
         className="col-span-full !-mt-1 flex flex-col text-balance text-base text-stone-800 lg:w-4/5 dark:text-stone-100"
       >

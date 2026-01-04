@@ -143,13 +143,12 @@ export default async function Projecten(props: { params: Promise<{ slug: string 
             className="col-start-3 row-start-2 w-fit self-center rounded-full bg-stone-300 px-3 py-1 text-left text-xs
               text-black opacity-80 dark:bg-stone-700 dark:text-white dark:opacity-100"
           >
-            <a href={`https://${data.website}`} target="_blank">
+            <Link href={`https://${data.website}`} target="_blank">
               {data.website}
-            </a>
+            </Link>
           </span>
         )}
       </div>
-
       <div
         id="blog-content"
         className="col-span-full text-balance text-base text-stone-800 lg:w-4/5 dark:text-stone-100"

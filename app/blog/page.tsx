@@ -51,7 +51,6 @@ const blog = async () => {
       <ul className="flex w-fit max-w-96 flex-col gap-4 md:min-w-96">
         {result?.allBlogs.map((post) => (
           <Link
-            prefetch
             key={post.slug}
             href={`/blog/${post.slug}`}
             className="opacity-80 transition-opacity hover:opacity-100"

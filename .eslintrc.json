@@ -1,7 +1,6 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "airbnb-typescript"
+    "next/core-web-vitals"
   ],
   "ignorePatterns": [
     "out/**/*",
@@ -36,7 +35,6 @@
       }
     }
   ],
-  "plugins": ["no-relative-import-paths"],
   "rules": {
     "import/no-unresolved": [
       "error",

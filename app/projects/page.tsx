@@ -133,9 +133,7 @@ export default async function Projecten() {
                   className="col-start-3 row-start-1 w-fit self-center justify-self-end text-right text-xs opacity-70
                     lg:text-sm"
                 >
-                  <a href={`https://${project.website}`} target="_blank">
                     {project.website}
-                  </a>
                 </span>
               </div>
               <h2 className="col-span-full row-start-2 w-fit text-left text-lg">{project.title}</h2>
