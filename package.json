@@ -18,7 +18,7 @@
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
     "@datocms/cda-client": "^0.2.10",
-    "@fancyapps/ui": "^6.1.11",
+    "@fancyapps/ui": "^6.1.12",
     "@tailwindcss/postcss": "^4.2.0",
     "date-fns": "^4.1.0",
     "geist": "^1.7.0",
