@@ -47,7 +47,7 @@
     "@types/sanitize-html": "^2.16.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
-    "@u3u/prettier-config": "^4.2.0",
+    "@u3u/prettier-config": "^5.2.0",
     "eslint": "^10.0.2",
     "eslint-config-next": "^16.1.6",
     "eslint-plugin-import": "^2.32.0",
