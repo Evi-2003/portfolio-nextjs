@@ -97,8 +97,13 @@ export default async function Home() {
         className="aside-info col-span-full flex h-fit w-fit flex-col justify-center divide-y divide-black/20 self-center
           justify-self-center rounded-lg border border-black/20 lg:col-span-2 dark:divide-white/10 dark:border-white/10"
       >
-        <div className="height=[100%] relative w-[100%] pt-5">
-          <ResponsiveImage data={data.foto.responsiveImage} />
+        <div className="height-[100%] relative w-[100%]">
+          <ResponsiveImage
+            data={data.foto.responsiveImage}
+            style={{
+              maxWidth: 'initial',
+            }}
+          />
         </div>
 
         <ul
