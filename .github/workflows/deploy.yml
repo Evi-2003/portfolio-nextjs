@@ -33,7 +33,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content=eyes
-          gh pr comment ${{ github.event.issue.number }} --body "🧪 Running Chromatic..."
+          gh pr comment ${{ github.event.issue.number }} --body "🧪 Running Chromatic..." --repo ${{ github.repository }}
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -99,14 +99,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment ${{ github.event.issue.number }} --body "✅ Build complete!"
+          gh pr comment ${{ github.event.issue.number }} --body "✅ Build complete!" --repo ${{ github.repository }}
 
       - name: Comment failure
         if: github.event_name == 'issue_comment' && failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment ${{ github.event.issue.number }} --body "❌ Build failed. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+          gh pr comment ${{ github.event.issue.number }} --body "❌ Build failed. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" --repo ${{ github.repository }}
 
   deploy:
     environment:
