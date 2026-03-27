@@ -24,7 +24,7 @@ jobs:
     environment: github-pages
     if: |
       github.event_name != 'issue_comment' ||
-      (github.event.issue.pull_request && startsWith(github.event.comment.body, '/deploy'))
+      (github.event.issue.pull_request && startsWith(github.event.comment.body, '@Chromatic test'))
     steps:
       - name: Checkout
         uses: actions/checkout@v4
