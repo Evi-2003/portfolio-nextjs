@@ -2,38 +2,34 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ['main']
-
   repository_dispatch:
     types: [deploy-pages]
-
   workflow_run:
     workflows: ["Dependabot reviewer"]
     types:
       - completed
-
   workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+  issue_comment:
+    types: [created]
 permissions:
   contents: read
   pages: write
   id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
-
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     environment: github-pages
+    if: |
+      github.event_name != 'issue_comment' ||
+      (github.event.issue.pull_request && startsWith(github.event.comment.body, '/deploy'))
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        with:
+          ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || github.ref }}
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -51,47 +47,36 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
       - name: Restore cache
         uses: actions/cache@v4
         with:
           path: |
             .next/cache
-          # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-
       - name: Clear Next.js cache
         run: |
           rm -rf .next/cache
-
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
           DATOCMS_READONLY_TOKEN: ${{ secrets.DATOCMS_READONLY_TOKEN }}
           DATO_CMS_API_KEY_READ_ONLY: ${{ secrets.DATO_CMS_API_KEY_READ_ONLY }}
           DATO_CMS_URL: ${{ secrets.DATO_CMS_URL }}
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-
-  # Deployment job
   deploy:
     environment:
       name: github-pages
