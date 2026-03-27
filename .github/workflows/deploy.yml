@@ -16,6 +16,7 @@ permissions:
   pages: write
   id-token: write
   issues: write
+  pull-requests: write
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -27,16 +28,18 @@ jobs:
       (github.event.issue.pull_request && startsWith(github.event.comment.body, '/Chromatic test'))
     steps:
       - name: React to comment
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          body: |
-            Running Chromatic...
-          reactions: eyes
+        if: github.event_name == 'issue_comment'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content=eyes
+          gh pr comment ${{ github.event.issue.number }} --body "🧪 Running Chromatic..."
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || github.ref }}
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -54,13 +57,16 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -69,21 +75,39 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
       - name: Clear Next.js cache
-        run: |
-          rm -rf .next/cache
+        run: rm -rf .next/cache
+
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
           DATOCMS_READONLY_TOKEN: ${{ secrets.DATOCMS_READONLY_TOKEN }}
           DATO_CMS_API_KEY_READ_ONLY: ${{ secrets.DATO_CMS_API_KEY_READ_ONLY }}
           DATO_CMS_URL: ${{ secrets.DATO_CMS_URL }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+
+      - name: Comment success
+        if: github.event_name == 'issue_comment' && success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.issue.number }} --body "✅ Build complete!"
+
+      - name: Comment failure
+        if: github.event_name == 'issue_comment' && failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.issue.number }} --body "❌ Build failed. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+
   deploy:
     environment:
       name: github-pages
