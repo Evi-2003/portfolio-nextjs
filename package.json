@@ -46,7 +46,7 @@
     "@types/react-dom": "^19",
     "@types/sanitize-html": "^2.16.1",
     "@typescript-eslint/eslint-plugin": "^8.58.1",
-    "@typescript-eslint/parser": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.2",
     "@u3u/prettier-config": "^5.2.0",
     "eslint": "^10.2.0",
     "eslint-config-next": "^16.2.3",
