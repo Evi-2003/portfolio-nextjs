@@ -20,7 +20,7 @@
     "@datocms/cda-client": "^0.2.10",
     "@fancyapps/ui": "^6.1.13",
     "@mux/mux-player-react": "^3.11.8",
-    "@tailwindcss/postcss": "^4.2.3",
+    "@tailwindcss/postcss": "^4.2.4",
     "date-fns": "^4.1.0",
     "geist": "^1.7.0",
     "gql.tada": "^1.9.2",
