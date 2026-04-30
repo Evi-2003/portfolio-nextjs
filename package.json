@@ -19,7 +19,7 @@
     "@calcom/embed-react": "^1.5.3",
     "@datocms/cda-client": "^0.2.10",
     "@fancyapps/ui": "^6.1.14",
-    "@mux/mux-player-react": "^3.12.0",
+    "@mux/mux-player-react": "^3.13.0",
     "@tailwindcss/postcss": "^4.2.4",
     "date-fns": "^4.1.0",
     "geist": "^1.7.0",
