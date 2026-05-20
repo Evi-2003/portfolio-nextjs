@@ -21,7 +21,7 @@
     "@fancyapps/ui": "^6.1.14",
     "@mux/mux-player-react": "^3.13.0",
     "@tailwindcss/postcss": "^4.3.0",
-    "date-fns": "^4.1.0",
+    "date-fns": "^4.2.1",
     "geist": "^1.7.0",
     "gql.tada": "^1.9.2",
     "next": "^16.2.6",
