@@ -22,7 +22,7 @@
     "@mux/mux-player-react": "^3.13.0",
     "@tailwindcss/postcss": "^4.3.0",
     "date-fns": "^4.4.0",
-    "geist": "^1.7.1",
+    "geist": "^1.7.2",
     "gql.tada": "^1.9.2",
     "next": "^16.2.7",
     "next-plausible": "^3.12.5",
