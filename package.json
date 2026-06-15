@@ -23,7 +23,7 @@
     "@tailwindcss/postcss": "^4.3.0",
     "date-fns": "^4.4.0",
     "geist": "^1.7.2",
-    "gql.tada": "^1.9.2",
+    "gql.tada": "^1.11.1",
     "next": "^16.2.9",
     "next-plausible": "^3.12.5",
     "react": "^19.2.7",
