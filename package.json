@@ -28,7 +28,7 @@
     "next-plausible": "^3.12.5",
     "react": "^19.2.7",
     "react-datocms": "^8.1.0",
-    "react-dom": "^19.2.7",
+    "react-dom": "^19.2.8",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-pretty-code": "^0.14.4",
