@@ -24,7 +24,7 @@
     "date-fns": "^4.4.0",
     "geist": "^1.7.2",
     "gql.tada": "^1.11.2",
-    "next": "^16.2.10",
+    "next": "^16.2.11",
     "next-plausible": "^3.12.5",
     "react": "^19.2.7",
     "react-datocms": "^8.1.0",
