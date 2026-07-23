@@ -8,3 +8,13 @@ updates:
       default-days: 1
     commit-message:
       prefix: chore
+    ignore:
+      # Pin TypeScript below 6.1 until typescript-eslint supports TS 7
+      # See: https://github.com/typescript-eslint/typescript-eslint/issues/12518
+      - dependency-name: "typescript"
+        versions: [">=6.1.0"]
+      # Pin ESLint below 10 until eslint-plugin-import (via eslint-config-next)
+      # ships v10 support — no compatible release on npm yet as of 2026-07-23
+      # See: https://github.com/import-js/eslint-plugin-import/pull/3230
+      - dependency-name: "eslint"
+        versions: [">=10.0.0"]
